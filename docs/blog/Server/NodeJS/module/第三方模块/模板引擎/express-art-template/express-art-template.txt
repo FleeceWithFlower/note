@@ -1,0 +1,56 @@
+## ##express-art-template
+
+模块模板引擎
+
+## ##安装
+
+```
+npm i art-template express-art-template 
+```
+
+## ##用法
+
+- 配置文件后缀名
+
+```
+app.engine('art', require('express-art-template'));
+```
+
+- 配置默认视图地址
+
+```
+app.set('view options', {
+    debug: process.env.NODE_ENV !== 'production'
+});	
+```
+
+- 渲染
+  - 渲染编译并，结束响应体。
+
+```
+res.render('index.art', {})
+```
+
+
+
+```
+var express = require('express');
+var app = express();
+app.engine('art', require('express-art-template'));
+app.set('view options', {
+    debug: process.env.NODE_ENV !== 'production'
+});
+
+app.get('/', function (req, res) {
+    res.render('index.art', {
+        user: {
+            name: 'aui',
+            tags: ['art', 'template', 'nodejs']
+        }
+    });
+});
+app.listen(3000,function () {
+    console.log('服务器启动成功');
+})
+```
+

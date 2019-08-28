@@ -1,0 +1,21 @@
+## ##Router
+
+
+
+```
+//index.js
+var express=require('express')
+var router=require('./router')
+var app=express()
+app.use(router)//路由容器挂在至APP实例中
+```
+
+
+
+```
+//router.js
+var router=express.Router() //创建路由容器 ，将路由挂在到router容器中
+router.get()//挂在路由
+module.exports=router//导出路由
+```
+

@@ -1,10 +1,14 @@
 ---
 home: true
-heroImage: /1.jpg
-heroText: Hero 标题
-tagline: Hero 副标题
+heroImage: /icon.jpg
+heroText: 你好啊，朋友！ 🐰
+tagline: 你想看看我的魔法吗?  🎉🎉 
+
+
+
+
 actionText: 快速上手 →
-actionLink: /zh/guide/
+actionLink: /blog/Client/vue-x/
 features:
 - title: 简洁至上
   details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。

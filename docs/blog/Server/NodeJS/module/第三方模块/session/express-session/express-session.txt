@@ -1,0 +1,56 @@
+- session为内存存储
+
+### 安装
+
+```
+npm install express-session
+```
+
+### 配置
+
+```
+app.use(session({
+    secret: 'lion',
+    resave: false,
+    saveUninitialized: false,
+    rolling:false,
+    cookie:{maxAge:1000*60*60*24*7}, 
+    store:new MongoStore({
+        url:'mongodb://localhost:27017/servant',
+        touchAfter:24*3600 
+    }),
+}))
+
+```
+
+### 配置参数
+
+- name: <stirng>   //生成session 的key名 默认为 connect.sid 可以不设置
+- cookie<object>
+  - express  
+    - 过期时间  为false时 则没有过期时间
+  - maxAge  
+    - 根据cookie设置过期时间 session在浏览器中保存的时间
+
+- resave:<boolean>
+  -   强制保存session 默认为 true。建议设置成 false
+
+- saveUninitialized:<boolean> 
+  -  强制将未初始化的 session 存储 默认为 true。建议设置成true
+- rolling:<boolean> 
+  - 在每次请求时强行设置 cookie，这将重置 cookie 过期时间（默认：false）
+
+### 操作
+
+#### 添加
+
+```
+req.session.<prototype>=<session>
+```
+
+#### 获取
+
+```
+req.session.<prototype>
+```
+

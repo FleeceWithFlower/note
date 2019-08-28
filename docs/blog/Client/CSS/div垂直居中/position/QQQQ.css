@@ -1,0 +1,19 @@
+#a{
+    height: 500px;
+    width: 500px;
+    border: 1px red solid;
+    background-color: red;
+   position: relative;
+}
+#a>div{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    background-color:blue;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}

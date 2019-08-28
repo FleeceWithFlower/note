@@ -1,0 +1,115 @@
+## Promise构造函数
+
+- 构造函数主要是用来包装还未支持promises的函数。
+- 参数
+  - executor
+  - 参数
+    - resolve  决定
+      - 修改容器状态 为 fulfilled
+    - reject  驳回
+      - 修改容器状态 为 rejected
+
+## 状态
+
+- *pending*:初始状态
+- *fulfilled: 意味着操作成功完成*
+- *rejected: 意味着操作失败*
+
+## 特点
+
+- Promise 新建后就会立即执行
+
+## 原型方法
+
+### then
+
+- 参数
+  - onFulfilled
+    - 参数
+      - 接受的最终结果（the fulfillment  value）
+  - onRejected
+    - 参数
+      - 拒绝的`原因（the rejection reason）
+
+#### 特点
+
+- 链式操作
+
+- then中return 为值时，下一个then的onFulfilled参数为该值，
+
+  如果return为promise对象，则下一个then的onFulfilled参数为promise中resolve 的参数，并且当该promise对象的状态发生改变时，才运行then中函数
+
+```
+var fs = require('fs')
+
+let P1 = new Promise( (resolve, reject)=> {
+    fs.readFile('./p1.txt','utf-8',(err,data)=>{
+        if(err){
+            reject(err)
+        }
+        resolve(data)
+    })
+})
+
+let P2 = new Promise( (resolve, reject)=> {
+    fs.readFile('./p2.txt','utf-8',(err,data)=>{
+        if(err){
+            reject(err)
+            //改变容器状态 rejected
+        }
+        resolve(data)
+        //改变容器状态 fulfill
+    })
+})
+
+P1
+    .then(
+    (data)=> {
+    console.log(data);
+    return P2
+    },
+    (err)=>{
+        console.log('错误',err)
+    }
+)
+    .then(
+        (data)=>{
+                            console.log(data)
+                                             ;},
+        ()=>{})
+
+```
+
+
+
+### catch
+
+- `Promise.prototype.catch`方法是`.then(null, rejection)`或`.then(undefined, rejection)`的别名，用于指定发生错误时的回调函数。
+
+- 链式操作中抛出一个失败之后，再次开启新的操作
+
+- 参数
+  - err
+
+#### 特点
+
+- 遇到错误直接跳到下一个catch，并执行其代码，后可继续接then
+
+- Promise 内部的错误不会影响到 Promise 外部的代码
+
+### finally
+
+- 不管`promise`最后的状态，在执行完`then`或`catch`指定的回调函数以后，都会执行`finally`方法指定的回调函数。
+- 没有参数
+
+## 方法(待续)
+
+### all
+
+### race
+
+### resolve
+
+### reject
+
+### try

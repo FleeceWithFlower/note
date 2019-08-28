@@ -1,0 +1,40 @@
+### path.join
+
+- 绝对路径转为相对路径
+
+```
+path.join(__dirname,'./pubic/')
+```
+
+### path.basename
+
+- 获取目录文件名
+- 参数
+  - 地址
+  - 取消后缀名
+
+```
+path.basename（'c:/a/b/c/index.js'）
+// index.js
+path.basename（'c:/a/b/c/index.js'，'js'）
+// index
+```
+
+### path.dirname
+
+- 获取目录名
+
+```
+path.basename（'c:/a/b/c/index.js'）
+// c:/a/b/c
+```
+
+### path.extname
+
+- 获取文件后缀名
+
+```
+path.basename（'c:/a/b/c/index.js'）
+// .js
+```
+

@@ -1,0 +1,6 @@
+## ## 公开指定目录
+
+```
+app.use('/public/',express.static('./public/'))
+```
+

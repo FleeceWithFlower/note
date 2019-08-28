@@ -1,0 +1,19 @@
+## ## redirect重定向
+
+- 只针对同步请求有效，异步请求无效
+
+```
+app.get('/',function(req,res){
+var comment=req.query
+res.redirect('/')
+})
+```
+
+
+
+### 前端重定向
+
+```
+window.location.href=''
+```
+

@@ -1,0 +1,266 @@
+### path.join
+
+- `path.join()` 方法使用平台特定的分隔符作为定界符将所有给定的 `path` 片段连接在一起，然后规范化生成的路径。
+- 参数
+  - <string> 路径片段的序列
+
+- 返回
+  - <string> 生成的路径
+
+```
+let a = path.join('index','fofo')
+console.log(a);
+// index/fofo
+```
+
+
+
+### path.dirname
+
+- `path.dirname()` 方法返回 `path` 的目录名
+
+- 参数
+  - <string> 路径
+
+- 返回
+  - <string> 目录名
+
+```
+let dirname = path.dirname('hello/world/index')
+console.log(dirname);
+//  hello/world
+```
+
+### path.extname
+
+- `path.extname()` 方法返回 `path` 的扩展名
+
+- 参数
+  - <string> 路径
+
+- 返回
+  - <string> 扩展名
+
+```
+let extname = path.extname('hello/index.js')
+console.log(extname);
+//  .js
+```
+
+
+
+### path.basename
+
+- `path.basename()` 方法返回 `path` 的最后一部分,如果添加了第二参数，则返回不带后缀名的path
+
+- 参数
+  - `path` <string> 路径
+  - ext <string> 扩展名
+
+- 返回
+  - <string> 扩展名
+
+```
+let basename = path.basename('hello/index.js')
+console.log(basename);
+//  index.js
+```
+
+添加第二参数
+
+```
+let basename = path.basename('hello/index.js'，'.js')
+console.log(basename);
+//  index
+```
+
+
+
+### path.format()
+
+- 从对象返回路径字符串
+- 参数
+  - `pathObject`<object> 路径对象
+    - `dir`
+    - `root`
+    - `base` 
+    - `name` 
+    - `ext` 
+
+- 返回
+  - path <string> 路径字符串
+
+- 如果提供了 `pathObject.dir`，则忽略 `pathObject.root`。
+- 如果 `pathObject.base` 存在，则忽略 `pathObject.ext` 和 `pathObject.name`。
+
+```
+path.format({
+  dir: 'C:\\path\\dir',
+  base: 'file.txt'
+});
+// 返回: 'C:\\path\\dir\\file.txt'
+```
+
+
+
+### path.isAbsolute
+
+- `path.isAbsolute()` 方法检测 `path` 是否为绝对路径。
+- 参数
+  - path<string>
+
+- 返回
+  - <boolean>
+
+```
+path.isAbsolute('C:/foo/..');   // true
+```
+
+
+
+### path.normalize
+
+- `path.normalize()` 方法规范化给定的 `path`
+- 参数
+  - path <string>
+
+- 返回
+  - path <string>
+
+### path.parse
+
+- ``path.parse()` 方法返回一个对象，其属性表示 `path` 的重要元素。
+- 参数
+  - path <string>
+
+- 返回
+  - path <Object>
+    - `dir` <string>
+    - `root` <string>
+    - `base` <string>
+    - `name` <string>
+    - `ext` <string>
+
+POSIX 
+
+```text
+┌─────────────────────┬────────────┐
+│          dir        │    base    │
+├──────┬              ├──────┬─────┤
+│ root │              │ name │ ext │
+"  /    home/user/dir / file  .txt "
+└──────┴──────────────┴──────┴─────┘
+```
+
+Windows
+
+```text
+┌─────────────────────┬────────────┐
+│          dir        │    base    │
+├──────┬              ├──────┬─────┤
+│ root │              │ name │ ext │
+" C:\      path\dir   \ file  .txt "
+└──────┴──────────────┴──────┴─────┘
+```
+
+```
+let a =path.parse('C:\\path\\dir\\file.txt');
+console.log(a);
+/*
+{ root: 'C:\\',
+  dir: 'C:\\path\\dir',
+  base: 'file.txt',
+  ext: '.txt',
+  name: 'file' }
+  */
+```
+
+
+
+### path.relative(from, to)
+
+- `path.relative()` 方法根据当前工作目录返回 `from` 到 `to` 的相对路径。
+- 参数
+  - from<string>
+  - to<string>
+
+- 返回
+  - path <string> 相对路径
+
+```
+let a =path.relative('C:\\path\\dir','C:\\path');
+console.log(a);
+
+// ..
+```
+
+
+
+### path.resolve
+
+- ``path.resolve()` 方法将路径或路径片段的序列解析为绝对路径。
+- 如果没有传入 `path` 片段，则 `path.resolve()` 将返回当前工作目录的绝对路径
+- 参数
+  - path<string> 路径或路径片段的序列。
+
+- 返回
+  - path <string> 绝对路径
+
+```
+let a =path.resolve('/foo/bar', '/tmp/file/');
+console.log(a);
+
+// C:\tmp\file
+
+let a =path.resolve('/foo/bar', 'tmp/file/');
+console.log(a);
+
+// C:\foo\bar\tmp\file
+```
+
+
+
+### path.sep
+
+- 提供平台特定的路径片段分隔符：
+  - Windows 上是 `\`。
+  - POSIX 上是 `/`。
+
+```
+let a =path.sep
+console.log(a);
+
+//  \
+```
+
+
+
+### path.toNamespacedPath(path)
+
+- 仅在 Windows 系统上，返回给定 `path` 的等效[名称空间前缀路径](http://nodejs.cn/s/cVsGGE)。
+- 参数
+  - path<string> 路径
+
+- 返回
+  - path <string> 绝对路径
+
+```
+let a =path.toNamespacedPath('C:\\CloudMusic')
+console.log(a);
+
+// \\?\C:\CloudMusic
+```
+
+
+
+### 待续····
+
+#### Windows 与 POSIX
+
+#### path.posix
+
+#### path.win32
+
+#### path.delimiter
+
+#### 

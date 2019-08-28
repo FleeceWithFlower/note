@@ -1,0 +1,266 @@
+
+
+|          |            |
+| -------- | ---------- |
+| 账单金额 | amount     |
+| 金额币种 | asset.code |
+| 收款账户 | amount     |
+| 收款日期 | createdAt  |
+|          |            |
+|          |            |
+|          |            |
+|          |            |
+|          |            |
+
+| 类型      |              |
+| --------- | ------------ |
+| INTEREST  | ("红利")     |
+| ,EDIT     | ("人工修改") |
+| ,DEPOSIT  | ("存款")     |
+| ,WITHDRAW | ("取款"),    |
+| TRANSFER  | ("转账")     |
+| ,BUY      | ("买入")     |
+| REFUND    | ("退款"),    |
+| SELL      | ("卖出")     |
+| ,FREEZE   | ("冻结")     |
+
+|                        |               |
+| ---------------------- | ------------- |
+| ,RELEASE               | ("释放")      |
+| BUY_CONTRACT           | ("买入合约")  |
+| ,REGISTER_GIVE         | ("注册赠送"), |
+| RECOMMAND_GIVE         | ("推荐赠送")  |
+| DYNAMIC_DISTRIBUTION   | ("节点分配"), |
+| COMMUNITY_DISTRIBUTION | ("社区分配"), |
+| LEVEL_DISTRIBUTION     | ("同级分配"), |
+| CANDY                  | ("糖果奖励"), |
+| REWARD                 | ("特别奖励"), |
+
+|                       |                   |
+| --------------------- | ----------------- |
+| WHEEL_ADD             | ("大转盘中奖"),   |
+| WHEEL_BIG             | ("转盘特别大奖"), |
+| GIVE_TBE_RELEASE      | ("TBE解冻")       |
+| ,UNIDIRECTIONAL       | ("单向收费");     |
+| More ActionsWHEEL_SUB | ("大转盘花费"),   |
+| More ActionsWHEEL_SUB | ("大转盘花费"),   |
+| CURRENCY_TRANSACTION  | 法币交易          |
+|                       |                   |
+|                       |                   |
+
+
+
+
+
+账单详细页各字段
+
+```
+1、<u>*合约理财解除*</u>
+生成账单时间、数量、币种、开启此笔合约时间，年化、交易单号
+2、合约理财开通
+生成账单时间、数量、币种、      状态（是否冻结）、***<u>年化**</u>*、交易单号 
+3、红利
+生成账单时间、数量、币种、当前理财额，交易单号
+
+4、付款—对方用户名
+生成账单时间、数量、币种、收款人、手续费、交易单号
+5、收款—对方用户名
+生成账单时间、数量、币种、付款人、交易单号
+
+6、奖励TBE
+生成账单时间、数量、币种、日发比例，剩余发放数量、交易单号
+```
+
+
+
+```
+7、特别奖励
+生成账单时间、数量、币种、剩余发放数量，交易单号
+```
+
+8、节点分配
+
+生成账单时间、数量、币种、交易单号
+
+
+
+
+
+```
+
+
+9、社区分配
+生成账单时间、数量、币种、分配比例，交易单号
+
+
+
+9、同级分配
+生成账单时间、数量、币种、交易单号
+```
+
+
+
+
+
+10、糖果奖励
+生成账单时间、数量、币种、当前余额（折合usdt）、交易单号
+
+
+
+
+
+```
+11、币币交易—买btc
+生成账单时间、数量、币种、委托价格、成交均价、手续费、交易单号
+```
+
+```
+12、币币交易—卖btc
+生成账单时间、数量、币种、委托价格、成交均价、手续费、交易单号
+```
+
+12、法币交易—买btc
+生成账单时间、数量、币种、成交对象、成交价格、支付时间、支付方式、发币时间、交易单号
+13、法币交易—卖btc
+生成账单时间、数量、币种、成交对象、成交价格、手续费、支付时间、支付方式、发币时间、交易单号
+
+```
+14、转盘抽奖
+生成账单时间、数量、币种、交易单号
+15、转盘中奖
+生成账单时间、数量、币种、交易单号
+```
+
+16、转盘大奖
+生成账单时间、数量、币种、大奖轮次、交易单号
+16、推荐赠送
+推荐用户
+17、充值
+生成账单时间、数量、币种、收款账户、付款账户、交易区块链ID、交易单号
+18、提币
+生成账单时间、数量、币种、收款账户、付款账户、手续费、交易区块链ID、交易单号
+
+16、转盘大奖
+生成账单时间、数量、币种、大奖轮次、交易单号
+16、推荐赠送
+生成账单时间、数量、币种、推荐用户、交易单号
+17、充值
+生成账单时间、数量、币种、收款账户、付款账户、交易区块链ID、交易单号
+18、提币
+生成账单时间、数量、币种、收款账户、付款账户、手续费、交易区块链ID、交易单号
+
+
+
+
+
+
+
+ORIGINATE("创始奖励"),
+
+
+
+PROJECTB_BUY_CONTRACT("买入余币宝"),
+
+PROJECTB_INTEREST("红利-余币宝")
+
+,PROJECTB_DYNAMIC_DISTRIBUTION("节点分配-余币宝")
+
+,PROJECTB_COMMUNITY_DISTRIBUTION("社区分配-余币宝"),
+
+PROJECTB_LEVEL_DISTRIBUTION("同级分配-余币宝");
+
+
+
+
+
+
+
+
+
+
+
+INTEREST("红利-合约"),
+
+EDIT("人工修改"),
+
+DEPOSIT("存款"),
+
+WITHDRAW("取款"),
+
+TRANSFER("转账"),
+
+BUY("买入")
+
+,REFUND("退款"),
+
+SELL("卖出"),
+
+FREEZE("冻结")
+
+,RELEASE("释放")
+
+,BUY_CONTRACT("买入合约")
+  ,REGISTER_GIVE("注册赠送"),
+
+RECOMMAND_GIVE("推荐赠送"),
+
+DYNAMIC_DISTRIBUTION("节点分配-合约"),
+  COMMUNITY_DISTRIBUTION("社区分配-合约")
+
+,LEVEL_DISTRIBUTION("同级分配-合约"),
+
+CANDY("糖果奖励"),
+  REWARD("特别奖励"),
+
+WHEEL_SUB("大转盘花费"),
+
+WHEEL_ADD("大转盘中奖"),
+  WHEEL_BIG("转盘特别大奖")
+
+,GIVE_TBE_RELEASE("TBE解冻"),
+
+UNIDIRECTIONAL("单向收费")
+
+,GIVE_TBE("赠送TBE"),
+  CURRENCY_TRANSACTION("法币交易")
+
+,ORIGINATE("创始奖励"),
+  PROJECTB_BUY_CONTRACT("买入挖矿"),
+
+PROJECTB_INTEREST("红利-挖矿"),
+
+ROJECTB_DYNAMIC_DISTRIBUTION("节点分配-挖矿"),
+
+PROJECTB_COMMUNITY_DISTRIBUTION("社区分配-挖矿"),
+
+
+
+PROJECTB_LEVEL_DISTRIBUTION("同级分配-挖矿");
+
+
+
+
+
+PROJECTB_INTEREST("红利-挖矿"),
+
+ROJECTB_DYNAMIC_DISTRIBUTION("节点分配-挖矿"),
+
+PROJECTB_COMMUNITY_DISTRIBUTION("社区分配-挖矿"),
+
+PROJECTB_LEVEL_DISTRIBUTION("同级分配-挖矿");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

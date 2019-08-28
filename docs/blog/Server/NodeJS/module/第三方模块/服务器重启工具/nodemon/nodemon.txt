@@ -1,0 +1,16 @@
+### ###nodemon
+
+修改代码时自动重启服务器
+
+- 安装
+
+```
+npm i nodemon --global
+```
+
+- 启动
+
+```
+nodemon <file>
+```
+

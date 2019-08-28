@@ -1,0 +1,19 @@
+### 安装
+
+```
+npm install blueimp-md5
+```
+
+### 使用
+
+#### MD5
+
+- 参数
+  - value <string> //需要加密的值
+  - key <string>  //加密的键值
+  - raw <boolean>  //是否传输原始值
+
+```
+  var md5 = require("./md5"),
+  var hash = md5("value", "key", true);
+```

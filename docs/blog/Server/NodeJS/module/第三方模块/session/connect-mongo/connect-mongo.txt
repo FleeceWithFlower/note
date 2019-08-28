@@ -1,0 +1,32 @@
+### 安装
+
+```
+npm install connect-mongo
+```
+
+### 引入
+
+```
+var session = require("express-session");
+const MongoStore = require('connect-mongo')(session); //配合express-session使用
+```
+
+### 配置中间件
+
+```
+app.use(session({
+    secret: 'lion',
+    resave: false,
+    saveUninitialized: true,
+    cookie:{maxAge:1000*60*60*24*7}, //保存时效
+    
+    
+    ///////////
+    store:new MongoStore({
+        url:'mongodb://localhost:27017/servant',
+        touchAfter:24*3600 
+    }),
+    //////////
+}))
+```
+

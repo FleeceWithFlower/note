@@ -1,0 +1,19 @@
+#a{
+    height: 500px;
+    width: 500px;
+    border: 1px red solid;
+    background-color: red;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+#a>div{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    background-color:blue;
+    display:inline-block;
+}
+div{
+
+}

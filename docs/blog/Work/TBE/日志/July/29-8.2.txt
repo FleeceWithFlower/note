@@ -1,0 +1,105 @@
+
+
+# 7-31
+
+## commit
+
+```
+fbe7990bd8867d96db522c491d59c6eef2d6bb23
+```
+
+
+
+1. 修改消息页面
+
+   ```
+   http://127.0.0.1:8080/#/modules/my/messages
+   ```
+
+   - 添加pageLoading功能
+
+2. 修改交易所页面
+
+   ```
+   http://127.0.0.1:8080/#/modules/exchange/index
+   ```
+
+   - 添加pageLoading功能
+
+3. 修改法币交易页面
+
+   ```
+   http://127.0.0.1:8080/#/modules/otc/index
+   ```
+
+   - 添加pageLoading功能
+
+4. 修改合约增值页面
+
+   ```
+   http://127.0.0.1:8080/#/modules/contract/index
+   ```
+
+   - 添加pageLoading功能
+
+5. 修改我的账单页面
+
+   ```
+   http://127.0.0.1:8080/#/modules/my/accountlogs
+   ```
+
+   - 添加pageLoading功能
+   
+6. 添加我的账单详情页面
+
+   ```
+   http://127.0.0.1:8080/#/modules/my/accountlogs/billingdetail
+   ```
+
+
+   7.添加全局window.height width 
+
+```
+修改 vux.js APP.vue
+```
+
+
+
+# 8-1
+
+## commit 
+
+```
+a0c4bc0be0d3a8f6572b8223fa92a70359daf985
+```
+
+
+
+1. 添加 swiper 图片缓存功能
+
+   ```
+   /src/js/golbalSwiperStroe.js
+   ```
+
+2. 修改首页页面 swiper组件 添加 图片缓存功能
+
+   ```
+   http://127.0.0.1:8080/#/home
+   ```
+
+3. 修改糖果页面 swiper组件 添加 图片缓存功能
+
+   ```
+   http://127.0.0.1:8080/#/modules/sugargift/newIndex
+   ```
+
+4. 修改资讯页面 swiper组件 添加 图片缓存功能
+
+   ```
+   http://127.0.0.1:8080/#/explore
+   ```
+
+## 
+
+
+

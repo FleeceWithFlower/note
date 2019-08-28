@@ -1,15 +1,15 @@
 {
-  "name": "demo",
+  "name": "fleece_note",
   "version": "1.0.0",
-  "description": "",
+  "description": "fleece note",
   "main": "index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "sh": "deploy.sh"
   },
   "author": "",
   "license": "ISC"

@@ -1,0 +1,48 @@
+
+
+### *中间件*函数
+
+- 参数
+
+  - 路径（非必须）
+
+  - 函数
+
+    - req <object> // 请求对象
+
+    - res <object> // 响应对象
+
+    - next <function> //下一个中间件函数
+
+- 没有设置路径时，每次应用程序收到请求时都会执行该功能。
+- next('route')，将控制权传递给下一个路由，仅适用于使用`app.METHOD()`或`router.METHOD()`函数加载的中间件函数。
+
+```
+app.use(function(res,rep,next){
+
+next()
+
+})
+```
+
+
+
+```
+app.use(' url',function(res,rep,next){
+
+next()
+
+})
+```
+
+## 错误处理中间件
+
+- 错误处理中间件总是需要*四个*参数。您必须提供四个参数以将其标识为错误处理中间件函数。即使您不需要使用该`next`对象，也必须指定它以维护签名。否则，该`next`对象将被解释为常规中间件，并且将无法处理错误。
+
+```
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).send('Something broke!')
+})
+```
+
