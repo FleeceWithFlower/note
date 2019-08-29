@@ -123,7 +123,15 @@ git log --pretty=oneline
 git reflog
 ```
 
-#标签（tag）
+- 比较文件差异
+
+```
+git diff <filename>
+```
+
+
+
+# 标签（tag）
 
 ## 创建标签
 
