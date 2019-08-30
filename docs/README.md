@@ -31,7 +31,7 @@ footer: MIT Licensed | Copyright © 2018-present Evan You
 <script>
 export default {
   mounted () {
-  
+ 
           (function fairyDustCursor() {
               var possibleColors = ["#D61C59", "#E7D84B", "#1B8798"];
               var width = window.innerWidth;
