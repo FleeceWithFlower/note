@@ -41,5 +41,15 @@ module.exports = {
         lastUpdated: 'Last Updated',
         repo: 'https://github.com/FleeceWithFlower/note',
         repoLabel: '查看源码',
-    }
+    },
+    plugins: [
+        [
+            "vuepress-plugin-live2d",
+            {
+                "modelName": 'shizuku',/*  ['z16','Epsilon2.1','izumi','koharu','shizuku','miku', 'hijiki', 'tororo']  */
+                "mobileShow": false
+            }
+        ]
+    ]
+
 }

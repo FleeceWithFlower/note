@@ -1,0 +1,13 @@
+# LOCALFORAGE
+
+> **改进的离线存储**
+
+## 为什么选择LOCALFORAGE
+
+首先选择本地存储
+
+
+
+
+
+indexedDB
