@@ -18,7 +18,7 @@ module.exports = {
             {
                 text: 'Server',
                 items: [
-                    {text: 'node', link: '/blog/Server/node.js/'},
+                            {text: 'node', link: '/blog/Server/NodeJS/'},
                 ]
             },
             {

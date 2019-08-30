@@ -12,5 +12,8 @@
     "sh": "deploy.sh"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^1.0.3"
+  }
 }

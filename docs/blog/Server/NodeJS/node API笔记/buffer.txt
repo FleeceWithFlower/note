@@ -1,3 +1,4 @@
 ## ##buffer
 
 为了使 `Buffer` 实例的创建更可靠且更不容易出错，各种形式的 `new Buffer()` 构造函数都已被弃用，且改为单独的 `Buffer.from()`，[`Buffer.alloc()`](http://nodejs.cn/s/Du96og) 和 [`Buffer.allocUnsafe()`](http://nodejs.cn/s/TWpeWk) 方法。
+
