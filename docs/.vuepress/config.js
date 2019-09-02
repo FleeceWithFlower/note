@@ -12,6 +12,7 @@ module.exports = {
                     {text: 'vue', link: '/blog/Client/vue/'},
                     {text: 'vue-x', link: '/blog/Client/vue-x/'},
                     {text: 'vue-router', link: '/blog/Client/vue-router/'},
+                    {text: 'localForage', link: '/blog/Client/localForage/'},
                 ]
 
             },
