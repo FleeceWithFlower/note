@@ -335,6 +335,10 @@ git push origin --tags
 git branch
 ```
 
+### 变基
+
+####  git rebase
+
 ### 分支合并冲突
 
 ```
@@ -509,7 +513,11 @@ git checkout -b dev origin/dev
 
 #### git fetch
 
+> 从服务器拉去数据但不合并
+
 #### git pull
+
+> 从服务器拉去数据并且合并
 
 ### 查看远程仓库分支
 
@@ -547,3 +555,20 @@ git remote -v
 
 
 
+### 追踪分支/上游分支
+
+#### 创建新追踪分支
+
+##### git checkout -b [branch-name] [remote-name]/[remote-branch-name]
+
+> 创建远程跟踪分支
+
+##### git --checkout --track [remote-name]/[remote-branch-name]
+
+#### 本地分支关联追踪分支
+
+##### git branch -u [remote-name]/[remote-branch-name]
+
+#### 查看追踪分支
+
+#### git branch -vv
