@@ -527,6 +527,10 @@ git checkout -b dev origin/dev
 
 #### git show  [remote-name]
 
+### 删除远程分支
+
+git push [remote-name] --delete [remote-branch-name]
+
 ### 删除远程仓库
 
 #### git remote rm [remote-name]

@@ -1,4 +1,7 @@
 set -e
+git add .
+git commit -m"new"
+git push origin master
 npm run docs:build
 cd docs/.vuepress/dist
 git init
