@@ -287,6 +287,18 @@ git push origin --tags
 
 ## 分支管理
 
+### 查看分支
+
+#### git branch 
+
+#### --merged
+
+> 已合并分支
+
+#### --no-merged
+
+> 未合并分支
+
 ### 创建分支
 
 #### git branch [branch-name]
@@ -498,6 +510,10 @@ git checkout -b dev origin/dev
 #### git fetch
 
 #### git pull
+
+### 查看远程仓库分支
+
+#### git ls-remote [remote-name]
 
 ### 检查远程仓库
 
