@@ -11,11 +11,11 @@ actionText: 快速上手 →
 actionLink: /blog/Client/vue-x/
 features:
 - title: 简洁至上
-  details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
+  details: 代码风格简洁有效。
 - title: 规范
-  details: 遵循 [JavaScript Standard Style](https://standardjs.com/) / Airbnb JavaScript Style 社区规范
+  details: 遵循JavaScript Standard Style / Airbnb JavaScript Style 社区规范
 - title: 高性能
-  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
+  details: 不丢失大量性能的前提下，工作速度越快越好。
 footer: MIT Licensed | Copyright © 2018-present Evan You
 ---
 
@@ -27,7 +27,11 @@ footer: MIT Licensed | Copyright © 2018-present Evan You
   font-size: 14px;
   left: 20px;
   top: 20px;
-}</style>
+}
+.theme-container{
+overflow:hidden;
+}
+</style>
 <script>
 export default {
   mounted () {
@@ -112,13 +116,14 @@ export default {
                           y: 1
                       };
 
-                      this.position = {x: x - 10, y: y - 980};
+                      this.position = {x: x - 0, y: y - 980};
                       this.initialStyles.color = color;
 
                       this.element = document.createElement('span');
                       this.element.innerHTML = this.character;
                       applyProperties(this.element, this.initialStyles);
                       this.update();
+
                       document.body.appendChild(this.element);
                   };
 

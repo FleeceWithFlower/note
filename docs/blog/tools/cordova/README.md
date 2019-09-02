@@ -100,7 +100,7 @@ cordova build [<platform> [...]]
 
 #### 构建指定平台APP
 
-- cordova build <plateform>
+- cordova build \<plateform>
 
 ```
 cordova build ios
