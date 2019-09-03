@@ -126,7 +126,7 @@ git log
 
 ##### --grep
 
-- 筛选关键字
+- 筛选说明中的关键字
 
 ##### -S
 
@@ -230,7 +230,7 @@ git tag -a [tag-name] -m[annotation]
 
 ### 补加标签
 
-git tag -a [tag-name] [校验和]
+git tag -a [tag-name] [SHA-1 校验和]
 
 ### 上传标签
 
