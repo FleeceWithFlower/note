@@ -317,12 +317,6 @@ git push origin --tags
 
 
 
-### 合并某分支到当前分支
-
-#### git merge [branch-name]
-
-
-
 ### 删除分支
 
 #### git branch -d  [branch-name]
@@ -335,9 +329,35 @@ git push origin --tags
 git branch
 ```
 
-### 变基
+
+
+## 工作区
+
+## 暂存区
+
+## 提交
+
+## 合并
+
+
+
+### 合并某分支到当前分支
+
+#### git merge [branch-name]
+
+### 分支管理策略
+
+```
+git merge --no-ff -m "merge with no-ff" dev
+```
+
+//`--no-ff`参数，表示禁用`Fast forward`
+
+## 变基
 
 ####  git rebase
+
+> 把某个分支上所有的提交的更改在另一个分支上重现一遍
 
 ### 分支合并冲突
 
@@ -359,13 +379,7 @@ git log --graph
 git log --graph --pretty=oneline --abbrev-commit
 ```
 
-### 分支管理策略
 
-```
-git merge --no-ff -m "merge with no-ff" dev
-```
-
-//`--no-ff`参数，表示禁用`Fast forward`
 
 ### Bug分支
 
