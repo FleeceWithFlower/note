@@ -433,73 +433,65 @@ ssh-keygen -t rsa -C "youremail@example.com"
 
 
 
-### 添加远程仓库
 
 
-
-### git remote
+#### git remote
 
 - 查看远程仓库名称
 
-##### add
+#### 添加远程仓库
 
-```
-git remote add origin git@server-name:path/repo-name.git；
-```
+###### git remote add   [remote-name]  [remote-url]
 
 
 
-##### -v
+#### 删除远程仓库
+
+###### git remote rm [remote-name]
+
+
+
+#### 删除远程分支
+
+#### git push [remote-name] --delete [remote-branch-name]
+
+#### 
+
+#### 查看远程仓库 URL
+
+###### git remote -v
 
 - 查看每个仓库对应的 url
 
-### 从本地推送到远程仓库
+#### 查看远程仓库分支
 
-- 第一次
+###### git ls-remote [remote-name]
 
-```
-git push -u origin master
-```
 
-- 此后
 
-```
-git push origin master
-```
+#### 从本地推送到远程仓库
+
+###### git push -u [remote-name] [branch-name]
+
+
+
+##### 首次推送添加上游分支/追踪分支
+
+###### -u
 
 
 
 ### 从远程仓库克隆到本地
 
-```
-git clone <url> <<name>>
-```
+###### git clone [remote-name]  [dir-name]
 
-//url 地址
 
-//name 克隆后本地项目名字 
 
-//  <>必要参数
+##### 克隆远程指定分支
 
-//  <<>> 不必要参数
+###### git clone -b <branch name> [remote repository address]
 
-- 克隆分支
 
-```
-git clone -b <branch name> [remote repository address]
-```
-
-- SSH
-
-```
-user@server:/path.git
-```
-
-- HTTP
-
-```
-https://github.com/michaelliao/gitskills.git
-```
 
 - 切换远程分支
 
@@ -519,43 +511,17 @@ git checkout -b dev origin/dev
 
 > 从服务器拉去数据并且合并
 
-### 查看远程仓库分支
-
-#### git ls-remote [remote-name]
+#### 
 
 ### 检查远程仓库
 
 #### git show  [remote-name]
 
-### 删除远程分支
-
-git push [remote-name] --delete [remote-branch-name]
-
-### 删除远程仓库
-
-#### git remote rm [remote-name]
+#### 
 
 ### 重命名远程仓库
 
 #### git remote remote [remote-name] [new-name]
-
-
-
-#### 命令符
-
-
-
-查看远程库的信息
-
-```
-git remote
-```
-
-显示更详细的信息
-
-```
-git remote -v
-```
 
 
 
@@ -565,9 +531,9 @@ git remote -v
 
 ##### git checkout -b [branch-name] [remote-name]/[remote-branch-name]
 
-> 创建远程跟踪分支
-
 ##### git --checkout --track [remote-name]/[remote-branch-name]
+
+> 创建远程跟踪分支
 
 #### 本地分支关联追踪分支
 
