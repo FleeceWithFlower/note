@@ -28,7 +28,7 @@
 
 > Git所有数据在存储前都会执行校验和计算，随后以 校验和 来引用数据
 
-### SHA-1 散列类
+SHA-1 散列类
 
 > 校验和机制，是以 40个十六进制字符（0-9和a-f）所组成的字符串
 
@@ -96,16 +96,16 @@ Git目录
 
 ## 配置
 
-### 增加
+增加
 
-#### 添加用户身份
+添加用户身份
 
 ```
 git config --global user.name "Your Name"
 git config --global user.email "email@example.com"
 ```
 
-#### 初始化仓库
+初始化仓库
 
 ```
 git init
@@ -113,15 +113,15 @@ git init
 
 
 
-### 查询
+查询
 
-#### 查看设置
+查看设置
 
 ```
 git config --list
 ```
 
-#### 查看帮助
+查看帮助
 
 ```
 git help
@@ -135,9 +135,9 @@ git help
 
 ## 标签
 
-### 增加
+增加
 
-#### 标签
+标签
 
 ```
 git tag [tag-name]
@@ -153,7 +153,7 @@ git tag [tag-name]
 
 #### 
 
-#### 上传标签
+上传标签
 
 ```
 git push [remote-name] [tag-name]
@@ -165,7 +165,7 @@ git push [remote-name] [tag-name]
 
 > 一次性上传所有标签
 
-#### 检出标签
+检出标签
 
 git checkout -b [branch-name] [tag-name]
 
@@ -173,15 +173,15 @@ git checkout -b [branch-name] [tag-name]
 
 ***
 
-### 删除
+删除
 
-#### 删除标签
+删除标签
 
 ```
 git tag -d <tagname>
 ```
 
-#### 删除远程标签
+删除远程标签
 
 ```
 git push origin :refs/tags/<tagname>
@@ -189,9 +189,9 @@ git push origin :refs/tags/<tagname>
 
 ***
 
-### 修改
+修改
 
-#### 补加标签
+补加标签
 
 ```
 git tag -a [tag-name] [SHA-1 校验和]
@@ -199,9 +199,9 @@ git tag -a [tag-name] [SHA-1 校验和]
 
 ***
 
-### 查询
+查询
 
-#### 查看所有标签
+查看所有标签
 
 ```
 git tag
@@ -215,21 +215,21 @@ git tag
 
 ## 分支
 
-### 增加
+增加
 
-#### 创建分支
+创建分支
 
 ```
 git branch [branch-name]
 ```
 
-### 创建+切换分支
+创建+切换分支
 
-#### git checkout -b  [branch-name]
+git checkout -b  [branch-name]
 
-### 删除
+删除
 
-#### 删除分支
+删除分支
 
 ```
 git branch -d  [branch-name]
@@ -237,9 +237,9 @@ git branch -d  [branch-name]
 
 
 
-### 修改
+修改
 
-#### 切换分支
+切换分支
 
 ```
 git checkout [branch-name]
@@ -259,9 +259,9 @@ git checkout -b  [branch-name]
 
 
 
-### 查询
+查询
 
-#### 查看分支列表
+查看分支列表
 
 ```
 git branch 
@@ -283,9 +283,9 @@ git branch
 
 ## 工作区
 
-### 增加
+增加
 
-#### 添加文件将状态保存到暂存区
+添加文件将状态保存到暂存区
 
 ```
 git add <file>
@@ -297,7 +297,7 @@ git add <file>
 
   > 添加或删除所有文件将状态保存到暂存区
 
-#### 删除文件将状态保存到暂存区（status）
+删除文件将状态保存到暂存区（status）
 
 ```
 git rm <file>
@@ -315,9 +315,9 @@ git rm <file>
 
 
 
-### 删除
+删除
 
-#### 撤销修改
+撤销修改
 
 ```
 git checkout -- <file>
@@ -327,9 +327,9 @@ git checkout -- <file>
 >
 > 若没有提交暂存区，则返回版本库状态
 
-### 修改
+修改
 
-#### 重命名
+重命名
 
 git mv
 
@@ -346,21 +346,21 @@ git mv
 
 
 
-### 查询
+查询
 
-#### 查看历史输入命令
+查看历史输入命令
 
 ```
 git reflog
 ```
 
-#### 查看工作目录文件状态
+查看工作目录文件状态
 
 ```
 git status
 ```
 
-#### 查看文件差异
+查看文件差异
 
 ```
 git diff <filename>
@@ -376,9 +376,9 @@ git diff <filename>
 
 
 
-### 增加
+增加
 
-#### 将暂存区状态保存到git仓库
+将暂存区状态保存到git仓库
 
 ```
 git commit
@@ -406,9 +406,9 @@ git commit
 
 ***
 
-### 删除
+删除
 
-#### 清空暂存区	
+清空暂存区	
 
 ```
 git reset HEAD <file>
@@ -416,7 +416,7 @@ git reset HEAD <file>
 
 
 
-#### 退回上一版本
+退回上一版本
 
 ```
 git reset --hard HEAD^^
@@ -424,7 +424,7 @@ git reset --hard HEAD^^
 
 
 
-#### 退回指定版本
+退回指定版本
 
 ```
 git reset --hard HEAD^^
@@ -434,15 +434,15 @@ git reset --hard <commit id>
 
 ***
 
-### 修改
+修改
 
 ***
 
-### 查询
+查询
 
 ***
 
-#### 查看提交历史
+查看提交历史
 
 ```
 git log
@@ -462,13 +462,13 @@ git log
 
 
 
-- ##### --stat
+- --stat
 
   > 摘要模式
 
 
 
-- ##### git log --pretty=oneline
+- git log --pretty=oneline
 
   > 简洁版历史记录
 
@@ -480,7 +480,7 @@ git log
 
 
 
-- ##### --since /  --after
+- --since /  --after
 
   ```
   git log --since=2.weeks 
@@ -500,19 +500,19 @@ git log
 
 
 
-- ##### --until  /  --before
+- --until  /  --before
 
   >  直到某一天
 
-- ##### --author
+- --author
 
   > 筛选作者
 
-- ##### --grep
+- --grep
 
   > 筛选说明中的关键字
 
-- ##### -S
+- -S
 
   > 少许那提交了某个字符串
 
