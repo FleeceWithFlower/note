@@ -2,7 +2,7 @@
 
 分布式版本控制系统
 
-*Distributed Version Control System*(<acronym title="*Distributed Version Control System*">DVCS</acronym>)
+*Distrib uted Version Control System*(<acronym title="*Distributed Version Control System*">DVCS</acronym>)
 
 <author>Linus Benedict Torvalds</author>
 
