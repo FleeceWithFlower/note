@@ -277,9 +277,179 @@ git branch
 
 > 未合并分支
 
+
+
+### 远程分支
+
+> 远程分支是对远程仓库的引用(指针)，包括分支，标签
+
+
+
+### 上游分支(upstream branch )/追踪分支 ( track branch )
+
+> 跟踪分支检是与远程分支有直接关系的本地分支
+
+- 本地分支关联追踪分支
+
+```
+git branch -u || --set-upstream-to   [remote-name]/[remote-branch-name]
+```
+
+- 查看追踪分支
+
+```
+git branch -vv
+```
+
 ***
 
 
+
+## 合并
+
+> 寻找共同祖先，进行三方合并
+
+
+
+***
+
+
+
+## 变基
+
+- ### git rebase
+
+> 把某个分支上所有的提交的更改在另一个分支上重现一遍
+
+
+
+***
+
+
+
+## 远程仓库
+
+
+
+- ### 创建SSH Key
+
+- 打开Git Bash
+
+```
+ssh-keygen -t rsa -C "youremail@example.com"
+```
+
+- 在用户主目录下生成.ssh目录
+
+```
+里面有`id_rsa`和`id_rsa.pub`两个文件，这两个就是SSH Key的秘钥对，`id_rsa`是私钥，不能泄露出去，`id_rsa.pub`是公钥，可以放心地告诉任何人。
+```
+
+
+
+- git remote
+
+>  查看远程仓库名称
+
+- 添加远程仓库
+
+```
+git remote add   [remote-name]  [remote-url]
+```
+
+###### 
+
+- 删除远程仓库
+
+```
+git remote rm [remote-name]
+```
+
+
+
+- 删除远程分支
+
+```
+git push [remote-name] --delete [remote-branch-name]
+```
+
+- ### 查看远程仓库 URL
+
+- git remote -v
+
+> 查看每个仓库对应的 url
+
+- 查看远程仓库分支
+
+```
+git ls-remote [remote-name]
+```
+
+
+
+- 从本地推送到远程仓库
+
+```
+git push -u [remote-name] [branch-name]
+```
+
+- ###### -u
+
+```
+首次推送添加上游分支/追踪分支
+```
+
+
+
+- 从远程仓库克隆到本地
+
+```
+git clone [remote-name]  [dir-name]
+```
+
+- 克隆远程指定分支
+
+```
+git clone -b <branch name> [remote repository address]
+```
+
+- 切换远程分支
+
+```
+git checkout -b dev origin/dev
+```
+
+
+
+- ### 拉取数据
+
+- git fetch
+
+> 从服务器拉去数据但不合并
+
+- git pull
+
+> 从服务器拉去数据并且合并
+
+
+
+- ### 检查远程仓库
+
+```
+git show  [remote-name]
+```
+
+- ### 重命名远程仓库
+
+```
+git remote remote [remote-name] [new-name]
+```
+
+#### 
+
+
+
+***
 
 ## 工作区
 
