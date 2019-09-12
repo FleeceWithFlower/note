@@ -25,17 +25,18 @@ module.exports = {
                             {text: 'Linux', link: '/blog/Server/Linux/'},
                             {text: 'MongoDB', link: '/blog/Server/MongoDB/'},
                             {text: 'MySQL', link: '/blog/Server/MySQL/'},
+                            {text: 'Windows', link: '/blog/Server/Windows/'},
                 ]
             },
             {
                 text: 'Tools',
                 items: [
-                    {text: 'cordova', link: '/blog/Tools/cordova/'},
-                    {text: 'git', link: '/blog/Tools/git/'},
+                    {text: 'Cordova', link: '/blog/Tools/Cordova/'},
+                    {text: 'Git', link: '/blog/Tools/Git/'},
                     {text: 'HTTP', link: '/blog/Tools/HTTP/'},
                     {text: 'MarkDown', link: '/blog/Tools/MarkDown/'},
                     {text: 'Nginx', link: '/blog/Tools/Nginx/'},
-                    {text: 'npm', link: '/blog/Tools/npm/'},
+                    {text: 'Npm', link: '/blog/Tools/Npm/'},
                     {text: 'shell', link: '/blog/Tools/shell/'},
                     {text: 'vim', link: '/blog/Tools/vim/'},
                     {text: 'VuePress', link: '/blog/Tools/VuePress/'},
