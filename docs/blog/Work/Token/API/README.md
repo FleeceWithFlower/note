@@ -50,3 +50,39 @@ headers: {
 "Authorization":auth
 }
 ```
+
+
+
+### 支付通道
+
+```
+rest/payTunnel?page=&size=&tunnelGroup[eq]=
+```
+
+ALIPAY
+
+> 支付宝
+
+APPLEPAY
+
+> ApplePay
+
+BANKCARD
+
+> 银行卡
+
+PAYPAL
+
+> PayPal
+
+TOKEN
+
+> 代币支付
+
+USDT
+
+> USDT支付
+
+WXPAY
+
+> "微信支付"
