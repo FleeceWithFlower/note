@@ -17,3 +17,7 @@ https://code.aliyun.com/tokensart/app-public.git
 备份授权密码
 
 添加路由
+
+### 组织端流程
+
+发行TOKEN => 出售TOKEN
