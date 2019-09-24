@@ -91,6 +91,70 @@
     - key
 
       > Vue 识别节点的一个通用机制
+      >
+      > 
+      >
+      > `v-for`默认使用“就地更新”的策略,为了给 Vue 一个提示，以便它能跟踪每个节点的身份，从而重用和重新排序现有元素，你需要为每项提供一个唯一 `key` 属性
+
+### 事件
+
+- $event
+
+  > 内联语句处理器中访问原始的 DOM 事件。可以用特殊变量 `$event` 把它传入方法
+
+- v-on
+
+  > `v-on` 指令监听 DOM 事件
+
+- 事件修饰符
+
+  > - `.stop` <!-- 阻止单击事件继续传播 -->
+  > - `.prevent` <!-- 提交事件不再重载页面 -->
+  > - `.capture` <!-- 添加事件监听器时使用事件捕获模式 -->
+  > - `.self`<!-- 只当在 event.target 是当前元素自身时触发处理函数 -->
+  > - `.once` <!-- 点击事件将只会触发一次 -->
+  > - `.passive` <!-- 滚动事件的默认行为 (即滚动行为) 将会立即触发 -->
+
+- 按键修饰符
+
+  > - `.enter` <!-- 只有在 `key` 是 `Enter` 时调用 -->
+  > - 可以直接将 [`KeyboardEvent.key`](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key/Key_Values) 暴露的任意有效按键名转换为 kebab-case 来作为修饰符
+
+- 系统修饰键
+
+  > - `.ctrl`
+  >
+  > - `.alt`
+  >
+  > - `.shift`
+  >
+  > - `.meta`
+  >
+  > - `.exact`
+  >
+  >   ```
+  >   <!-- 有且只有 Ctrl 被按下的时候才触发 -->
+  >   <button @click.ctrl.exact="onCtrlClick">A</button>
+  >   
+  >   <!-- 没有任何系统修饰符被按下的时候才触发 -->
+  >   <button @click.exact="onClick">A</button>
+  >   ```
+
+- 鼠标按钮修饰符
+
+  > - `.left`
+  > - `.right`
+  > - `.middle`
+
+:::tip
+
+你可能注意到这种事件监听的方式违背了关注点分离 (separation of concern) 这个长期以来的优良传统。但不必担心，因为所有的 Vue.js 事件处理方法和表达式都严格绑定在当前视图的 ViewModel 上，它不会导致任何维护上的困难。实际上，使用 `v-on` 有几个好处：
+
+1. 扫一眼 HTML 模板便能轻松定位在 JavaScript 代码里对应的方法。
+2. 因为你无须在 JavaScript 里手动绑定事件，你的 ViewModel 代码可以是非常纯粹的逻辑，和 DOM 完全解耦，更易于测试。
+3. 当一个 ViewModel 被销毁时，所有的事件处理器都会自动被删除。你无须担心如何清理它们。
+
+:::
 
 ### 选项对象
 
@@ -100,21 +164,25 @@
 
 - watch
 
+  - vm.$watch
+
   > 观察和响应 Vue 实例上的数据变动
 
 - computed
 
-  - vm.$watch
-
   > 计算属性默认只有 getter ,对于任何复杂逻辑，都应当使用**计算属性**。
-  >
+>
   > ::: tip
   >
   > **计算属性是基于它们的响应式依赖进行缓存的**
   >
   > :::
-
   
+  > :::danger
+>
+  > 在嵌套 `v-for` 循环中,计算属性不适用,应该使用方法代替
+  >
+  > :::
 
 ### 生命周期钩子
 
@@ -180,7 +248,9 @@
 
 > 属性的值发生改变时，视图将会产生“响应”
 
-### Class 
+### Class和Style动态绑定
+
+- `v-bind:class`
 
 > 可以传给 `v-bind:class` 一个对象，以动态地切换 class
 >
@@ -190,7 +260,8 @@
 >
 > :::
 
-### Style
+- ### `v-bind:style`
+
 
 > 可以传给 `v-bind:style`一个对象，以动态地切换 style,或数组语法可以将多个样式对象应用到同一个元素上
 >
@@ -200,7 +271,54 @@
 
 - 自动添加前缀
 
-  > 当 `v-bind:style` 使用需要添加[浏览器引擎前缀](https://developer.mozilla.org/zh-CN/docs/Glossary/Vendor_Prefix)的 CSS 属性时，如 `transform`，Vue.js 会自动侦测并添加相应的前缀。
+> 当 `v-bind:style` 使用需要添加[浏览器引擎前缀](https://developer.mozilla.org/zh-CN/docs/Glossary/Vendor_Prefix)的 CSS 属性时，如 `transform`，Vue.js 会自动侦测并添加相应的前缀。
+
+### 数组更新/变异方法
+
+> Vue 将被侦听的数组的进行了包裹，数组为响应式。
+>
+> - `push()`
+> - `pop()`
+> - `shift()`
+> - `unshift()`
+> - `splice()`
+> - `sort()`
+> - `reverse()`
+
+:::danger
+
+直接利用索引直接设置一个数组项时,非响应式。
+
+直接修改数组的长度，非响应式。
+
+
+
+解决问题
+
+1. Vue.set(vm.items, indexOfItem, newValue)
+2. vm.items.splice(indexOfItem, 1, newValue)
+
+:::
+
+### 对象更新
+
+> Vue 不能检测对象属性的添加或删除,对于已经创建的实例，Vue 不允许动态添加根级别的响应式属性。
+>
+> 解决：
+>
+> 1. vm.$set(vm.userProfile, 'age', 27)
+
+- 为已有对象赋值多个新属性
+
+  >  创建一个新的对象
+
+  ```
+  vm.userProfile = Object.assign({}, vm.userProfile,vm.b)
+  ```
+
+  
+
+
 
 ### 标签
 
