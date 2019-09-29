@@ -43,7 +43,13 @@ Linux/Unix 的文件调用权限分为三级 : 文件拥有者、群组、其他
 
 ## 命令
 
+rf
 
+> 删除文件
+
+- rf
+
+  > 递归删除
 
 ### ls
 
@@ -247,3 +253,12 @@ df
 - -h
 
 > 以容易阅读的方式显示
+
+### 创建用户
+
+​	useradd testuser  创建用户testuser
+
+#### 设置密码
+
+
+​	passwd testuser  给已创建的用户testuser设置密码
