@@ -860,3 +860,102 @@ $mount
 
 > 组件之间相互依赖，这变成了一个循环，不知道如何不经过其中一个组件而完全解析出另一个组件。可以使用全局注册和异步加载解决
 
+### 关键字
+
+`vm` 
+
+> `vm` (ViewModel ) 这个变量名表示 Vue 实例。
+
+`Mustache`
+
+> `Mustache`”语法 (双大括号) 的文本插值
+
+`v-text`
+
+> 更新元素的 `textContent`
+
+`v-html`
+
+> 更新元素的 `innerHTML`
+
+`v-show`
+
+> 根据表达式之真假值，切换元素的 `display` CSS 属性。
+
+`v-if`
+
+> 根据表达式的值的真假条件渲染元素。在切换时元素及它的数据绑定 / 组件被销毁并重建。
+
+v-for
+
+> 基于源数据多次渲染元素或模板块。
+
+`v-on`
+
+> 绑定事件监听器。
+
+​	**修饰符**：
+
+- `.stop` - 调用 `event.stopPropagation()`。
+- `.prevent` - 调用 `event.preventDefault()`。
+- `.capture` - 添加事件侦听器时使用 capture 模式。
+- `.self` - 只当事件是从侦听器绑定的元素本身触发时才触发回调。
+- `.{keyCode | keyAlias}` - 只当事件是从特定键触发时才触发回调。
+- `.native` - 监听组件根元素的原生事件。
+- `.once` - 只触发一次回调。
+- `.left` - (2.2.0) 只当点击鼠标左键时触发。
+- `.right` - (2.2.0) 只当点击鼠标右键时触发。
+- `.middle` - (2.2.0) 只当点击鼠标中键时触发。
+- `.passive` - (2.3.0) 以 `{ passive: true }` 模式添加侦听器
+
+`v-bind`
+
+> 动态地绑定一个或多个特性
+
+v-model
+
+> 在表单控件或者组件上创建双向绑定。
+>
+> **修饰符**：
+>
+> - [`.lazy`](https://cn.vuejs.org/v2/guide/forms.html#lazy) - 取代 `input` 监听 `change` 事件
+> - [`.number`](https://cn.vuejs.org/v2/guide/forms.html#number) - 输入字符串转为有效的数字
+> - [`.trim`](https://cn.vuejs.org/v2/guide/forms.html#trim) - 输入首尾空格过滤
+
+`v-slot`
+
+> 提供具名插槽或需要接收 prop 的插槽
+
+`v-pre`
+
+> 跳过这个元素和它的子元素的编译过程。
+
+`v-cloak`
+
+> 这个指令保持在元素上直到关联实例结束编译。
+
+`v-once`
+
+> 只渲染元素和组件**一次**。
+
+#### 特殊特性
+
+`key`
+
+> `key` 的特殊属性主要用在 Vue 的虚拟 DOM 算法，在新旧 nodes 对比时辨识 VNodes。如果不使用 key，Vue 会使用一种最大限度减少动态元素并且尽可能的尝试修复/再利用相同类型元素的算法。使用 key，它会基于 key 的变化重新排列元素顺序，并且会移除 key 不存在的元素。
+
+`ref`
+
+> `ref` 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 `$refs` 对象上。
+
+`is`
+
+> 用于动态组件且基于DOM 内模板的限制来工作。
+
+#### 内置的组件
+
+### `<component>`
+
+> 渲染一个“元组件”为动态组件。依 `is` 的值，来决定哪个组件被渲染。
+
+### `<transition>`
