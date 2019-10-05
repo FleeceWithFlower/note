@@ -607,4 +607,3 @@ yum erase package name
 
 > 卸载软件
 
-a
