@@ -581,4 +581,30 @@ passwd
 
 - Yum（ Yellow dog Updater, Modified ）
 
-  > 基于[RPM](https://baike.baidu.com/item/RPM)包管理,可以自动处理依赖性关系，并且一次安装所有依赖的软件包
+  > 基于RPM包管理，可以自动处理依赖性关系，并且一次安装所有依赖的软件包
+
+yum search package name
+
+> 查找资源库中的软件包
+
+yum install package name
+
+> 从资源库中安装一个软件包
+
+rpm -i package ﬁle
+
+> 通过软件包文件来安装软件
+
+yum update
+
+> 经过资源库来更新软件包
+
+rpm -U package ﬁle
+
+> 经过软件包文件来升级软件
+
+yum erase package name
+
+> 卸载软件
+
+a
