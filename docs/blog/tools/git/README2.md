@@ -507,7 +507,7 @@ ssh-keygen -t rsa -C "youremail@example.com"
 
 ##### 克隆远程指定分支
 
-###### git clone -b <branch name> [remote repository address]
+###### git clone -b \<branch name\> [remote repository address]
 
 
 
