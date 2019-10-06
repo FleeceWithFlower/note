@@ -1,6 +1,6 @@
 任何东西都是一个文件
 
-### shell
+### shell（命令解释器）
 
 > shell是一个接收由键盘输入的命令，并将其传递给操作系统来执行的程序。
 
@@ -200,9 +200,17 @@ ls - /bin/usr 2> /dev/null
 
 ### 关键字
 
-- df（disk free）
+- env：环境变量
 
-  > 剩余磁盘空间
+- grep：字符串查找
+
+- df（disk free）：剩余磁盘空间
+
+```
+df -h//已人类可读的形式展现
+```
+
+
 
 - free
 
@@ -363,7 +371,7 @@ ls - /bin/usr 2> /dev/null
 
   > 日志文件
 
-### 操作
+### 文件/文件夹操作
 
 - cp
 
@@ -441,19 +449,56 @@ I/O 重定向
 
   > 标准错误
 
-### 用户/用户组
+### 用户/用户组管理
 
-- 用户资料数据库     `/etc/shadow `
-- 用户定义在	`/etc/passwd`
-- 用户组定义在  `etc/grounp`
+- `/etc/passwd`：用户
+- `/etc/shadow `：用户密码及其相关属性
+-  /`etc/grounp`：用户组
+- `/etc/gshadow`：组密码及其相关属性
+- `/etc/sudoers`：sudo配置
+- `/home/user_name`：主目录
+- `/var/spool/mail/user_name`：邮箱目录
+- `/etc/skel/`：用户模板文件  //创建主目录时自动添加
 
-useradd
+命令
 
-> 添加新用户
+- useradd：添加用户
 
-chmod
+```
+useradd -l user_name //锁定用户
+useradd -u user_name //解锁用户
+```
 
-- 八进制数 字表示法
+- usermod：修改用户
+
+```
+usermod -G other user_name //修改用户所属的附加群组
+```
+
+- userdel：删除用户
+
+
+```
+//删除用户并删除其主目录
+userdel -r user_name
+```
+
+- groupadd：添加用户组
+
+```
+groupadd group_name
+```
+
+- groupmod：修改用户组
+- groupdel：删除用户组
+
+### 权限
+
+ACL
+
+- chmod:修改权限
+
+  八进制数 字表示法
 
 ```
 //例
@@ -471,9 +516,7 @@ w 写 2
 x 执行 1
 ```
 
-
-
-- 符号表示法
+​		符号表示法
 
 ```
 //例
@@ -498,11 +541,7 @@ x 执行
 
 
 
-umask 
-
-> 设置默认权限
-
-
+umask ：设置默认权限
 
 ```
  //例
@@ -523,17 +562,14 @@ umask
 
 
 
-su
+- su：切换用户
 
-> su 命令用来以另一个用户的身份来启动 shell,输入 “exit”，则返回到原来的 shell
+```
+su - user_name//切换用户时同时切换用户环境
+su - user_name -c command//以用户身份执行命令，但不切换用户
+```
 
-- -l
 
-  > 加载用户环境
-
-- -
-
-  > 登入root
 
  sudo
 
@@ -543,7 +579,9 @@ su
 su 和 sudo 之间的一个重要区别是 sudo 不会重新启动一个 shell
 ```
 
+- `/etc/sudoers`
 
+  > `sudo`	配置文件
 
 chown 
 

@@ -1,4 +1,21 @@
-### 函数
+### 关键字
+
+JavaScript
+
+- ECMAScript（欧洲计算机制作商协会脚本） （European Computer Manufacturers Association）
+
+- DOM（文档对象模型）（Document Object Model）
+- BOM（浏览器对象模型）(Browser Object Model)
+
+```
+ECMAScript 版本号 ECMA-262
+```
+
+`<script>`
+
+
+
+#### 函数
 
 > 每个函数被调用时会创建两个特殊变量：this 和 arguments
 
