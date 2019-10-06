@@ -10,6 +10,7 @@ module.exports = {
             {
                 text: 'Client',
                 items: [
+                    {text: 'JavaScript', link: '/blog/Client/JS/'},
                     {text: 'vue', link: '/blog/Client/vue/'},
                     {text: 'axios', link: '/blog/Client/axios/'},
                     {text: 'canvas', link: '/blog/Client/canvas/'},
