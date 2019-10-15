@@ -12,3 +12,7 @@ cd -
 git add -A
 git commit -m 'new'
 git push origin master
+cd -
+cd docs/blog/My
+git commit -a -m"new"
+git push

@@ -6,15 +6,24 @@ module.exports = {
     themeConfig: {
         nav: [
             {text: 'Home', link: '/',},
+            {text: 'My', link: '/blog/My/',},
             {
                 text: 'Client',
                 items: [
+                    {text: 'JavaScript', link: '/blog/Client/JS/'},
                     {text: 'vue', link: '/blog/Client/vue/'},
                     {text: 'axios', link: '/blog/Client/axios/'},
                     {text: 'canvas', link: '/blog/Client/canvas/'},
                     {text: 'vue-x', link: '/blog/Client/vue-x/'},
                     {text: 'vue-router', link: '/blog/Client/vue-router/'},
                     {text: 'localForage', link: '/blog/Client/localForage/'},
+                ]
+
+            },
+            {
+                text: 'UI',
+                items: [
+                    {text: 'Animate.css', link: '/blog/UI/Animate.css/'},
                 ]
 
             },
@@ -53,8 +62,6 @@ module.exports = {
         ],
         sidebar:'auto',
         lastUpdated: 'Last Updated',
-        repo: 'https://github.com/FleeceWithFlower/note',
-        repoLabel: '查看源码',
     },
     plugins: [
         [

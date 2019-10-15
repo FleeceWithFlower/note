@@ -35,6 +35,12 @@ var div = {
 		}
 ```
 
+
+
+- virtual node (`VNode`)
+
+  > 虚拟节点 
+
 ### DIFF算法
 
 ### 模板语法
@@ -155,9 +161,25 @@ var div = {
 
 ### 事件
 
+- 事件命名
+
+  > 始终使用 kebab-case 的事件名
+
 - $event
 
   > 内联语句处理器中访问原始的 DOM 事件。可以用特殊变量 `$event` 把它传入方法
+
+- $listeners
+
+  > 它是一个对象，里面包含了作用在这个组件上的所有监听器
+
+  
+
+  :::tip
+
+  父组件只能监听根元素上的原生事件，`$listeners` 属性，你就可以配合 `v-on="$listeners"` 将所有的事件监听器指向这个组件的某个特定的子元素。
+
+  :::
 
 - v-on
 
@@ -171,6 +193,7 @@ var div = {
   > - `.self`<!-- 只当在 event.target 是当前元素自身时触发处理函数 -->
   > - `.once` <!-- 点击事件将只会触发一次 -->
   > - `.passive` <!-- 滚动事件的默认行为 (即滚动行为) 将会立即触发 -->
+  > - `.native` - 监听组件根元素的原生事件。
 
 - 按键修饰符
 
@@ -436,6 +459,12 @@ var div = {
 
 > 向子组件传值
 
+- prop命名
+
+  > HTML不区分大小写
+  >
+  > 模板引擎没有限制
+
 - Prop 类型验证
 
   > 可以为 `props` 中的值提供一个带有验证需求的对象，而不是一个字符串数组。
@@ -490,6 +519,22 @@ var div = {
 
 :::
 
+- #### 修饰符
+
+  - `.sync`
+
+    > 对一个 prop 进行“双向绑定”,省略父组件赋值过程
+
+    ```
+    $emit('update:val',$event.target.value)" 
+    ```
+
+    :::danger
+
+    父组件v-bind 不能使用表达式
+
+    :::
+
 :::danger
 
  prop 会在一个组件实例创建**之前**进行验证，所以实例的属性 (如 `data`、`computed` 等) 在 `default` 或 `validator` 函数中是不可用的。
@@ -514,26 +559,416 @@ prop 没有值的情况在内，都意味着 `true`
 
 :::
 
--  单个根元素
+- 
 
-  > 每个组件必须只有一个根元素
+####  单个根元素
 
-- 事件
+> 每个组件必须只有一个根元素
 
-  - `$emit`
+#### 事件
 
-    > 触发父组件事件
+- `$emit`
 
-- 插槽
+  > 触发父组件事件
 
-  - `slot`
+#### 插槽
 
-- 动态组件
+- `slot`
 
-  - \<component\>
+#### 动态组件
 
-  - `is`
+- `<component>`
 
+  用来承载组件
+
+- `is`
+
+  用于选择组件
+
+- `keep-alive`
+
+  用于缓存实例
+
+```
+<keep-alive>
+  <component v-bind:is="currentTabComponent" />
+</keep-alive>
+```
+
+#### 异步组件
+
+> 分割成小一些的代码块，并且只在需要的时候才从服务器加载一个模块。
+
+- Vue.component
+
+  > 第二参数为函数，`resolve`	选项
+
+```
+Vue.component('async-example', function (resolve, reject) {
+    resolve({
+      template: '<div>I am async!</div>'
+    })
+})
+```
+
+配合webpack 的 code-splitting 功能
+
+```
+Vue.component('async-webpack-example', function (resolve) {
+  // 这个特殊的 `require` 语法将会告诉 webpack
+  // 自动将你的构建代码切割成多个包，这些包
+  // 会通过 Ajax 请求加载
+  require(['./my-async-component'], resolve)
+})
+```
+
+配合webpack 2 和 ES2015 语法
+
+```
+Vue.component(
+  'async-webpack-example',
+  // 这个 `import` 函数会返回一个 `Promise` 对象。
+  () => import('./my-async-component')
+)
+```
+
+[局部注册](https://cn.vuejs.org/v2/guide/components-registration.html#局部注册)的时候，你也可以直接提供一个返回 `Promise` 的函数
+
+```
+new Vue({
+  components: {
+    'my-component': () => import('./my-async-component')
+  }
+})
+```
+
+处理加载状态
+
+> 异步组件工厂函数返回一个对象,用于处理异常状态，可以用Vue Router 代替
+
+### 处理边界情况
+
+`$root`
+
+> 访问根实例
+
+`$parent`
+
+> 访问父级组件实例
+
+`ref` 
+
+> 访问子组件实例或子元素
+>
+> $refs
+>
+> 当 `ref` 和 `v-for` 一起使用的时候，得到包含了对应数据源的这些子组件的数组。
+
+依赖注入
+
+- provide
+
+  > 扩展到更深层级的嵌套组件
+
+- inject
+
+  > 接收provide
+
+程序化事件监听
+
+- $on
+
+  > 侦听一个事件
+
+- $once
+
+  > 一次性侦听一个事件
+
+- $off
+
+  > 停止侦听一个事件
+
+递归组件
+
+> 组件可以递归，自己嵌套自己，但必须确保递归调用是条件性的 (例如使用一个最终会得到 `false` 的 `v-if`)。
+
+inline-template
+
+> 这个组件将会使用其里面的内容作为模板，而不是将其作为被分发的内容。
+
+X-Template
+
+```
+<script type="text/x-template" id="hello-world-template">
+  <p>Hello hello hello</p>
+</script>
+
+Vue.component('hello-world', {
+  template: '#hello-world-template'
+})
+```
+
+### 过度
+
+`transition`
+
+> 在 CSS 过渡和动画中自动应用 class
+
+- 过渡的类名
+
+  - v-enter
+
+    > 元素被插入之前生效
+
+  - v-enter-active
+
+    > 进入过渡生效时的状态
+
+  - v-enter-to
+
+    > 定义进入过渡的结束状
+
+  - v-leave
+
+    > 定义离开过渡的开始状态
+
+  - v-leave-active
+
+    > 定义离开过渡生效时的状态。
+
+  - v-leave-to
+
+    > 定义离开过渡的结束状态。
+
+name
+
+> `name`值	替换掉类名	v-
+
+```
+<transition name="my-transition">
+```
+
+### CSS 动画
+
+> 同过度，但`v-enter` 类名在节点插入 DOM 后不会立即删除，而是在 `animationend` 事件触发时删除。
+
+- 自定义过渡的类名
+  - `enter-class`
+  - `enter-active-class`
+  - `enter-to-class` 
+  - `leave-class`
+  - `leave-active-class`
+  - `leave-to-class` 
+
+:::tip
+
+配合	`Animate.css` 使用
+
+:::
+
+- JavaScript 钩子
+  -  v-on:before-enter
+  -  v-on:enter
+  - v-on:after-enter
+  - v-on:enter-cancelled
+  - v-on:before-leave
+  - v-on:leave
+  - v-on:after-leave
+  - v-on:leave-cancelled
+
+:::tip
+
+配合	`Velocity.js` 使用
+
+:::
+
+:::danger
+
+当只用 JavaScript 过渡的时候，在 enter 和 leave 中必须使用 done 进行回调。否则，它们将被同步调用，过渡会立即完成。
+
+:::
+
+
+
+同时使用过渡和动画
+
+> `type` 特性并设置 `animation` 或 `transition` 来明确声明你需要 Vue 监听的类型
+
+事件
+
+`transitionend` 
+
+`animationend` 
+
+显性的过渡持续时间
+
+- duration
+
+  > 定制一个显性的过渡持续时间 (以毫秒计)
+
+### 混入
+
+- mixins
+
+> 分发 Vue 组件中的可复用功能
+>
+> 传入数组，数组值为对象，对象中包含选项，在创造实例时合并
+
+- 
+
+:::tip
+
+一个混入对象可以包含任意组件选项。当组件使用混入对象时，所有混入对象的选项将被“混合”进入该组件本身的选项。
+
+:::
+
+- 全局混入
+  - Vue.mixin
+    - 传入单个对象
+
+### 自定义指令
+
+- Vue.directive
+
+  - 参数：	函数名和函数钩子
+
+  - 函数钩子
+    - `bind`	只调用一次
+    - `inserted` 被绑定元素插入父节点时调用
+    - `update` 所在组件的 VNode 更新时调用
+    - `componentUpdated` 指令所在组件的 VNode及其子 VNode 全部更新后调用
+    - `unbind`  只调用一次，指令与元素解绑时调用
+
+
+
+### 过滤器
+
+> 自定义过滤器,过滤器应该被添加在 JavaScript 表达式的尾部，由“管道”符号指示
+
+- filters
+  - 全局定义
+    - Vue.filter
+  - 本地定义
+
+```
+filters: {
+
+}
+```
+
+
+
+### API
+
+Vue.extend
+
+> 使用基础 Vue 构造器，创建一个“子类”。
+
+$mount
+
+组件之间的循环引用
+
+> 组件之间相互依赖，这变成了一个循环，不知道如何不经过其中一个组件而完全解析出另一个组件。可以使用全局注册和异步加载解决
+
+### 关键字
+
+`vm` 
+
+> `vm` (ViewModel ) 这个变量名表示 Vue 实例。
+
+`Mustache`
+
+> `Mustache`”语法 (双大括号) 的文本插值
+
+`v-text`
+
+> 更新元素的 `textContent`
+
+`v-html`
+
+> 更新元素的 `innerHTML`
+
+`v-show`
+
+> 根据表达式之真假值，切换元素的 `display` CSS 属性。
+
+`v-if`
+
+> 根据表达式的值的真假条件渲染元素。在切换时元素及它的数据绑定 / 组件被销毁并重建。
+
+v-for
+
+> 基于源数据多次渲染元素或模板块。
+
+`v-on`
+
+> 绑定事件监听器。
+
+​	**修饰符**：
+
+- `.stop` - 调用 `event.stopPropagation()`。
+- `.prevent` - 调用 `event.preventDefault()`。
+- `.capture` - 添加事件侦听器时使用 capture 模式。
+- `.self` - 只当事件是从侦听器绑定的元素本身触发时才触发回调。
+- `.{keyCode | keyAlias}` - 只当事件是从特定键触发时才触发回调。
+- `.native` - 监听组件根元素的原生事件。
+- `.once` - 只触发一次回调。
+- `.left` - (2.2.0) 只当点击鼠标左键时触发。
+- `.right` - (2.2.0) 只当点击鼠标右键时触发。
+- `.middle` - (2.2.0) 只当点击鼠标中键时触发。
+- `.passive` - (2.3.0) 以 `{ passive: true }` 模式添加侦听器
+
+`v-bind`
+
+> 动态地绑定一个或多个特性
+
+v-model
+
+> 在表单控件或者组件上创建双向绑定。
+>
+> **修饰符**：
+>
+> - [`.lazy`](https://cn.vuejs.org/v2/guide/forms.html#lazy) - 取代 `input` 监听 `change` 事件
+> - [`.number`](https://cn.vuejs.org/v2/guide/forms.html#number) - 输入字符串转为有效的数字
+> - [`.trim`](https://cn.vuejs.org/v2/guide/forms.html#trim) - 输入首尾空格过滤
+
+`v-slot`
+
+> 提供具名插槽或需要接收 prop 的插槽
+
+`v-pre`
+
+> 跳过这个元素和它的子元素的编译过程。
+
+`v-cloak`
+
+> 这个指令保持在元素上直到关联实例结束编译。
+
+`v-once`
+
+> 只渲染元素和组件**一次**。
+
+#### 特殊特性
+
+`key`
+
+> `key` 的特殊属性主要用在 Vue 的虚拟 DOM 算法，在新旧 nodes 对比时辨识 VNodes。如果不使用 key，Vue 会使用一种最大限度减少动态元素并且尽可能的尝试修复/再利用相同类型元素的算法。使用 key，它会基于 key 的变化重新排列元素顺序，并且会移除 key 不存在的元素。
+
+`ref`
+
+> `ref` 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 `$refs` 对象上。
+
+`is`
+
+> 用于动态组件且基于DOM 内模板的限制来工作。
+
+#### 内置的组件
+
+### `<component>`
+
+> 渲染一个“元组件”为动态组件。依 `is` 的值，来决定哪个组件被渲染。
+
+<<<<<<< HEAD
 #### Slot
 
 > `<slot>`	插槽作为承载分发内容的出口
@@ -587,3 +1022,4 @@ prop 没有值的情况在内，都意味着 `true`
   ```
 
   
+

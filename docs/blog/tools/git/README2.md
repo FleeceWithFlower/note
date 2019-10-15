@@ -43,6 +43,10 @@ git rm -cache \<file>
 
 - 忽略文件设为未跟踪
 
+git rm --cached -r -f   `<file>`
+
+- 强行不跟踪
+
 git rm -f \<file>
 
 - 强行删除文件
@@ -503,7 +507,7 @@ ssh-keygen -t rsa -C "youremail@example.com"
 
 ##### 克隆远程指定分支
 
-###### git clone -b <branch name> [remote repository address]
+###### git clone -b \<branch name\> [remote repository address]
 
 
 

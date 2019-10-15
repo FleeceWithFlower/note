@@ -219,6 +219,24 @@ HTTP本质是无状态的，使用Cookies可以创建有状态的会话。
 
 > 常见的 HTTP 缓存只能存储 [`GET`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/GET) 响应
 
+### application/x-www-form-urlencoded 	|	multipart/form-data  [link](https://blog.csdn.net/u013827143/article/details/86222486)
+
+
+
+- x-www-form-urlencoded：post的默认格式，使用js中URLencode转码方法，传输“*非ascii字符的  utf8编码的 十六进制表示的 字符串的 百分号形式*”
+
+- multipart/form-data：请求体里不同的input之间用一段叫boundary的字符串分割，每个input都有了自己一个小header，其后空行接着是数据。multipart/form-data将表单中的每个input转为了一个由boundary分割的小格式，没有转码，直接将utf8字节拼接到请求体中
+
+:::tip
+
+x-www-form-urlencoded 发送 非ascii 时，传输数据大
+
+:::
+
+
+
+
+
 ## 关键字
 
 - HTTP
