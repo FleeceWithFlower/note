@@ -260,12 +260,12 @@ var div = {
 - mounted
 
   > `el` 被新创建的 `vm.$el` 替换，并挂载到实例上去之后调用该钩子。
-  >
-  > ::: warning
-  >
-  > 注意 `mounted` **不会**承诺所有的子组件也都一起被挂载。如果你希望等到整个视图都渲染完毕，可以用 	vm.$nextTick 替换掉 `mounted`
-  >
-  > :::
+
+::: warning
+
+注意 `mounted` **不会**承诺所有的子组件也都一起被挂载。如果你希望等到整个视图都渲染完毕，可以用 	vm.$nextTick 替换掉 `mounted`
+
+:::
 
 - beforeUpdate
 
@@ -294,12 +294,14 @@ var div = {
 - errorCaptured
 
   > 当捕获一个来自子孙组件的错误时被调用。
-  >
-  > ::: warning
-  >
-  > 返回 `false` 以阻止该错误继续向上传播
-  >
-  > :::
+
+
+
+::: warning
+
+返回 `false` 以阻止该错误继续向上传播
+
+:::
 
 ### 响应式系统
 
@@ -310,21 +312,25 @@ var div = {
 - `v-bind:class`
 
 > 可以传给 `v-bind:class` 一个对象，以动态地切换 class
->
-> ::: tip
->
-> 可以与普通的 class 属性共存。`v-bind:class`优先
->
-> :::
+
+::: tip
+
+可以与普通的 class 属性共存。`v-bind:class`优先
+
+:::
 
 - ### `v-bind:style`
 
 
 > 可以传给 `v-bind:style`一个对象，以动态地切换 style,或数组语法可以将多个样式对象应用到同一个元素上
 >
-> :::tip
->
-> `v-bind:style`	优先级高于	`v-bind:class`
+> 
+
+:::tip
+
+`v-bind:style`	优先级高于	`v-bind:class`
+
+:::
 
 - 自动添加前缀
 
@@ -410,11 +416,13 @@ var div = {
   - Vue.component
   - [自动化创建所有全局模块](https://cn.vuejs.org/v2/guide/components-registration.html#%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%85%A8%E5%B1%80%E6%B3%A8%E5%86%8C)
 
-  :::warning
+  
 
-  全局注册的行为必须在根 Vue 实例 (通过 new Vue) 创建之前发生。
+:::warning
 
-  :::
+全局注册的行为必须在根 Vue 实例 (通过 new Vue) 创建之前发生。
+
+:::
 
 - 局部注册
 
@@ -472,13 +480,15 @@ var div = {
 
 - 禁用特性继承
 
-  -  `inheritAttrs`	选项
+  - `inheritAttrs`	选项
 
-  :::tip
+    
 
-  `inheritAttrs: false` 和 `$attrs`，你就可以手动决定这些特性会被赋予哪个元素。
+:::tip
 
-  :::
+`inheritAttrs: false` 和 `$attrs`，你就可以手动决定这些特性会被赋予哪个元素。
+
+:::
 
 :::danger
 
@@ -524,3 +534,56 @@ prop 没有值的情况在内，都意味着 `true`
 
   - `is`
 
+#### Slot
+
+> `<slot>`	插槽作为承载分发内容的出口
+
+- 默认内容
+
+  > <slot> 默认内容 <slot>
+
+- 具名插槽
+
+  父组件：裹在带有 `v-slot` 的 `<template>`
+
+```
+  <template v-slot:header>
+    <h1>Here might be a page title</h1>
+  </template>
+```
+
+​		子组件：`<slot>` 元素有一个特殊的特性：`name`。这个特性可以用来定义额外的插槽
+
+```
+<header>
+    <slot name="header"></slot>
+  </header>
+```
+
+:::tip
+
+一个不带 `name` 的 `<slot>` 出口会带有隐含的名字“default”。
+
+:::
+
+- 插槽 prop
+
+  > 访问子组件中才有的数据
+
+  子组件传参
+
+  ```
+    <slot v-bind:user="user">
+      {{ user.lastName }}
+    </slot>
+  ```
+
+  父组件接收，自定义插槽 prop 的名字
+
+  ```
+    <template v-slot:default="slotProps">
+      {{ slotProps.user.firstName }}
+    </template>
+  ```
+
+  
