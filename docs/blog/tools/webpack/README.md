@@ -37,31 +37,18 @@ module.exports=config
 
 ## 模式
 
-- mode
+```
+const config = {
+	mode:"production"
+}
+```
 
-  ```
-  const config = {
-  "mode":"production"
-  }
-  ```
+- production
 
-  
-
-  - production
-
-    - cli
-
-      - ```
-        webpakck -p
-        ```
-
-    - 默认内部启动uglifyjs 插件
-
-  - development 
+- development 
 
 - process.env.NODE_ENV
   
-  - node.js 全局变量
 
 ## 配置
 
@@ -94,7 +81,7 @@ const config = {
 
 ### html-webpack-plugin
 
-- 动态创建index.html
+> 动态创建index.html
 
 安装
 
@@ -120,13 +107,74 @@ const config = {
 
 
 
+## CSS
+
+- 安装
+
+```
+npm i style-loader css-loader
+```
+
+- 配置
+
+```
+const config = {
+    module: {
+        rules: [
+            {
+                test: /\.css|less$/,
+                use:['style-loader','css-loader']
+            }
+        ]
+    },
+
+}
+
+```
+
+- 启用CSS作用域
+  - 配置
+
+```
+{
+   test: /\.css|less$/,
+   use:['style-loader','css-loader?modules']
+}
 ```
 
 ```
+//例
+import css from '@/css/default.css'
+<h1 className={css.colorRed}>评论区列表</h1>
+```
+
+- local
+
+  > 被包裹的类名会被模块化，默认选项
+
+```
+:local(.test){
+	color:red;
+}
+```
+
+- global 
+
+  > 被包裹的类名不会被模块化
+
+```
+:global(.test){
+	color:red;
+}
+```
+
+
 
 ## 图片/字体
 
-### file-loader
+url-loader
+
+file-loader
 
 - The `file-loader` resolves `import`/`require()` on a file into a url and emits the file into the output directory.
 
