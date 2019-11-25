@@ -37,46 +37,144 @@ module.exports=config
 
 ## 模式
 
-- mode
+```
+const config = {
+	mode:"production"
+}
+```
 
-  - production
+- production
 
-    - cli
-
-      - ```
-        webpakck -p
-        ```
-
-    - 默认内部启动uglifyjs 插件
-
-  - development 
+- development 
 
 - process.env.NODE_ENV
   
-  - node.js 全局变量
+
+## 配置
+
+省略后缀名
+
+```
+//引包时可省略后缀名
+const config = {
+    resolve:{
+    extensions:['.js,'.jsx','.json']
+    }
+}
+```
+
+配置@路径
+
+```
+const config = {
+    resolve:{
+    	alias:{
+    	'@':path.join(__dirname,'./src')
+   		 }
+    }
+}
+```
+
+
 
 ## HTML
 
 ### html-webpack-plugin
 
-- This is a [webpack](http://webpack.js.org/) plugin that simplifies creation of HTML files to serve your `webpack` bundles. 
-- 动态创建idnex.html
+> 动态创建index.html
+
+安装
 
 ```
 npm install --save-dev html-webpack-plugin
 ```
 
-- ```
-  const HtmlWebpackPlugin = require('html-webpack-plugin');
-  ----------------------
-  new HtmlWebpackPlugin({
-     title: 'My App'
-  }),
-  
-  ```
+配置
+
+```
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const config = {
+    plugins:[
+    new HtmlWebpackPlugin({
+        template: 'index.html',//目标模板
+    })
+    ]
+}
+
+
+```
+
+
+
+## CSS
+
+- 安装
+
+```
+npm i style-loader css-loader
+```
+
+- 配置
+
+```
+const config = {
+    module: {
+        rules: [
+            {
+                test: /\.css|less$/,
+                use:['style-loader','css-loader']
+            }
+        ]
+    },
+
+}
+
+```
+
+- 启用CSS作用域
+  - 配置
+
+```
+{
+   test: /\.css|less$/,
+   use:['style-loader','css-loader?modules']
+}
+```
+
+```
+//例
+import css from '@/css/default.css'
+<h1 className={css.colorRed}>评论区列表</h1>
+```
+
+- local
+
+  > 被包裹的类名会被模块化，默认选项
+
+```
+:local(.test){
+	color:red;
+}
+```
+
+- global 
+
+  > 被包裹的类名不会被模块化
+
+```
+:global(.test){
+	color:red;
+}
+```
+
+
+
 ## 图片/字体
 
-### file-loader
+url-loader
+
+file-loader
 
 - The `file-loader` resolves `import`/`require()` on a file into a url and emits the file into the output directory.
 
@@ -196,14 +294,26 @@ npm install --save-dev webpack-manifest-plugin
 
 ### webpack-dev-server
 
-- ```
-  devServer: {
-       contentBase: './dist'
-     }
+- 安装
+
+  ```
+  npm install --save-dev webpack-dev-server
   ```
 
-  - hot module replacement
-    - 热模块替换
+- 配置
+
+  ```
+  module.exports = {
+     devServer: {
+       host: '127.0.0.1',
+       port:'8080',
+       contentBase: './dist',//工作目录
+       hot:true,//热模块替换
+     }
+  }
+  ```
+
+  >  [更多配置](https://webpack.docschina.org/configuration/dev-server/#src/components/Sidebar/Sidebar.jsx) 
 
 
 
@@ -213,26 +323,7 @@ npm install --save-dev webpack-manifest-plugin
   "serve": "webpack-dev-server --open",
   ```
 
-- 配置
-
-  - contentBase
-    - 目录
-
-  - compress
-    - 是否gzip 压缩
-
-  - host
-    - host
-
-  - port
-    - 端口号
-
-  - headers
-    - 添加响应头
-
-  - hot
-    - 启用 webpack 的模块热替换特性
-
+  
   
 ## Babel
 

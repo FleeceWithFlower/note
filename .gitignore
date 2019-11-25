@@ -4,4 +4,3 @@ node_modules/
 /docs/.vuepress/dist
 
 .docs/init
-docs/blog/My/
