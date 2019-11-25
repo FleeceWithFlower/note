@@ -29,3 +29,21 @@ https://code.aliyun.com/tokensart/app-public.git
 ### 组织端流程
 
 发行TOKEN => 出售TOKEN
+
+
+
+
+
+
+
+ver
+
+简写	 2-8个字符
+
+转账地址
+
+```
+<!--toAccountUuid: "0x456eF35CC1a33768306888189cb1930c0D792585",-->
+
+```
+
