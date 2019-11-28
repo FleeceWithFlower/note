@@ -1,6 +1,6 @@
 # #mongoose
 
-## ＃＃配置
+## 配置
 
 1.下载包
 
@@ -37,11 +37,33 @@ var kittySchema = mongoose.Schema({
 var Kitten = mongoose.model('Kitten', kittySchema);
 ```
 
-## ＃＃增删改查（ＣＲＵＤ）
 
-### ###增加（Create）
 
-#### ####创建实例
+
+
+Schema
+
+> Mongoose 里，一切都始于[Schema](http://www.mongoosejs.net/docs/guide.html)。
+
+```
+var kittySchema = mongoose.Schema({
+  name: String
+});
+```
+
+[Model](http://www.mongoosejs.net/docs/models.html)
+
+```
+var Kitten = mongoose.model('Kitten', kittySchema);
+```
+
+
+
+## 增删改查（ＣＲＵＤ）
+
+### 增加（Create）
+
+#### 创建实例
 
 ```
 var felyne = new Kitten({ name: 'Felyne' });
