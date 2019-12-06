@@ -12,6 +12,7 @@ module.exports = {
                 items: [
                     {text: 'JavaScript', link: '/blog/Client/JS/'},
                     {text: 'vue', link: '/blog/Client/vue/'},
+                    {text: 'react', link: '/blog/Client/React/'},
                     {text: 'axios', link: '/blog/Client/axios/'},
                     {text: 'canvas', link: '/blog/Client/canvas/'},
                     {text: 'vue-x', link: '/blog/Client/vue-x/'},
@@ -51,6 +52,8 @@ module.exports = {
                     {text: 'VuePress', link: '/blog/Tools/VuePress/'},
                     {text: 'webpack', link: '/blog/Tools/webpack/'},
                     {text: 'yum', link: '/blog/Tools/yum/'},
+                    {text: 'typeScript', link: '/blog/Tools/typeScript/'},
+                    {text: 'flux', link: '/blog/Tools/flux/'},
                 ]
             },
             {
