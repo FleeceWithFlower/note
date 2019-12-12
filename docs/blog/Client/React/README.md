@@ -296,6 +296,116 @@ render(){
 "proxy": "http://localhost:4000"
 ```
 
+### [Context](https://zh-hans.reactjs.org/docs/context.html)
+
+- 创建
+
+```
+const MyContext = React.createContext(defaultValue);
+```
+
+- <Provider>
+
+  > 传值
+
+```
+const MyContext = React.createContext(defaultValue);
+<MyContext.provider value={/* 某个值 */}>
+```
+
+- contextType
+
+  > 接收 provide
+
+```
+import MyContext form './MyContext'
+class MyClass extends React.Component {
+  render() {
+    let value = this.context;
+    /* 基于这个值进行渲染工作 */
+  }
+}
+MyClass.contextType = MyContext;
+
+//public class fields语法
+class MyClass extends React.Component {
+  static contextType = MyContext;
+  render() {
+    let value = this.context;
+    /* 基于这个值进行渲染工作 */
+  }
+}
+```
+
+- Consumer
+
+  > 子组件为function，接收 provide
+
+```
+const MyContext = React.createContext(defaultValue);
+
+
+function Index(props) {
+    return (
+		<ThemeContext.Consumer>
+		{value => (<div>{value.contextValue}</div>)}
+ 		</ThemeContext.Consumer>
+ 		)
+}
+//value === this.context
+```
+
+
+
+### 错误边界
+
+static getDerivedStateFromError
+
+> 此生命周期会在后代组件抛出错误后被调用。 它将抛出的错误作为参数，并返回一个值以更新 state
+
+```
+    static getDerivedStateFromError(error) {
+        // 更新 state 使下一次渲染能够显示降级后的 UI
+        return { hasError: true,a:'wwww' };
+    }
+
+```
+
+componentDidCatch()
+
+>`componentDidCatch()` 会在“提交”阶段被调用，因此允许执行副作用。 它应该用于记录错误之类的情况
+
+```
+    componentDidCatch(error, errorInfo) {
+        // 你同样可以将错误日志上报给服务器
+        console.log(error, errorInfo);
+    }
+```
+
+### [Refs 转发](https://zh-hans.reactjs.org/docs/forwarding-refs.html)
+
+- React.forwardRef
+
+  > 允许组件接收ref并且转发给子组件
+
+### Fragments
+
+> 同Vue template，Fragments 允许你将子列表分组，而无需向 DOM 添加额外节点。
+
+```
+<React.Fragment>
+    <td>Hello</td>
+</React.Fragment>
+//短语法
+<>
+	<td>Hello</td>
+</>
+```
+
+#### 高阶组件（HOC）
+
+### Hook
+
 ### redux
 
 - 安装
