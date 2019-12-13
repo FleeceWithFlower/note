@@ -35,3 +35,41 @@ app.json
 > 工具配置
 
  page.json
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 指令
+
+#### 逻辑语法
+
+- 胡子语法
+
+#### 条件逻辑
+
+-  wx:if 
+
+```
+<view wx:if="{{condition}}"> True </view>
+```
+
+#### 列表循环
+
+- wx:for
+
+```
+<block wx:for="{{[1, 2, 3]}}">
+  <view> {{index}}: </view>
+  <view> {{item}} </view>
+</block>
+```
+
