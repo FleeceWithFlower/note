@@ -693,3 +693,70 @@ git log
 
 
 ## 
+
+# KEY（关键字）
+
+- git checkout 
+
+  > 撤销文件的修改
+
+- git add
+
+  > 1. 将工作目录中的文件 已修改状态	设为	已暂存状态
+  > 2. 将为文件 未追踪状态   设为  追踪状态
+
+- git reset HEAD
+
+  > 将暂存目录中的文件	已暂存状态	设为	已修改状态
+
+- git commit
+
+  > 将暂存目录中的文件 已暂存状态	设为	已提交状态
+
+- git commit --amend
+
+  > 合并上一条提交
+
+- git branch
+
+  > 查看分支信息
+
+- git status
+
+  > 查看当前分支状态
+
+- git rm --cached -f
+
+  >将文件设为未追踪状态
+
+- git log
+
+  > 查看历史提交信息
+
+- git remote add [remote name]  [remote url]
+
+  > 添加远程仓库
+
+- git remote rm [remote name]
+
+  > 删除远程仓库
+
+- git remote -v
+
+  > 显示远程仓库
+
+- git remote show [remote name]
+
+- git fetch [remote name]
+
+  > 拉取远程仓库数据
+
+- git pull
+
+  > 拉取远程仓库数据，并尝试合并到当前分支
+
+- git push [remote name] [branch name]
+
+  > 将数据推送到远程仓库
+
+  
