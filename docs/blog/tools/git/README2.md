@@ -39,6 +39,10 @@ git add <file>
 git rm <file>
 ```
 
+git  restore
+
+- 清除工作区变动
+
 git rm -cache \<file>
 
 - 忽略文件设为未跟踪

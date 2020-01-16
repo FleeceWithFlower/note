@@ -393,6 +393,10 @@ git ls-remote [remote-name]
 git push -u [remote-name] [branch-name]
 ```
 
+```
+git push -u [remote-name] [local-branch-name]：[remote-branch-name]
+```
+
 - ###### -u
 
 ```
@@ -419,7 +423,19 @@ git clone -b <branch name> [remote repository address]
 git checkout -b dev origin/dev
 ```
 
+- ### 配置远程git服务器ssh不能免密登录坑点
 
+1. .ssh文件夹权限 600
+
+2. authorized_keys 权限 700
+
+3.  /etc/ssh/sshd_config 修改  \#StrictModes yes 为  StrictModes no 
+
+4.  重启ssh 
+
+   ```
+   service sshd restart
+   ```
 
 - ### 拉取数据
 
@@ -544,7 +560,7 @@ git diff <filename>
 
 ## 暂存区
 
-
+ git stash 
 
 增加
 
@@ -693,3 +709,12 @@ git log
 
 
 ## 
+
+***
+
+new
+
+- git merge --squash
+
+  > 压缩 将提交压缩成未提交
+

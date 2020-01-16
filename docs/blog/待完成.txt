@@ -1,3 +1,19 @@
-待付款 我挂单 按钮 前往支付 -》 账单
+```console
+    git merge --squash featureB
+```
 
-已付款 我 出售单 仲裁 我已收款 
+```
+$ git format-patch -M origin/master
+git send-email
+```
+
+- 以邮件形式发布提交
+
+```
+git apply
+```
+
+```
+git am
+```
+
