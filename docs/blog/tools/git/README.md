@@ -696,9 +696,23 @@ git log
 
 # KEY（关键字）
 
-- git checkout 
+***
+
+- 
+
+  ### 基本命令
+
+- git init --bare --shared
+
+  > 初始化裸仓库
+
+- git checkout [file name]
 
   > 撤销文件的修改
+
+- git checkout -b [branch name]
+
+  > 创建分支，当前工作目录并移动到该分支
 
 - git add
 
@@ -721,6 +735,10 @@ git log
 
   > 查看分支信息
 
+- git branch [branch name]
+
+  > 创建分支
+
 - git status
 
   > 查看当前分支状态
@@ -733,9 +751,43 @@ git log
 
   > 查看历史提交信息
 
+- git tag
+
+  > 查看标签列表
+
+- git tag -l [reg]
+
+  > 筛选标签列表
+
+- git tag [tag name] -a -m "[mes]''
+
+  > 添加注释标签
+
+- git tag [ tag name ] [ SHA-1]
+
+  > 为历史提交补加标签
+
+- git push [remote name] [tag name]
+
+  > 向远程仓库标签
+
+- git push [remote name] [tag name] --tags
+
+  > 向远程仓库所有标签
+
+***
+
+- 
+
+  ### 远程仓库
+
 - git remote add [remote name]  [remote url]
 
   > 添加远程仓库
+
+- git remote rename [remote name] [new remote name]
+
+  > 重命名远程仓库
 
 - git remote rm [remote name]
 
@@ -746,6 +798,8 @@ git log
   > 显示远程仓库
 
 - git remote show [remote name]
+
+  > 查看远程仓库详情
 
 - git fetch [remote name]
 
