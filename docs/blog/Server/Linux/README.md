@@ -212,6 +212,12 @@ ls - /bin/usr 2> /dev/null
 
 ctrl-a d：退出 Screen 会话
 
+### 查看进程
+
+```
+ps -ef |[filter]
+```
+
 ### lsof -i:port
 
 > 参看端口进程
@@ -675,4 +681,12 @@ rpm -U package ﬁle
 yum erase package name
 
 > 卸载软件
+
+FTP
+
+- 重启
+
+```
+service vsftpd restart
+```
 

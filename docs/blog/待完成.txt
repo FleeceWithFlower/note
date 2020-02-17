@@ -1,1 +1,18 @@
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCrJaYIbJGNgyP9LTK7jpb6iBafDkLDDYT4XQiK1RV/wMdTLQEcaOs2YATfGvb3uwixPLOJ6ewp8i76fHIQmNCLMuJneKR4u7b69Ds++75IG6tKpTBcNeo4mMHZKkuJXPLaG/GKRsPQBKr4hkXzovpY6dm96Ne+iu8fgt/BgRo+LaHB15T2S8F+CxazPtFDDWe2yQf86znCcNSv66wtfKstjXgQjO6P1JxQMCfDZR7itDaTNQm2jRqQCgODeJ4UJUNE4WJ94AuAH2Z38BJLdayP4PWAh57wi5+c1FKFzOT6EWX8mb1fZp8PPapuqfF+IF1IUCy9b1iq/UgORKvy12+t secret@VM_0_5_centos
+```console
+git merge --squash featureB
+```
+
+```
+$ git format-patch -M origin/master
+git send-email
+```
+
+- 以邮件形式发布提交
+
+```
+git apply
+```
+
+```
+git am
+```
