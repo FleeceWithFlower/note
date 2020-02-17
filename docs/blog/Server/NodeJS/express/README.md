@@ -54,9 +54,13 @@ console.log(admin.mountpath); // [ '/adm*n', '/user' ]
 
   > 匹配	所有请求方法                                                                                                                                                                                                                                                                                                                                                                                                                              
 
-- app.delete(path,callback)
+- app.METHOD(path,callback)
 
-  > 匹配	delete方法
+  >匹配	HTTP中的方法
+
+  ```
+  app.get('/',callback)
+  ```
 
 - app.disable(name)
 
@@ -65,3 +69,37 @@ console.log(admin.mountpath); // [ '/adm*n', '/user' ]
 - app.enable(name)
 
   > 启用	app.settings	中的属性
+  
+- app.engine(ext,callback)
+
+  > 注册给定引擎的回调
+
+  ```
+  app.engine('art',require('express-art-template'))
+  ```
+
+- app.get(name)
+
+  > 获得	app.settings	中属性的值
+
+- app.listen(port,[hostname],[callback])
+
+  > 绑定程序监听端口到指定的主机和端口号
+
+- app.param([name],callback)
+
+  > 路由参数的回调触发器
+
+- app.path()
+
+  > 获取	当前app路由的根路径
+
+- app.render(view,[locals],callback)
+
+  > 渲染视图
+
+  ```
+  res.render('index.art',{userName:'jack'})
+  ```
+
+  
