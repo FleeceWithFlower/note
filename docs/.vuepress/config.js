@@ -6,25 +6,17 @@ module.exports = {
     themeConfig: {
         nav: [
             {text: 'Home', link: '/',},
-            {text: 'My', link: '/blog/My/',},
             {
                 text: 'Client',
                 items: [
                     {text: 'JavaScript', link: '/blog/Client/JS/'},
-                    {text: 'vue', link: '/blog/Client/vue/'},
-                    {text: 'react', link: '/blog/Client/React/'},
-                    {text: 'axios', link: '/blog/Client/axios/'},
-                    {text: 'canvas', link: '/blog/Client/canvas/'},
-                    {text: 'vue-x', link: '/blog/Client/vue-x/'},
-                    {text: 'vue-router', link: '/blog/Client/vue-router/'},
-                    {text: 'localForage', link: '/blog/Client/localForage/'},
-                ]
-
-            },
-            {
-                text: 'UI',
-                items: [
-                    {text: 'Animate.css', link: '/blog/UI/Animate.css/'},
+                    {text: 'Vue', link: '/blog/Client/vue/'},
+                    {text: 'React', link: '/blog/Client/React/'},
+                    {text: 'Axios', link: '/blog/Client/axios/'},
+                    {text: 'Canvas', link: '/blog/Client/canvas/'},
+                    {text: 'Vue-x', link: '/blog/Client/vue-x/'},
+                    {text: 'Vue-router', link: '/blog/Client/vue-router/'},
+                    {text: 'LocalForage', link: '/blog/Client/localForage/'},
                 ]
 
             },
@@ -48,19 +40,13 @@ module.exports = {
                     {text: 'MarkDown', link: '/blog/Tools/MarkDown/'},
                     {text: 'Nginx', link: '/blog/Tools/Nginx/'},
                     {text: 'Npm', link: '/blog/Tools/Npm/'},
-                    {text: 'shell', link: '/blog/Tools/shell/'},
-                    {text: 'vim', link: '/blog/Tools/vim/'},
+                    {text: 'Shell', link: '/blog/Tools/shell/'},
+                    {text: 'Vim', link: '/blog/Tools/vim/'},
                     {text: 'VuePress', link: '/blog/Tools/VuePress/'},
-                    {text: 'webpack', link: '/blog/Tools/webpack/'},
-                    {text: 'yum', link: '/blog/Tools/yum/'},
-                    {text: 'typeScript', link: '/blog/Tools/typeScript/'},
-                    {text: 'flux', link: '/blog/Tools/flux/'},
-                ]
-            },
-            {
-                text: 'Work',
-                items: [
-                    {text: 'TBE', link: '/blog/Work/TBE/'},
+                    {text: 'Webpack', link: '/blog/Tools/webpack/'},
+                    {text: 'Yum', link: '/blog/Tools/yum/'},
+                    {text: 'TypeScript', link: '/blog/Tools/typeScript/'},
+                    {text: 'Flux', link: '/blog/Tools/flux/'},
                 ]
             },
         ],
@@ -68,13 +54,13 @@ module.exports = {
         lastUpdated: 'Last Updated',
     },
     plugins: [
-        [
+/*        [
             "vuepress-plugin-live2d",
             {
-                "modelName": 'shizuku',/*  ['z16','Epsilon2.1','izumi','koharu','shizuku','miku', 'hijiki', 'tororo']  */
+                "modelName": 'shizuku',/!*  ['z16','Epsilon2.1','izumi','koharu','shizuku','miku', 'hijiki', 'tororo']  *!/
                 "mobileShow": false
             }
-        ]
+        ]*/
     ]
 
 }

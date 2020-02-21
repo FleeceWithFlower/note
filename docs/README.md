@@ -7,16 +7,8 @@ tagline: 你想看看我的魔法吗?  🎉🎉
 
 
 
-actionText: 快速上手 →
-actionLink: /blog/Client/vue-x/
-features:
-- title: 简洁至上
-  details: 代码风格简洁有效。
-- title: 规范
-  details: 遵循JavaScript Standard Style / Airbnb JavaScript Style 社区规范
-- title: 高性能
-  details: 不丢失大量性能的前提下，工作速度越快越好。
-footer: MIT Licensed | Copyright © 2018-present Evan You
+//actionText: 进入日志 →
+//actionLink: /blog/README.md
 
 ---
 
