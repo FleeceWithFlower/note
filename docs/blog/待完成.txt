@@ -1,18 +1,27 @@
-```console
-git merge --squash featureB
-```
+# Mongoose
 
-```
-$ git format-patch -M origin/master
-git send-email
-```
+## SchemaType 
 
-- 以邮件形式发布提交
+**定义表结构**
 
-```
-git apply
-```
+## 关键字
 
-```
-git am
-```
+- mongoose.Schema（）
+
+  **定义表结构**
+
+- mongoose.connect(uri, options);
+
+  **连接数据库**
+
+- Schema.prototype.add()
+
+  向 schema 中添加 路径/类型(key path / schema type) 键值对
+
+- Schema.prototype.path()
+
+  读/写 schema 路径。
+
+- Schema.prototype.eachPath()
+
+  遍历 schema 的所有路径

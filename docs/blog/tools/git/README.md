@@ -706,14 +706,6 @@ git log
 
   > 筛选提交的目录
 
-
-
-- git merge --squash
-
-  > 压缩 将提交压缩成未提交
-
-
-
 # KEY（关键字）
 
 ***
@@ -794,6 +786,10 @@ git log
 - git push [remote name] [tag name] --tags
 
   > 向远程仓库所有标签
+  
+- git merge --squash
+
+  > 压缩 将提交压缩成未提交
 
 ***
 
