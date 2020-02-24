@@ -25,6 +25,16 @@ var Tank = mongoose.model('Tank', schema);
 
 Documents 是 `model` 的实例 
 
+## package
+
+- dotenv
+
+  配置环境变量
+
+- 
+
+- 
+
 ## 关键字
 
 - Schema
@@ -38,3 +48,17 @@ Documents 是 `model` 的实例
 - Documents 
 
   **用于操作数据库**
+
+
+
+
+
+
+
+- Schema.prototype.set()
+
+   读/写 schema 的一个选项。 
+
+- Schema.prototype.get()
+
+   读取 schema 的一个选项。 
