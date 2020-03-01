@@ -41,11 +41,31 @@ del
 del hello.txt
 ```
 
-# CMD
+## CMD
 
 ### 远程桌面
 
 ```
 mstsc
 ```
+
+### sc
+
+**服务命令**
+
+- sc <server> create [service name] [binPath= ] <option1> <option2>...
+
+  创建服务
+
+```
+sc MongoDB create bindPath"C:\MongoDb\bin\mongod.exe"
+```
+
+
+
+
+
+
+
+
 

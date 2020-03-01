@@ -27,6 +27,10 @@ console.log(admin.mountpath); // [ '/adm*n', '/user' ]
 
    	**解析	请求参数**
 
+- express-session
+
+- connect-mongo
+
 - morgan
 
    	**记录日志**
@@ -35,9 +39,41 @@ console.log(admin.mountpath); // [ '/adm*n', '/user' ]
 
    	**分解日志**
   
+- ### winston
+
+     a logging library 
+
 - art-template  /  express-art-template
 
    	**模板引擎**
+   
+- method-override
+
+    扩展`http`请求类型
+
+-  csurf
+
+    生成token
+
+- cors
+
+    设置同源策略
+
+- ### Helmet
+
+    secure your Express apps by setting various HTTP headers
+
+- ### connect-flash
+
+   用于存储信息的特殊区域， flash 是配置 redirect 一同使用的    	
+
+- passport
+
+  用于验证
+
+- ultimate-pagination
+
+  分页
 
 
 
