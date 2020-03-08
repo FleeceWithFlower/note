@@ -26,6 +26,7 @@ module.exports = {
                             {text: 'NodeJs', link: '/blog/Server/NodeJs/'},
                             {text: 'Linux', link: '/blog/Server/Linux/'},
                             {text: 'MongoDB', link: '/blog/Server/MongoDB/'},
+                            {text: 'Mongoose', link: '/blog/Server/MongoDB/mongoose/'},
                             {text: 'Express', link: '/blog/Server/NodeJs/express/'},
                             {text: 'MySQL', link: '/blog/Server/MySQL/'},
                             {text: 'Windows', link: '/blog/Server/Windows/'},
