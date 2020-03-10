@@ -62,3 +62,99 @@ Documents 是 `model` 的实例
 - Schema.prototype.get()
 
    读取 schema 的一个选项。 
+
+### Validators
+
+- Numbers.min
+
+  最小值
+
+- Numbers.mix
+
+  最大值
+
+- Strings.enum
+
+  枚举
+
+- Strings.match
+
+  正则
+
+- Strings.maxlength	
+
+  最大字符长度
+
+- Strings.minlength
+
+  最字符长度
+
+-  自定义 
+
+   验证是一个[中间件](http://www.mongoosejs.net/docs/middleware.html)。它默认作为 pre('save')` 钩子注册在 schema 上 
+
+```
+        validate: {
+          validator: function(v) {
+            return /\d{3}-\d{3}-\d{4}/.test(v);
+          },
+          message: '{VALUE} is not a valid phone number!'
+        },
+```
+
+
+
+### Models
+
+- Model.find()
+
+  查询文档
+
+- Model.findById()	
+
+  通过 ID	查询文档 
+
+- Model.findOne()
+
+  返回一个 匹配的 文档
+
+- Model.findOneAndUpdate()
+
+  返回一个 匹配的 文档并更新	
+
+- Model.findByIdAndUpdate()
+
+  通过ID 返回 文档并更新
+
+- Model.remove()
+
+  删除所有匹配的文档 
+
+- Model.findOneAndRemove()
+
+  返回一个 匹配的 文档并删除	
+
+- Model.findByIdAndRemove()
+
+  通过ID 返回 文档并删除
+
+### Query
+
+- Query.prototype.select()
+
+  指定返回结果 包含或排除 字段
+
+- Query.prototype.exec()
+
+  执行查询	
+
+### Populate
+
+ 可以让你在别的 collection 中引用 document 	
+
+
+
+
+
+
+
