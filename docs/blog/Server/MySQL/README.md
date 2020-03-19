@@ -10,6 +10,8 @@ C:\\mysql\my.ini
 
 ```
 cd C:\\mysql\bin
+//需要删除安装目录下的data
+//需要删除系统中mysql服务
 mysqld --initialize --console
 ```
 
@@ -23,6 +25,7 @@ mysqld --console --skip-grant-tables --shared-memory
 
 ```
 ALTER USER 'root'@'localhost' IDENTIFIED BY '你要设置的密码'
+//忘记root密码时可以删除安装目录下的data，然后使用 mysqld --initialize --console 命令 重新安装。
 ```
 
 - 登录
@@ -39,7 +42,70 @@ net start mysql
 net stop mysql
 ```
 
+## 终端操作
 
+- show databases;
+
+  展示所有数据库
+
+- show tables;
+
+  查看数据库中的表
+
+- use DB;
+
+  选择某一数据库
+
+- describe \<tabelName\>;
+
+  查看数据表结构
+
+- select * form \<tabelName\>
+
+  查询表中记录
+
+- exit;
+
+  退出数据库服务器
+
+- create database \<dataBaseName\>;
+
+  创建数据库
+
+增
+
+- insert into \<tabelName\> values(val,val1);
+
+  向表中增加记录
+
+
+
+## 数值类型
+
+### 数值
+
+- INT
+
+- FLOAT
+
+- DOUBLE
+
+日期
+
+- DATE
+
+- TIME
+- YEAR
+
+### 字符串
+
+- CHAR
+
+- VARCHAR
+
+- BLOB
+
+- TEXT
 
 ### 关键字
 
@@ -75,3 +141,5 @@ net stop mysql
 #### 术语
 
 DB
+
+### 
