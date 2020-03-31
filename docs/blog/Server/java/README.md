@@ -1,79 +1,5 @@
 Java
 
-##  基本类型 
-
-六种数字类型（四个整数型，两个浮点型），一种字符类型，还有一种布尔型。 
-
--  **byte** 
-
-    8位、有符号的，以二进制补码表示的整数； 
-
--  **short** 
-
-   16 位、有符号的以二进制补码表示的整数  
-
--  **int** 
-
-   32位、有符号的以二进制补码表示的整数； 
-
--  **long** 
-
-    64 位、有符号的以二进制补码表示的整数； 
-
--  **float**
-
-   单精度、32位 浮点数； 
-
--  **double** 
-
-   双精度、64 位、符合IEEE 754标准的浮点数； 
-
--  **boolean** 
-
--  **char** 
-
-   char类型是一个单一的 16 位 Unicode 字符； 
-
-## 修饰符
-
-**访问控制修饰符**
-
--  **default** 
-
-  默認
-
--  **private**
-
-  私有  
-
--  **public**  
-
-  公共
-
--  **protected**  
-
-  受保护
-
-非访问修饰符
-
--  static  
-
-  定义静态变量和方法
-
--  final  
-
-  定义常量
-
--  abstract  
-
-   **抽象方法** 
-
-- synchronized  
-
-   同一时间只能被一个线程访问 
-
--  volatile  
-
 ## JAVA类
 
 ## JAVA抽象类
@@ -121,3 +47,153 @@ Java
 2. 对每个值属性提供对外的公共方法访问 
 
 ## Java 包(package)
+
+## JDK预定义注解
+
+- @Override
+
+  检测被该注解注释的方法是否是继承自父类
+
+- @Deprecated
+
+  该注解标注的内容已过时
+
+- @SuppressWarnings
+
+  压制警告
+
+## JDBC
+
+> 用来规范客户端程序如何来访问数据库的应用程序接口,一套java代码可 以操作不同的数据库
+>
+> 需要驱动jar包 mysql-connector-java.jar
+
+操作流程
+
+```
+Class.forName("com.mysql.cj.jdbc.Driver");//注册驱动
+Connection connection =  DriverManager.getConnection(url, user, password);//获取数据库连接对象
+Statement stmt = conn.createStatement();//创建sql对象
+String querySQL = "select * from students"; 
+ResultSet resultSet = stmt.executeQuery(querySQL);//执行sql语句
+stmt.close();//释放sql对象
+conn.close();//释放数据库连接对象
+```
+
+## 数据库连接池
+
+> 数据库连接池负责分配、管理和释放数据库连接，它允许应用程序重复使用一个现有的数据库连接，而不是再重新建立一个；  释放空闲时间超过最大空闲时间的数据库连接来避免因为没有释放数据库连接而引起的数据库连接遗漏。 
+
+### Druid连接池
+
+> 引入 Druid jar包
+
+创建工具类
+
+```
+Properties pro = new Properties(); //创建Properties对象
+InputStream is = JDBCUtils.class.getClassLoader().getResourceAsStream("druid.properties");
+pro.load(is);//加载自定义值
+DataSource ds = DruidDataSourceFactory.createDataSource(pro);//传入参数获取 连接池对象
+```
+
+操作数据库
+
+```
+String sql = "insert into user values(null,?,?,?)";
+preparedStatement = JDBCUtils.getConnection().prepareStatement(sql);//创建sql对象
+preparedStatement.setString(1, username);
+preparedStatement.setString(2, password);
+preparedStatement.setInt(3, 18);//赋值
+preparedStatement.executeUpdate();//执行
+JDBCUtils.close(stmt,conn)//释放sql对象，归还连接
+```
+
+
+
+## JDBCTemplate
+
+> 简化JDBC开发，不需要申请连接和释放资源。
+
+SpringJDBCTemplate
+
+```
+JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
+String sql = "update user set age=? where id=11";
+template.update(sql,25);
+```
+
+常用API
+
+- updata()
+
+  执行	DML 语句，增删改查
+
+- queryForMap()
+
+  查询结果讲结果封装为map集合
+
+- queryForList()
+
+  查询结果将结果封装为List集合
+
+- query()
+
+  查询结果将结果封装为javaBean对象
+
+- queryObject()
+
+  查询结果将结果封装为对象
+
+## Servlet
+
+## HTTPServlet
+
+
+
+配置路由
+
+```
+//web.xml
+    <servlet>
+        <servlet-name>demo1</servlet-name>
+        <servlet-class>cn.itcust.web.servlet.ServletDemo1</servlet-class><!--映射类-->
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>demo1</servlet-name>
+        <url-pattern>/demo1</url-pattern><!--路由-->
+    </servlet-mapping>
+```
+
+配置Servlet类创建
+
+- 默认第一次访问Servlet时创建
+- 服务器初始化时创建
+
+```
+//web.xml
+<!--值为>0时，服务器初始化时创建-->
+<load-on-startup>1</load-on-startup>
+```
+
+类方法
+
+- init
+
+  初始化触发
+
+- getServletConfig
+
+  获取配置文件信息
+
+- service
+
+  被访问是触发
+
+- getServletInfo
+
+  回去ServletInfo信息
+
+- destroy
+
+  销毁时触发

@@ -12,7 +12,23 @@ C:\\mysql\my.ini
 cd C:\\mysql\bin
 //需要删除安装目录下的data
 //需要删除系统中mysql服务
-mysqld --initialize --console
+//mysql 8.0以上版本 需要安裝 Visual C++ Redistributable for Visual Studio 2015
+mysqld --install //初始化服务
+mysqld --initialize --console //初始化root用户
+```
+
+- 启动及关闭 MySQL 服务器
+
+```
+//windows
+net start mysql
+net stop mysql
+```
+
+- 登录
+
+```
+mysql -u root -p
 ```
 
 - root免密登录
@@ -28,55 +44,272 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '你要设置的密码'
 //忘记root密码时可以删除安装目录下的data，然后使用 mysqld --initialize --console 命令 重新安装。
 ```
 
-- 登录
 
-```
-mysql -u root -p
-```
 
-- 启动及关闭 MySQL 服务器
 
-```
-//windows
-net start mysql
-net stop mysql
-```
 
 ## 终端操作
 
 - show databases;
 
-  展示所有数据库
+  查看所有数据库
 
 - show tables;
 
-  查看数据库中的表
+  **查看数据库中所有的表**
 
-- use DB;
+- select * form \<tabelName\>
 
-  选择某一数据库
+  查看表中所有记录
 
 - describe \<tabelName\>;
 
   查看数据表结构
 
-- select * form \<tabelName\>
 
-  查询表中记录
+
+- 创建数据库
+
+  ```
+  create database \<dataBaseName\>;
+  ```
+
+- 删除数据库
+
+  ```
+  drop database <数据库名>;
+  ```
+
+- 创建表 
+
+  ```
+  CREATE TABLE table_name (column_name column_type);
+  ```
+
+  ​	约束
+
+  - 主键约束(primary key)
+
+    唯一且不为空；
+
+  - 自增约束(auto_increment)
+
+    非必传,自行增长
+
+  - 唯一约束(unique)
+
+    不重复
+
+  - 非空约束(not null)
+
+    不为NULL
+
+  - 默认约束(default)
+
+    设置默认值
+
+  - 外键约束( foreign key(key) references classes(key) )
+
+    关联表
+
+    ```
+    CREATE TABLE table_name (class_id int, foreign key(class_id) references classes(id);
+    ```
+
+    
+
+- 删除表
+
+  ```
+  DROP TABLE table_name ;
+  ```
+
+- use DB;
+
+  选择某一数据库
 
 - exit;
 
   退出数据库服务器
 
-- create database \<dataBaseName\>;
-
-  创建数据库
-
 增
 
-- insert into \<tabelName\> values(val,val1);
+- insert into \<tabelName\> values(val,val1);	
 
   向表中增加记录
+  
+- 增加某一条
+
+  insert into \<tabelName\> (*key*) values(val);
+
+删
+
+- delete from \<tableName\> where name=val
+
+改
+
+- update \<tableName\>  set ***key=val*** where ***key=val***
+
+查
+
+- select  *  from  \<tableName\> ;
+
+###  WHERE 
+
+类似 if 语句 ，赛选返回true 的记录。
+
+```
+SELECT * from runoob_tbl WHERE runoob_author='菜鸟教程';
+```
+
+### LIKE 
+
+ LIKE 通常与 **%** 一同使用 ，相当于正则中 * 号
+
+### UNION  
+
+查询多个表，去重
+
+```
+select name from students union select name  from origin;
+```
+
+UNION ALL
+
+查询多个表，不去重
+
+```
+select name from students union all select name  from origin;
+```
+
+ **ORDER BY** 
+
+分组
+
+1.  ASC 
+
+   升序
+
+2.  DESC 
+
+   降序
+
+### WITH ROLLUP
+
+JOIN
+
+查询多个表
+
+- inner join
+
+  交集
+
+- left join
+
+  左边全读，右边交集
+
+- right join 
+
+  右边全读，左边交集
+
+### NULL 值处理
+
+查值时 不能使用 = NULL 或 != NULL 在列中查找 NULL 值 。 
+
+-  **IS NULL** 
+
+   当列的值是 NULL,此运算符返回 true 
+
+-  **IS NOT NULL** 
+
+    当列的值不为 NULL, 运算符返回 true 	
+
+-  **<=>** 
+
+   当比较的的两个值相等或者都为 NULL 时返回 true。 
+
+### 正则（REGEXP ）
+
+```
+SELECT name FROM person_tbl WHERE name REGEXP '^st';
+```
+
+### 事务
+
+-  **BEGIN**  
+
+  开始一个事务
+
+-  **ROLLBACK**  
+
+   事务回滚 
+
+-  **COMMIT**  
+
+   事务确认 
+
+### ALTER
+
+ 修改数据表名或者修改数据表字段 
+
+- 删除表字段
+
+```
+ALTER TABLE @TABLEName  DROP @field;
+```
+
+- 添加表字段
+
+```
+ALTER TABLE @TABLEName ADD  @field;
+```
+
+- 修改表字段
+
+```
+ALTER TABLE @TABLEName MODIFY  @field;
+```
+
+```
+ALTER TABLE @TABLEName CHANGE @oldField @newField;
+```
+
+- 修改和设置默认值
+
+```
+ALTER TABLE @TABLEName ALTER @field SET DEFAULT @val;
+```
+
+- 删除默认值
+
+```
+ALTER TABLE @TABLEName ALTER @field DROP DEFAULT;
+```
+
+- 修改表名
+
+```
+ALTER TABLE @TABLEName RENAME TO @val;
+```
+
+### 索引
+
+ MySQL索引的建立对于MySQL的高效运行是很重要 
+
+### 临时表
+
+ MySQL 临时表在我们需要保存一些临时数据时是非常有用的。临时表只在当前连接可见，当关闭连接时，Mysql会自动删除表并释放所有空间。 
+
+```
+CREATE TEMPORARY TABLE @TABLEName();
+```
+
+### 复制表
+
+```
+ SHOW CREATE TABLE @TABLEName;//	查看建表命令 并使用该命令 修改表名 重新建表
+ INSERT INTO @TABLEName(@FIELD) SELECT @FIELD FROM @TABLEName; //	克隆数据
+```
 
 
 
@@ -100,12 +333,73 @@ net stop mysql
 ### 字符串
 
 - CHAR
-
 - VARCHAR
-
 - BLOB
-
 - TEXT
+
+
+
+## 内置函数
+
+### 字符串
+
+- CHAR_LENGTH(s) 
+
+  返回字符数  
+
+  ```
+  SELECT CHAR_LENGTH("RUNOOB") AS LengthOfString;
+  ```
+
+-  CONCAT 
+
+   合并字符串 
+
+  ```
+  SELECT CONCAT("SQL ", "Runoob ", "Gooogle ", "Facebook") AS ConcatenatedString;
+  ```
+
+-  CONCAT_WS(x, s1,s2...sn) 
+
+  使用连接符
+
+  ```
+  SELECT CONCAT_WS("-", "SQL", "Tutorial", "is", "fun!")AS ConcatenatedString;
+  ```
+
+### 数字
+
+-  AVG 
+
+   平均值
+
+  ```
+  SELECT AVG(Price) AS AveragePrice FROM Products;
+  ```
+
+  
+
+判断
+
+- case
+
+  ```
+  SELECT CASE 
+  　　WHEN 1 > 0
+  　　THEN '1 > 0'
+  　　WHEN 2 > 0
+  　　THEN '2 > 0'
+  　　ELSE '3 > 0'
+  　　END
+  ```
+
+- if
+
+  ```
+  SELECT IF(1 > 0,'正确','错误')
+  ```
+
+  
 
 ### 关键字
 
@@ -143,3 +437,20 @@ net stop mysql
 DB
 
 ### 
+
+```
+INSERT INTO clone_tbl (runoob_id,
+    ->                        runoob_title,
+    ->                        runoob_author,
+    ->                        submission_date)
+    -> SELECT runoob_id,runoob_title,
+    ->        runoob_author,submission_date
+    -> FROM runoob_tbl;
+```
+
+
+
+
+
+
+
