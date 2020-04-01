@@ -62,6 +62,10 @@ Java
 
   压制警告
 
+## Junit
+
+> Java语言的单元测试框架 
+
 ## JDBC
 
 > 用来规范客户端程序如何来访问数据库的应用程序接口,一套java代码可 以操作不同的数据库
@@ -145,6 +149,16 @@ template.update(sql,25);
 
   查询结果将结果封装为对象
 
+- BeanPropertyRowMapper
+
+  查询结果将结果封装自定义对象
+
+  ```
+  template.query(sql,new BeanPropertyRowMapper<User>(User.class));
+  ```
+
+  
+
 ## Servlet
 
 ## HTTPServlet
@@ -197,3 +211,86 @@ template.update(sql,25);
 - destroy
 
   销毁时触发
+
+## 工程目录
+
+- dao
+
+   进行数据操作的类  
+
+- domain
+
+   与数据库表--一一对应的javaBean 
+
+## BeanUtils
+
+## JAVABeanUtils
+
+> 标准java类，用于封装数据库
+>
+> - 类必须被public修饰
+> - 必须提供空参的构造器
+> - 成员必须用private修饰
+> - 提供成员 setter getter方法
+
+## response
+
+
+
+- setHeader
+
+- setStatus
+
+- getWriter
+
+  获得字符输出流
+
+- getOutputStream
+
+  获得字节输出流
+
+- setCharacterEncoding
+
+- setContentType
+
+- sendRedirect
+
+## ServletContext
+
+## Filter
+
+> 用于拦截请求
+
+@WebFilter
+
+> 配置路径
+
+生命周期
+
+- init
+
+  服务器启动时，用于加载资源
+
+- doFilter
+
+  每次请求
+
+- destroy
+
+  服务器正常关闭，用于销毁资源
+
+## 动态代理
+
+## ServletContextListener
+
+监听器
+
+@WebListener
+
+## JSON转换
+
+```
+ObjectMapper mapper = new ObjectMapper();
+String json =  mapper.writeValueAsString(obj);
+```
+
