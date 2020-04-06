@@ -450,7 +450,9 @@ INSERT INTO clone_tbl (runoob_id,
 
 
 
+## 第三范式
 
+## BCNF 范式
 
 
 
