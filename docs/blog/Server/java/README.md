@@ -294,3 +294,30 @@ ObjectMapper mapper = new ObjectMapper();
 String json =  mapper.writeValueAsString(obj);
 ```
 
+Maven
+
+mvn clean
+
+> 删除target
+
+mvn compile
+
+> 将main文件夹下所有Java编译为class到target
+
+mvn package
+
+> 打成war包
+
+mvn install
+
+> 打成war包，推送到本地仓库
+
+mvn test
+
+> 调用test文件夹下的所有测试方法，并生成测试包	
+
+## 三层架构
+
+-  界面层 ( 表示层 )
+-  业务逻辑层 ( 领域层)
+-  数据访问层 ( 持久层 )
