@@ -2,27 +2,26 @@ module.exports = {
     base: '/note/',
     title: 'FleeceWithFlower',
     description: 'Blog',
-    displayAllHeaders: true,
+    displayAllHeaders: false,
     themeConfig: {
         nav: [
             {text: 'Home', link: '/',},
             {
                 text: 'Client',
                 items: [
-                    {text: 'JavaScript',items:[{text: '基础语法', link: '/blog/Client/JS/'}]},
+                    {text: 'JavaScript', link: '/blog/Client/JS/'},
                     {text: 'Vue', link: '/blog/Client/Vue/'},
                     {text: 'React', link: '/blog/Client/React/'},
                 ]
-
             },
-/*            {
+            {
                 text: 'Server',
                 items: [
                     {text: 'Java', link: '/blog/Server/Java/'},
                     {text: 'NodeJs', link: '/blog/Server/NodeJs/'},
-                    {text: 'C', link: '/blog/Server/C/'},
                     {text: 'MongoDB', link: '/blog/Server/MongoDB/'},
-                    {text: 'MySQL', link: '/blog/Server/MySQL/'}
+                    {text: 'MySQL', link: '/blog/Server/MySQL/'},
+                    {text: 'C', link: '/blog/Server/C/'},
                 ]
             },
             {
@@ -49,65 +48,58 @@ module.exports = {
                     {text: 'TypeScript', link: '/blog/Tools/typeScript/'},
                     {text: 'Flux', link: '/blog/Tools/flux/'},
                 ]
-            },*/
+            },
         ],
-        /*        sidebar:'false',*/
+        sidebarDepth: 2,
         sidebar: {
-/*            '/blog/Client/Vue/': [
+            '/blog/Client/Vue/': [
                 {
                     title: 'Vue',
-                    collapsable: false,
-                    path: '/blog/Client/Vue/',
-                    children: []
+                    path: '/blog/Client/Vue/'
+                },
+                {
+                    title: 'Vue-x',
+                    path: '/blog/Client/Vue/Vue-x/'
+                },
+                {
+                    title: 'Vue-router',
+                    path: '/blog/Client/Vue/Vue-router/'
+                },
+                {
+                    title: 'Axios',
+                    path: '/blog/Client/Vue/Axios/'
                 }
-            ],*/
-/*            '/blog/Server/Java/': [
+
+            ],
+            '/blog/Server/Java/': [
                 {
                     title: 'Java',
-                    collapsable: false,
-                    path: '/blog/Server/Java/',
-                    children: [
-                        {
-                            title: '基础语法',
-                            path: '/blog/Server/Java/'
-                        }, {
-                            title: 'Mybatis',
-                            path: '/blog/Server/Java/Mybatis/'
-                        },
-                        {
-                            title: 'Junit',
-                            path: '/blog/Server/Java/Junit/'
-                        }, {
-                            title: 'Spring',
-                            path: '/blog/Server/Java/Spring/'
-                        }, {
-                            title: 'Druid',
-                            path: '/blog/Server/Java/Druid/'
-                        }]
+                    path: '/blog/Server/Java/'
+                },
+                {
+                    title: 'Spring',
+                    path: '/blog/Server/Java/Spring/'
+                },
+                {
+                    title: 'Mybatis',
+                    path: '/blog/Server/Java/Mybatis/'
+                },
 
-                }
             ],
             '/blog/Server/NodeJs/': [
                 {
                     title: 'NodeJs',
-                    collapsable: false,
                     path: '/blog/Server/NodeJs/',
-                    children: [
-                        {
-                            title: '基础语法',
-                            path: '/blog/Server/NodeJs/'
-                        }, {
-                            title: 'Express',
-                            path: '/blog/Server/NodeJs/'
-                        },
-                        {
-                            title: 'Koa2',
-                            path: '/blog/Server/NodeJs/'
-                        }
-                        ]
-
+                },
+                {
+                    title: 'Express',
+                    path: '/blog/Server/NodeJs/Express/',
+                },
+                {
+                    title: 'Koa2',
+                    path: '/blog/Server/NodeJs/Koa2/',
                 }
-            ],*/
+            ],
         },
         lastUpdated: 'Last Updated',
     },

@@ -1,8 +1,8 @@
-## vue-router
+# vue-router
 
 - Vue Router 是 [Vue.js](http://cn.vuejs.org/) 官方的路由管理器
 
-### 安装
+## 安装
 
 ```
 npm install vue-router
@@ -17,7 +17,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 ```
 
-### 使用
+## 使用
 
 1.定义 (路由) 组件
 
@@ -60,7 +60,7 @@ const router = new VueRouter({
 })
 ```
 
-### 动态路由匹配
+## 动态路由匹配
 
 #### params.id
 
@@ -114,7 +114,7 @@ const User = {
 - 匹配优先级
   - 谁先定义的，谁的优先级就最高
 
-### 嵌套路由
+## 嵌套路由
 
 #### children
 
@@ -136,7 +136,7 @@ const routes = [
 
 ```
 
-### 编程式的导航
+## 编程式的导航
 
 #### router.push
 
@@ -166,7 +166,7 @@ router.go(1) //前进一步
 router.go(-1) // 后退一步记录
 ```
 
-### 命名路由
+## 命名路由
 
 - 在 `routes` 配置中给某个路由设置名称。
 
@@ -188,8 +188,8 @@ router.go(-1) // 后退一步记录
 router.push({ name: 'user', params: { userId: 123 }})
 ```
 
-### 命名视图
-         
+## 命名视图
+
          - 同级展示多个视图
          - component => components
          - 如果组件没有名字，则使用default
@@ -207,9 +207,9 @@ router.push({ name: 'user', params: { userId: 123 }})
            ]
          ```
 
-### 嵌套命名视图
+## 嵌套命名视图
 
-###  重定向
+##  重定向
 
 - 访问匹配页面时，重定向到别的页面。
 
@@ -221,7 +221,7 @@ router.push({ name: 'user', params: { userId: 123 }})
 
 
 
-###  别名
+##  别名
 
 - 页面还是匹配页面，就是名字改了
 
@@ -231,7 +231,7 @@ router.push({ name: 'user', params: { userId: 123 }})
   ]
 ```
 
-### 路由组件传参
+## 路由组件传参
 
 - 使用 `props` 将组件和路由解耦,取代与 $route 的耦合
 
@@ -247,6 +247,6 @@ const User = {
     { path: '/user/:id', component: User, props: true }]
 ```
 
-### HTML5 History 模式
+## HTML5 History 模式
 
 - 这种模式充分利用 `history.pushState` API 来完成 URL 跳转而无须重新加载页面。

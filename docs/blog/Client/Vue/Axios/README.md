@@ -1,8 +1,8 @@
-### Axios
+# Axios
 
 > Axios 是一个基于 promise 的 HTTP 库
 
-### 配置优先顺序
+## 配置优先顺序
 
 > 默认值配置	<	实例配置	<	请求配置
 
@@ -12,7 +12,7 @@
 
 :::
 
-### 拦截器(interceptors)
+## 拦截器(interceptors)
 
 > 在请求或响应被 `then` 或 `catch` 处理前拦截它们
 

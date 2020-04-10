@@ -36,7 +36,7 @@ Vue.use(Vuex)
 ## this.$store
 
 - 适用所有子组件
- 
+
 
 ```
 const app = new Vue({
