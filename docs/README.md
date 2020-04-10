@@ -37,6 +37,8 @@ export default {
        var particles = []
        var possibleColors = ["#D61C59", "#E7D84B", "#1B8798"];
        document.addEventListener('mousemove', onMouseMove);
+       document.addEventListener('touchmove', onMouseMove);
+       document.addEventListener('touchstart', onMouseMove);
    
        function onMouseMove(e) {
            var x = e.clientX;
