@@ -755,7 +755,7 @@ git log
 
   > 查看当前分支状态
 
-- git rm --cached -f
+- git rm --cached -f -r
 
   >将文件设为未追踪状态
 

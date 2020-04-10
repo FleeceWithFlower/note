@@ -212,6 +212,7 @@ template.update(sql,25);
 
   销毁时触发
 
+<<<<<<< HEAD
 ## 工程目录
 
 - dao
@@ -321,3 +322,20 @@ mvn test
 -  界面层 ( 表示层 )
 -  业务逻辑层 ( 领域层)
 -  数据访问层 ( 持久层 )
+=======
+Redis
+
+MAVEN
+
+标准目录结构
+
+src/main/java	核心代码
+
+src/main/resources	配置文件
+
+src/test/java	测试代码
+
+src/main/webapp web资源
+
+## JNDI
+

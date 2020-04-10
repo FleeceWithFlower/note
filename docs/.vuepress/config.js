@@ -9,27 +9,27 @@ module.exports = {
             {
                 text: 'Client',
                 items: [
-                    {text: 'JavaScript', link: '/blog/Client/JS/'},
-                    {text: 'Vue', link: '/blog/Client/vue/'},
+                    {text: 'JavaScript',items:[{text: '基础语法', link: '/blog/Client/JS/'}]},
+                    {text: 'Vue', link: '/blog/Client/Vue/'},
                     {text: 'React', link: '/blog/Client/React/'},
-                    {text: 'Axios', link: '/blog/Client/axios/'},
-                    {text: 'Canvas', link: '/blog/Client/canvas/'},
-                    {text: 'Vue-x', link: '/blog/Client/vue-x/'},
-                    {text: 'Vue-router', link: '/blog/Client/vue-router/'},
-                    {text: 'LocalForage', link: '/blog/Client/localForage/'},
                 ]
 
             },
-            {
+/*            {
                 text: 'Server',
                 items: [
-                            {text: 'NodeJs', link: '/blog/Server/NodeJs/'},
-                            {text: 'Linux', link: '/blog/Server/Linux/'},
-                            {text: 'MongoDB', link: '/blog/Server/MongoDB/'},
-                            {text: 'Mongoose', link: '/blog/Server/MongoDB/mongoose/'},
-                            {text: 'Express', link: '/blog/Server/NodeJs/express/'},
-                            {text: 'MySQL', link: '/blog/Server/MySQL/'},
-                            {text: 'Windows', link: '/blog/Server/Windows/'},
+                    {text: 'Java', link: '/blog/Server/Java/'},
+                    {text: 'NodeJs', link: '/blog/Server/NodeJs/'},
+                    {text: 'C', link: '/blog/Server/C/'},
+                    {text: 'MongoDB', link: '/blog/Server/MongoDB/'},
+                    {text: 'MySQL', link: '/blog/Server/MySQL/'}
+                ]
+            },
+            {
+                text: 'OS',
+                items: [
+                    {text: 'Linux', link: '/blog/Server/Linux/'},
+                    {text: 'Windows', link: '/blog/Server/Windows/'}
                 ]
             },
             {
@@ -49,19 +49,76 @@ module.exports = {
                     {text: 'TypeScript', link: '/blog/Tools/typeScript/'},
                     {text: 'Flux', link: '/blog/Tools/flux/'},
                 ]
-            },
+            },*/
         ],
-        sidebar:'auto',
+        /*        sidebar:'false',*/
+        sidebar: {
+/*            '/blog/Client/Vue/': [
+                {
+                    title: 'Vue',
+                    collapsable: false,
+                    path: '/blog/Client/Vue/',
+                    children: []
+                }
+            ],*/
+/*            '/blog/Server/Java/': [
+                {
+                    title: 'Java',
+                    collapsable: false,
+                    path: '/blog/Server/Java/',
+                    children: [
+                        {
+                            title: '基础语法',
+                            path: '/blog/Server/Java/'
+                        }, {
+                            title: 'Mybatis',
+                            path: '/blog/Server/Java/Mybatis/'
+                        },
+                        {
+                            title: 'Junit',
+                            path: '/blog/Server/Java/Junit/'
+                        }, {
+                            title: 'Spring',
+                            path: '/blog/Server/Java/Spring/'
+                        }, {
+                            title: 'Druid',
+                            path: '/blog/Server/Java/Druid/'
+                        }]
+
+                }
+            ],
+            '/blog/Server/NodeJs/': [
+                {
+                    title: 'NodeJs',
+                    collapsable: false,
+                    path: '/blog/Server/NodeJs/',
+                    children: [
+                        {
+                            title: '基础语法',
+                            path: '/blog/Server/NodeJs/'
+                        }, {
+                            title: 'Express',
+                            path: '/blog/Server/NodeJs/'
+                        },
+                        {
+                            title: 'Koa2',
+                            path: '/blog/Server/NodeJs/'
+                        }
+                        ]
+
+                }
+            ],*/
+        },
         lastUpdated: 'Last Updated',
     },
     plugins: [
-/*        [
-            "vuepress-plugin-live2d",
-            {
-                "modelName": 'shizuku',/!*  ['z16','Epsilon2.1','izumi','koharu','shizuku','miku', 'hijiki', 'tororo']  *!/
-                "mobileShow": false
-            }
-        ]*/
+        /*        [
+                    "vuepress-plugin-live2d",
+                    {
+                        "modelName": 'shizuku',/!*  ['z16','Epsilon2.1','izumi','koharu','shizuku','miku', 'hijiki', 'tororo']  *!/
+                        "mobileShow": false
+                    }
+                ]*/
     ]
 
 }
