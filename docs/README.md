@@ -41,7 +41,6 @@ export default {
        function onMouseMove(e) {
            var x = e.clientX;
            var y = e.clientY;
-           console.log(e,x,y)
            var particle = new Particle(x, y, possibleColors[Math.floor(Math.random() * possibleColors.length)]);
            particles.push(particle)
        }
