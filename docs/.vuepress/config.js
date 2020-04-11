@@ -3,6 +3,9 @@ module.exports = {
     title: 'FleeceWithFlower',
     description: 'Blog',
     displayAllHeaders: false,
+    head: [
+        ['link', { rel: 'icon', href: `/icon1.png` }]
+    ],
     themeConfig: {
         nav: [
             {text: 'Home', link: '/',},

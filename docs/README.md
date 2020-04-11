@@ -32,24 +32,30 @@ overflow:hidden;
 
 export default {
   mounted () {
- 
-       var a = 1
        var particles = []
        var possibleColors = ["#D61C59", "#E7D84B", "#1B8798"];
        document.addEventListener('mousemove', onMouseMove);
-       document.addEventListener('touchmove', onMouseMove);
-       document.addEventListener('touchstart', onMouseMove);
+       document.addEventListener('touchmove', onTouchMove);
+       document.addEventListener('touchstart', onTouchMove);
    
        function onMouseMove(e) {
            var x = e.clientX;
            var y = e.clientY;
-           var a = new ppp(x, y, possibleColors[Math.floor(Math.random() * possibleColors.length)]);
-           particles.push(a)
-   
+           console.log(e,x,y)
+           var particle = new Particle(x, y, possibleColors[Math.floor(Math.random() * possibleColors.length)]);
+           particles.push(particle)
        }
+       function onTouchMove(e) {
+          if (e.touches.length > 0) {
+            for (var i = 0; i < e.touches.length; i++) {
+                var particle = new Particle(e.touches[i].clientX, e.touches[i].clientY,possibleColors[Math.floor(Math.random() * possibleColors.length)]);
+                particles.push(particle)
+             }
+           }
+        }
    
    
-       function ppp(x, y, c) {
+       function Particle(x, y, c) {
            function applyProperties(target, properties) {
                for (var key in properties) {
                    target.style[key] = properties[key];
