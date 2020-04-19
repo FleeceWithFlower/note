@@ -22,6 +22,8 @@ module.exports = {
                 items: [
                     {text: 'Java', link: '/blog/Server/Java/'},
                     {text: 'NodeJs', link: '/blog/Server/NodeJs/'},
+                    {text: 'Groovy', link: '/blog/Server/Groovy/'},
+                    {text: 'Kotlin', link: '/blog/Server/Kotlin/'},
                     {text: 'MongoDB', link: '/blog/Server/MongoDB/'},
                     {text: 'MySQL', link: '/blog/Server/MySQL/'},
                     {text: 'C', link: '/blog/Server/C/'},

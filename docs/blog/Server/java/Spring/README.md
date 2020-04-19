@@ -22,7 +22,19 @@ aop（面向切面编程）
 
 ApplicationContext
 
-创建对象立即加载
+​	获取容器
+
+```
+ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+```
+
+获取bean
+
+```
+IAcountService as =  ac.getBean("accountService",IAccountService.class)
+```
+
+
 
 构造方法
 
@@ -218,6 +230,12 @@ props
 
 ## 注解模式
 
+获取容器
+
+```
+ApplicationContext ac = new AnnotationConfigApplicationContext();
+```
+
 @Component
 
 > 将当前类对象存入Spring容器中
@@ -282,18 +300,92 @@ props
 
 > 指定初始化方法
 
-BeanFactory
+@Configuration
 
-Spring boot 
+> 配置类
 
-> 用于构建工程
+@ComponenScan
 
-Spring Cloud
+> 指定创建容器时要扫描的包
 
-> 给予Spring boot
+@Bean
 
-解耦
+> 用于把当前方法的返回值作为Bean对象存入Spring的IOC容器中
 
-编译期不依赖，运行期依赖
+- ​	name
+
+  等于ID
+
+@Import
+
+> 加载子配置类	
+
+@PropertySource
+
+> 加载properties文件
+
+```
+@PropertySource("classpath:jabc.properties");
+```
+
+@Value
+
+> 读取加载的properties值
+
+@ContextConfiguration
+
+> 声明spring配置项是XML方式或注解方式
+
+- location
+
+  > 指定xml文件路径
+
+- classes
+
+  > 类注解所在位置
+
+```
+@ContextConfiguration(classes = SpringConfiguration.class)
+```
+
+---
+
+@RestController
+
+>@Controller+@ResponseBody
+
+---
+
+## 事务
+
+## 动态代理
+
+
+
+## 数据注入
+
+@Value
+
+​	注入单个值	
+
+@ConfigurationProperties
+
+​	批量注入配置文件属性
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ​	
