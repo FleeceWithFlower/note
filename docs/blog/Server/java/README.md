@@ -1,4 +1,8 @@
-#Java
+# Java
+
+## J2EE
+
+J2EE的全称是Java 2 Platform Enterprise Edition，它是由SUN公司领导、各厂家共同制定并得到广泛认可的工业标准。Java EE是 J2EE的一个新的名称。
 
 ## JAVA类
 
