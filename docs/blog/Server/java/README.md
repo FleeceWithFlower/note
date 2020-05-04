@@ -339,3 +339,20 @@ src/main/webapp web资源
 
 ## JNDI
 
+## 集合接口
+
+Collection
+
+> 是最基本的集合接口 
+
+List  
+
+> 继承于`Collection`
+
+Set 
+
+> 继承于`Collection`
+
+### Map
+
+> 继承于`Collection`
