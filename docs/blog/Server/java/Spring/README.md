@@ -2,7 +2,9 @@
 
 > Spring 是一款轻量级控制反转（IOC）和面向切面编程（AOP）的框架
 
-ioc（控制反转）
+IoC
+
+​	全程`Inversion of Control` 控制反转。IoC也称为依赖注入（DI）
 
 对象由Spring创建，管理，装配，削减计算机的耦合。
 
@@ -18,11 +20,25 @@ aop（面向切面编程）
 
 
 
-
+BeanFactory
 
 ApplicationContext
 
-创建对象立即加载
+​	该`org.springframework.context.ApplicationContext`是一个维护bean定义以及相互依赖的注册表的高级工厂的接口,代表Spring IoC容器，并负责实例化，配置和组装Bean。
+
+```
+ApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+```
+
+getBean
+
+​	用来检索bean的实例
+
+```
+IAcountService as =  ac.getBean("accountService",IAccountService.class)
+```
+
+
 
 构造方法
 
@@ -40,31 +56,47 @@ ApplicationContext
 
 ## 构造函数模式
 
-bean
 
-- id
 
-  唯一标识
+### 标签
 
-- class
+- bean
 
-  指定类
+  ​	Spring IoC容器管理一个或多个bean。这些bean是使用您提供给容器的配置元数据创建的
 
-- scope
+- import
 
-  作用范围
+  > 引用其他XML文件的Bean
 
-  - singleton
+```
+ <import resource="services.xml"/>
+```
 
-    > 单例(默认值)
+- bean
 
-  - prototype
+  - id
 
-  - request
+    唯一标识符
 
-  - session
+  - class
 
-  - global-session
+    指定类
+
+  - scope
+
+    作用范围
+
+- singleton
+
+  > 单例(默认值)
+
+- prototype
+
+- request
+
+- session
+
+- global-session
 
 - factory-bean
 
@@ -73,6 +105,14 @@ bean
 - factory-method
 
   利用方法创造对象
+
+:::tip
+
+Bean命名约定
+
+​	bean名称以小写字母开头，实例名加包名，驼峰式大小写例子，包括`accountManager`， `accountService`，`userDao`，`loginController`，等等。
+
+:::
 
 使用类中默认构造函数创建对象
 
@@ -218,6 +258,12 @@ props
 
 ## 注解模式
 
+获取容器
+
+```
+ApplicationContext ac = new AnnotationConfigApplicationContext();
+```
+
 @Component
 
 > 将当前类对象存入Spring容器中
@@ -282,18 +328,92 @@ props
 
 > 指定初始化方法
 
-BeanFactory
+@Configuration
 
-Spring boot 
+> 配置类
 
-> 用于构建工程
+@ComponenScan
 
-Spring Cloud
+> 指定创建容器时要扫描的包
 
-> 给予Spring boot
+@Bean
 
-解耦
+> 用于把当前方法的返回值作为Bean对象存入Spring的IOC容器中
 
-编译期不依赖，运行期依赖
+- ​	name
+
+  等于ID
+
+@Import
+
+> 加载子配置类	
+
+@PropertySource
+
+> 加载properties文件
+
+```
+@PropertySource("classpath:jabc.properties");
+```
+
+@Value
+
+> 读取加载的properties值
+
+@ContextConfiguration
+
+> 声明spring配置项是XML方式或注解方式
+
+- location
+
+  > 指定xml文件路径
+
+- classes
+
+  > 类注解所在位置
+
+```
+@ContextConfiguration(classes = SpringConfiguration.class)
+```
+
+---
+
+@RestController
+
+>@Controller+@ResponseBody
+
+---
+
+## 事务
+
+## 动态代理
+
+
+
+## 数据注入
+
+@Value
+
+​	注入单个值	
+
+@ConfigurationProperties
+
+​	批量注入配置文件属性
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ​	

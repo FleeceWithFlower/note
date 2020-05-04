@@ -1,12 +1,15 @@
+---
+sidebar: auto
 
+---
 
-### Cli（脚手架）
+## Cli（脚手架）
 
 ```
 npx create-react-app my-app
 ```
 
-### 自定义配置
+## 自定义配置
 
 安装
 
@@ -52,7 +55,7 @@ module: {
 }
 ```
 
-### 组件
+## 组件
 
 - 函数定义组件
 
@@ -83,7 +86,7 @@ class MyComponent extends React.Component{
 
 
 
-### props 
+## props 
 
 - 函数组件
 
@@ -114,7 +117,7 @@ let person={
 let dom = <MyComponent person={person}></MyComponent>
 ```
 
-### state
+## state
 
 ```
 class MyComponent extends React.Component{
@@ -136,19 +139,19 @@ this.setState((state, props) => ({
 }));
 ```
 
-### Style
+## Style
 
 ```
  <h1 style={{color:'red'}}>评论区列表</h1>
 ```
 
-### CSS
+## CSS
 
 ```
  <h1 className="color-red">评论区列表</h1>
 ```
 
-### 事件
+## 事件
 
 class fields
 
@@ -185,7 +188,7 @@ class MyComponent extends React.Component{
 <button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
 ```
 
-### 表单
+## 表单
 
 #### 受控组件
 
@@ -216,11 +219,11 @@ class MyComponent extends React.Component{
 
 
 
-### 生命周期
+## 生命周期
 
 > 组件实例，从创建、运行、销毁	会触发一系列事件，这些事件叫做组件的生命周期函数
 
-#### 挂载
+### 挂载
 
 - constructor
 
@@ -234,7 +237,7 @@ class MyComponent extends React.Component{
 
   > 组件挂载后（插入 DOM 树中）调用
 
-#### 更新
+### 更新
 
 - static [getDerivedStateFromProps](https://zh-hans.reactjs.org/docs/react-component.html#static-getderivedstatefromprops)
 
@@ -254,13 +257,13 @@ class MyComponent extends React.Component{
 
   > 更新后调用。首次渲染不会执行此方法。
 
-#### 卸载
+### 卸载
 
 - [componentWillUnmount](https://zh-hans.reactjs.org/docs/react-component.html#componentwillunmount)
 
   > 组件卸载及销毁之前直接调用
 
-#### 错误处理
+### 错误处理
 
 - static [getDerivedStateFromError](https://zh-hans.reactjs.org/docs/react-component.html#static-getderivedstatefromerror)
 
@@ -270,7 +273,7 @@ class MyComponent extends React.Component{
 
   > 此生命周期在后代组件抛出错误后被调用
 
-### 组合&继承
+## 组合&继承
 
 > 接收父组件未知子节点，并在子组件指定位子渲染
 
@@ -296,7 +299,7 @@ render(){
 "proxy": "http://localhost:4000"
 ```
 
-### [Context](https://zh-hans.reactjs.org/docs/context.html)
+## [Context](https://zh-hans.reactjs.org/docs/context.html)
 
 - 创建
 
@@ -304,7 +307,7 @@ render(){
 const MyContext = React.createContext(defaultValue);
 ```
 
-- <Provider>
+- \<Provider\>
 
   > 传值
 
@@ -357,7 +360,7 @@ function Index(props) {
 
 
 
-### 错误边界
+## 错误边界
 
 static getDerivedStateFromError
 
@@ -382,13 +385,13 @@ componentDidCatch()
     }
 ```
 
-### [Refs 转发](https://zh-hans.reactjs.org/docs/forwarding-refs.html)
+## [Refs 转发](https://zh-hans.reactjs.org/docs/forwarding-refs.html)
 
 - React.forwardRef
 
   > 允许组件接收ref并且转发给子组件
 
-### Fragments
+## Fragments
 
 > 同Vue template，Fragments 允许你将子列表分组，而无需向 DOM 添加额外节点。
 
@@ -402,11 +405,11 @@ componentDidCatch()
 </>
 ```
 
-#### 高阶组件（HOC）
+## 高阶组件（HOC）
 
-### Hook
+## Hook
 
-### redux
+## redux
 
 - 安装
 

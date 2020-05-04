@@ -9,7 +9,7 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "sh": "deploy.sh"
+    "sh": "deploy.sh >> ./err.log"
   },
   "author": "",
   "license": "ISC",

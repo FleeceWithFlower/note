@@ -4,7 +4,7 @@
 
 *Distrib uted Version Control System*(<acronym title="*Distributed Version Control System*">DVCS</acronym>)
 
-<author>Linus Benedict Torvalds</author>
+/<author/>Linus Benedict Torvalds</author>
 
 > "Git是目前世界上最先进的分布式版本控制系统"
 
@@ -616,7 +616,7 @@ git reset --hard HEAD^^
 git reset --hard HEAD^^
 ```
 
-git reset --hard <commit id>
+git reset --hard ${commit id}
 
 ***
 
@@ -833,4 +833,3 @@ git log
 
   > 将数据推送到远程仓库
 
-  
