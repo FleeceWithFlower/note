@@ -4,9 +4,7 @@
 
 IoC
 
-​	全程`Inversion of Control` 控制反转。IoC也称为依赖注入（DI）
-
-对象由Spring创建，管理，装配，削减计算机的耦合。
+​	全程`Inversion of Control` 控制反转。对象由Spring创建，管理，装配，削减计算机的耦合。其中最常见的方式叫做*依赖注入*（Dependency Injection，简称DI）
 
 - DI(注入依赖)
 
@@ -35,7 +33,9 @@ getBean
 ​	用来检索bean的实例
 
 ```
-IAcountService as =  ac.getBean("accountService",IAccountService.class)
+IA as =  ac.getBean("accountService",IA.class) //使用ID
+IA as =  ac.getBean("accountServiceAlias ",IA.class)//使用name或别名
+IA as =  ac.getBean(IA.class)//使用类
 ```
 
 
@@ -54,7 +54,7 @@ IAcountService as =  ac.getBean("accountService",IAccountService.class)
 
   读取注解
 
-## 构造函数模式
+## 
 
 
 
@@ -64,6 +64,84 @@ IAcountService as =  ac.getBean("accountService",IAccountService.class)
 
   ​	Spring IoC容器管理一个或多个bean。这些bean是使用您提供给容器的配置元数据创建的
 
+  :::tip
+
+  Bean命名约定
+
+  ​	bean名称以小写字母开头，实例名加包名，驼峰式大小写例子，包括`accountManager`， `accountService`，`userDao`，`loginController`，等等。
+
+  :::
+
+  - id
+
+    唯一标识符
+
+  - name
+
+    别名
+
+  - class
+
+    指定类
+
+    :::tip
+
+    class命名规则
+
+    1.类全名
+
+    2.类中的嵌套类
+
+    例如，如果`SomeThing`在`com.example`包中有一个名为的类，并且 `SomeThing`该类有一个`static`名为的嵌套类`OtherThing`，则`class` bean定义上的属性值将为`com.example.SomeThing$OtherThing`。
+
+    :::
+
+  - scope
+
+    作用范围
+
+  - singleton
+
+    > 单例(默认值)
+
+  - factory-method
+
+    利用方法创造对象
+
+  - factory-bean
+
+    指定某一个bean返回的类
+
+  - request
+
+  - session
+
+  - global-session
+
+  ```
+  //对象工程静态创建对象 //静态方法有static修饰
+  <bean id="clientService"
+      class="examples.ClientService"
+      factory-method="createInstance"/>
+  //动态创建对象
+  <bean id="serviceLocator" class="examples.DefaultServiceLocator"></bean>
+  <bean id="clientService"
+      factory-bean="serviceLocator"
+      factory-method="createClientServiceInstance"/>    
+  ```
+
+  
+
+- alias
+
+  别名
+
+```
+<alias name="myApp-dataSource" alias="subsystemA-dataSource"/>//name值可以为 Bean的id或name
+```
+
+
+
 - import
 
   > 引用其他XML文件的Bean
@@ -72,47 +150,47 @@ IAcountService as =  ac.getBean("accountService",IAccountService.class)
  <import resource="services.xml"/>
 ```
 
-- bean
+- constructor-arg
 
-  - id
+  ​	传参
 
-    唯一标识符
+  - value
 
-  - class
+    ​	参数值
 
-    指定类
+  - type
 
-  - scope
+    ​	参数类型
 
-    作用范围
+  - index
 
-- singleton
+    ​	参数索引
 
-  > 单例(默认值)
+  - name
 
-- prototype
+    ​	参数名
 
-- request
+  - ref
 
-- session
+    ​	引用
 
-- global-session
+- property
 
-- factory-bean
+  - name
 
-  指定某一个bean返回的类
+    参数名
 
-- factory-method
+  - value
 
-  利用方法创造对象
+    参数值
 
-:::tip
+  - ref
 
-Bean命名约定
+    引用
 
-​	bean名称以小写字母开头，实例名加包名，驼峰式大小写例子，包括`accountManager`， `accountService`，`userDao`，`loginController`，等等。
 
-:::
+
+
 
 使用类中默认构造函数创建对象
 
@@ -133,67 +211,98 @@ Bean命名约定
 <bean id="accountService" class="service.impl.AccountServiceImpl" factory-method="getAccountService"></bean>
 ```
 
-constructor-arg
 
-传参
+
+## 基于构造函数注入模式
 
 ```
-<bean id="accountService" class="service.impl.AccountServiceImpl">
-        <constructor-arg index="0" name="name" value="89cff0" type="java.lang.String"/>
-        <constructor-arg index="1" name="age" value="18" type="java.lang.Integer"/>
-        <constructor-arg index="2" name="birthday"  ref="now"/>
-</bean>
+package com.fleece.springFrameworkDemo.dao;
+
+import java.util.Date;
+
+public class User {
+    private String name;
+    private Integer age;
+    private Date date;
+
+    public User(String name, Integer age,Date date) {
+        this.name = name;
+        this.age = age;
+        this.date = date;
+    }
+    public String getName() {
+        return name;
+    }
+    public Integer getAge() {
+        return age;
+    }
+    public Date getDate() {
+        return date;
+    }
+}
+```
+
+
+
+```
+//bean.xml
 <bean id="now" class="java.util.Date"></bean>
+<bean id="user" class="com.fleece.springFrameworkDemo.dao.User">
+        <constructor-arg  name="name" value="K"/>
+        <constructor-arg  name="age" value="18"/>
+        <constructor-arg  name="date" ref="now" />
+</bean>
 ```
 
-- type
-
-  参数类型
-
-- index
-
-  参数索引
-
-- name
-
-  参数名
-
-- value
-
-  参数值
-
-- ref
-
-  引用
+使用	constructor-arg 标签注入依赖，name为属性名，value为值，Spring自动转换基本类型，复杂类型需要使用 bean 引入。 
 
 
 
-## set注入模式
 
-property
 
-调用Class中 set方法
+
+
+
+
+## 基于set方法注入模式
 
 ```
-    <bean id="accountService2" class="service.impl.AccountServiceImpl2">
-        <property name="name"  value="89cff0" ></property>
-        <property name="age"  value="18" ></property>
-        <property name="birthday"  ref="now" ></property>
-    </bean>
-    <bean id="now" class="java.util.Date"></bean>
+package com.fleece.springFrameworkDemo.dao;
+import java.util.Date;
+public class Account {
+    public Integer id;
+    public Integer count;
+    public Date date;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+    public void setDate(Date date) {
+        this.date = date;
+    }
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", count=" + count +
+                ", date=" + date +
+                '}';
+    }
+}
 ```
 
-- name
+```
+<bean id="now" class="java.util.Date"></bean>
+<bean id="account" class="com.fleece.springFrameworkDemo.dao.Account">
+<property  name="id" value="1"></property>
+<property  name="count" value="200"></property>
+<property  name="date" ref="now"></property>
+</bean>
+```
 
-  参数名
-
-- value
-
-  参数值
-
-- ref
-
-  引用
+使用 property 标签 通过 set方法 注入依赖，基本类型自动转换，复杂类型通过 指定Bean标签或 一下方法注入
 
 复杂类型
 
@@ -252,9 +361,9 @@ props
 </property>
 ```
 
-区别
+## 构造函数注入与set注入区别
 
-构造函数 必须传值，set模式不用。
+构造函数 必须传所有值，set模式不用传所有值。
 
 ## 注解模式
 
