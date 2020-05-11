@@ -690,3 +690,16 @@ FTP
 service vsftpd restart
 ```
 
+## 压缩
+
+zip命令
+
+　　解压：unzip FileName.zip
+
+　　压缩：zip FileName.zip DirName
+
+```
+//将demo目录下所有文件 压缩成demo.zip
+zip -r demo.zip demo/
+```
+
