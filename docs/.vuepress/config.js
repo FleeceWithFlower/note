@@ -12,7 +12,7 @@ module.exports = {
             {
                 text: 'Client',
                 items: [
-                    {text: 'JavaScript', link: '/blog/Client/JS/'},
+                    {text: 'JavaScript', link: '/blog/Client/JavaScript/'},
                     {text: 'Vue', link: '/blog/Client/Vue/'},
                     {text: 'React', link: '/blog/Client/React/'},
                 ]
@@ -57,6 +57,16 @@ module.exports = {
         ],
         sidebarDepth: 2,
         sidebar: {
+            '/blog/Client/JavaScript/': [
+                {
+                    title: 'JavaScript',
+                    path: '/blog/Client/JavaScript/'
+                },
+                {
+                    title: 'Canvas',
+                    path: '/blog/Client/JavaScript/Canvas/'
+                },
+            ],
             '/blog/Client/Vue/': [
                 {
                     title: 'Vue',
