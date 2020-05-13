@@ -2,33 +2,41 @@
 
 ---
 
+请求返回
+
 ```
-//pom.xml
-<parent>  
-<groupId>org.springframework.boot</groupId> 
-<artifactId>spring-boot-starter-parent</artifactId>  
-<version>2.2.2.RELEASE</version>  <relativePath/> 
-</parent>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-                        <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                </plugin>
+@RestController
+public class HelloWorld {
+    @RequestMapping("/hello")
+    public  String hello(){
+        return "Hello World";
+    }
+}
+```
+
+模板引擎
+
+```
+@Controller
+public class Index {
+    @RequestMapping("/")
+    public  String hello(){
+        model.addAttribute("text","Welcome");
+        return "index";
+    }
+}//classpath:templates/index.html
 ```
 
 
 
+  
+
+
+
+静态资源
+
+classpath:	public   resources  static
+
+resources   >  static  >  public
+
+webjars

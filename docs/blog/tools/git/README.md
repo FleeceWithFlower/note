@@ -783,6 +783,10 @@ git log
 
   > 为历史提交补加标签
 
+- git tag -d <tagname>
+
+  > 删除标签
+
 - git push [remote name] [tag name]
 
   > 向远程仓库标签
