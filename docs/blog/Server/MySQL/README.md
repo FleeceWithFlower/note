@@ -3,7 +3,8 @@
 - 配置文件
 
 ```
-C:\\mysql\my.ini
+C:\\mysql\my.ini   //windows
+/etc/my.cnf   //linux
 ```
 
 - 初始化数据库
@@ -17,12 +18,25 @@ mysqld --install //初始化服务
 mysqld --initialize --console //初始化root用户
 ```
 
+- 初始密码
+
+```
+//linux
+sudo grep 'temporary password' /var/log/mysqld.log
+```
+
+
+
 - 启动及关闭 MySQL 服务器
 
 ```
 //windows
 net start mysql
 net stop mysql
+//linux
+systemctl start mysqld //启动
+systemctl stop mysqld //关闭
+systemctl status mysqld //查看状态
 ```
 
 - 登录
