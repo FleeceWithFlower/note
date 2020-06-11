@@ -1,3 +1,5 @@
+# TypeScript
+
 - 安装
 
 ```
@@ -8,6 +10,27 @@ npm install typescript -D
 
 ```
 tsc <file>
+```
+
+## 语法
+
+- 变量
+
+```
+//修饰符 变量名:变量类型 = 值三
+let isDone: boolean = false;
+```
+
+- 函数
+
+```
+//修饰符 函数名(参数:参数类型):返回值类型
+function add(x: number, y: number): number {
+    return x + y;
+}
+
+
+
 ```
 
 
