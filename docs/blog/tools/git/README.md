@@ -759,7 +759,7 @@ git log
 
   >将文件设为未追踪状态
 
--  git clean -d -fx 
+-  git clean -d -f 
 
   > 清除未追踪的文件
 

@@ -58,7 +58,7 @@ mstsc
   创建服务
 
 ```
-sc MongoDB create bindPath"C:\MongoDb\bin\mongod.exe"
+sc create nginx binpath= "C:\Program Files\nginx\nginx.exe"
 ```
 
 taskkill
