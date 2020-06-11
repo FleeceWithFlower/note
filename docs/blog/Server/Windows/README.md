@@ -61,9 +61,13 @@ mstsc
 sc MongoDB create bindPath"C:\MongoDb\bin\mongod.exe"
 ```
 
+taskkill
 
+- 杀进程
 
-
+```
+taskkill /f /t /im ${id}
+```
 
 
 
