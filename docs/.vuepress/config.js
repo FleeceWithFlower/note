@@ -13,20 +13,36 @@ module.exports = {
                 text: 'Client',
                 items: [
                     {text: 'JavaScript', link: '/blog/Client/JavaScript/'},
+                    {text: 'TypeScript', link: '/blog/Client/TypeScript/'},
                     {text: 'Vue', link: '/blog/Client/Vue/'},
+                    {text: 'vue-router', link: '/blog/Client/Vue/vue-router/'},
+                    {text: 'vue-vueX', link: '/blog/Client/Vue/vue-vueX/'},
                     {text: 'React', link: '/blog/Client/React/'},
+                    {text: 'react-router', link: '/blog/Client/React/react-router/'},
+                    {text: 'react-redux', link: '/blog/Client/React/react-redux/'},
+                    {text: '微信小程序', link: '/blog/Client/微信小程序/'},
                 ]
             },
             {
                 text: 'Server',
                 items: [
                     {text: 'Java', link: '/blog/Server/Java/'},
-                    {text: 'NodeJs', link: '/blog/Server/NodeJs/'},
-                    {text: 'Groovy', link: '/blog/Server/Groovy/'},
-                    {text: 'Kotlin', link: '/blog/Server/Kotlin/'},
-                    {text: 'MongoDB', link: '/blog/Server/MongoDB/'},
-                    {text: 'MySQL', link: '/blog/Server/MySQL/'},
+                    {text: 'spring', link: '/blog/Server/Java/Spring/'},
+                    {text: 'springMVC', link: '/blog/Server/Java/SpringMVC/'},
+                    {text: 'springBoot', link: '/blog/Server/Java/SpringBoot/'},
+                    {text: 'springCloud', link: '/blog/Server/Java/springCloud/'},
+                    {text: 'Node', link: '/blog/Server/NodeJs/'},
+                    {text: 'express', link: '/blog/Server/NodeJs/Express/'},
+                    {text: 'koa2', link: '/blog/Server/NodeJs/Koa2/'},
                     {text: 'C', link: '/blog/Server/C/'},
+                ]
+            },
+            {
+                text: 'DB',
+                items: [
+                    {text: 'MySQL', link: '/blog/Server/MySQL/'},
+                    {text: 'Mybatis', link: '/blog/Server/Java/Mybatis/'},
+                    {text: 'MongoDB', link: '/blog/Server/MongoDB/'},
                 ]
             },
             {
@@ -50,7 +66,6 @@ module.exports = {
                     {text: 'VuePress', link: '/blog/Tools/VuePress/'},
                     {text: 'Webpack', link: '/blog/Tools/webpack/'},
                     {text: 'Yum', link: '/blog/Tools/yum/'},
-                    {text: 'TypeScript', link: '/blog/Tools/typeScript/'},
                     {text: 'Flux', link: '/blog/Tools/flux/'},
                 ]
             },
@@ -66,25 +81,6 @@ module.exports = {
                     title: 'Canvas',
                     path: '/blog/Client/JavaScript/Canvas/'
                 },
-            ],
-            '/blog/Client/Vue/': [
-                {
-                    title: 'Vue',
-                    path: '/blog/Client/Vue/'
-                },
-                {
-                    title: 'Vue-x',
-                    path: '/blog/Client/Vue/Vue-x/'
-                },
-                {
-                    title: 'Vue-router',
-                    path: '/blog/Client/Vue/Vue-router/'
-                },
-                {
-                    title: 'Axios',
-                    path: '/blog/Client/Vue/Axios/'
-                }
-
             ],
             '/blog/Server/Java/': [
                 {
