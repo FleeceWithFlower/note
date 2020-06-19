@@ -235,13 +235,6 @@ x-www-form-urlencoded 发送 非ascii 时，传输数据大
 
 
 
-### JWT（JSON Web Token）
-
-- JSON Web令牌结构
-- Header
-- Payload
-- Signature
-
 ## 关键字
 
 - HTTP

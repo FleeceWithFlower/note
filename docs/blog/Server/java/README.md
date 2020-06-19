@@ -1,10 +1,48 @@
 # Java
 
-## J2EE
+## 数据类型
 
-J2EE的全称是Java 2 Platform Enterprise Edition，它是由SUN公司领导、各厂家共同制定并得到广泛认可的工业标准。Java EE是 J2EE的一个新的名称。
+- 整型
+  - int(常用)
+  
+  - short
+  
+- long
+  
+  - byte
+  
+  - BigInteger
+  
+    大整数，没有位数限制
+  
+- 小数
+  - float
+  - double(常用)
 
-## JAVA类
+- char
+
+  用于表示Unicode，不常用
+
+- boolean
+
+- String（非内置类型）
+
+  非内置类型，由char值序列组成
+
+- enum
+
+  枚举类型
+
+  ```
+  //自定义枚举类型
+  enum Size {SMALL,MEDIUM,LARGE}
+  //声明 Szie 类型变量
+  Size s = Size.MEDIUM
+  ```
+
+  
+
+## JAVA类 
 
 ## JAVA抽象类
 
@@ -43,7 +81,11 @@ J2EE的全称是Java 2 Platform Enterprise Edition，它是由SUN公司领导、
 
 ## 修饰符
 
-### static 
+- final
+
+  声明常量
+
+### static
 
 - 静态变量
 
@@ -372,3 +414,13 @@ Set
 ### Map
 
 > 继承于`Collection`
+
+### 关键字
+
+- 集合√
+
+  由一个或多个确定的元素所构成的整体
+
+  - 链表
+  - 循环数组
+  - 队列

@@ -61,9 +61,13 @@ mstsc
 sc create nginx binpath= "C:\Program Files\nginx\nginx.exe"
 ```
 
+taskkill
 
+- 杀进程
 
-
+```
+taskkill /f /t /im ${id}
+```
 
 
 
