@@ -34,3 +34,12 @@ idea需要安装	Lombok	插件
 **@RequiredArgsConstructor：生成包含final和@NonNull注解的成员变量的构造器；**
 
 **@AllArgsConstructor：生成全参构造器**
+
+- 链式写法
+
+```
+ @Accessors(chain = true) 
+```
+
+
+
