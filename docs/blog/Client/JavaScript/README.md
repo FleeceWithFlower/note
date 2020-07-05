@@ -61,10 +61,6 @@ ECMAScript 版本号 ECMA-262
 
 函数表达式
 
-THIS
-
-> this 对象是在运行时基于函数的执行环境绑定
-
 闭包
 
 > 有权访问另一个函数作用域中的变量的函数
@@ -174,6 +170,51 @@ THIS
 - continue：立即退出当前循环项，进入下一循环项
 - switch：评估一个表达式，将表达式的值与`case`子句匹配，并执行与该情况相关联的语句。
 
+## Date
 
+- 毫秒
 
+  ```
+  let millisecond = new Date().getTime()
+  ```
+
+:::tip
+
+国际版还是国内版，自带函数都是转换成本地时间
+
+:::tip
+
+## This
+
+> this 对象是在运行时基于函数的执行环境绑定
+
+指向调用函数的对象
+
+```
+//指向obj
+let obj ={
+    name:'obj',
+    f : function () {
+        console.log(this)
+    }
+}
+obj.f()
+```
+
+- 箭头函数	This
+
+指向上层作用域内this指向
+
+```
+//指向obj
+let obj ={
+    name:'obj',
+    f : function() {
+        setTimeout(()=>{
+            console.log(this)
+        },0)
+    }
+}
+obj.f()
+```
 

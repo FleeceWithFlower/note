@@ -791,7 +791,7 @@ git log
 
   > 向远程仓库标签
 
-- git push [remote name] [tag name] --tags
+- git push [remote name]  --tags
 
   > 向远程仓库所有标签
   
