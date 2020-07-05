@@ -6,3 +6,9 @@
 
 2.逐一测试
 
+后台管理系统
+
+```
+http://test.cloud.manage.mzgf.com/
+```
+
