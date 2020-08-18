@@ -751,6 +751,10 @@ git log
 
   > 创建分支
 
+- git branch --merge
+
+  > 查看已合并分支
+
 - git status
 
   > 查看当前分支状态

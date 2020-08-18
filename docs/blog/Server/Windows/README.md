@@ -69,7 +69,23 @@ taskkill
 taskkill /f /t /im ${id}
 ```
 
+## JAR
+
+解压
+
+```
+jar xf smack-extensions-4.3.3.jar
+```
+
+压缩目录下的所有文件
+
+```
+jar -cvf '打包名' *
+```
 
 
 
+```
+sc create nginx binpath= "C:\Program Files\nginx\nginx.exe -p \"C:\Program Files\nginx\"" DisplayName= "nginx" start= delayed-auto
+```
 

@@ -147,3 +147,21 @@ public void handle(HttpEntity<Account> entity) {
 - `@PutMapping`
 - `@DeleteMapping`
 - `@PatchMapping`
+
+## 自定义异常
+
+```
+@ControllerAdvice
+public class HandlerControllerException {
+
+    @ExceptionHandler(RuntimeException.class)
+    public String handException(RuntimeException e){
+        System.out.println(e);
+        if(e instanceof AccessDeniedException){
+            return "redirect:/403";
+        }
+        return "redirect:/500";
+    }
+}
+```
+

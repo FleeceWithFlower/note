@@ -20,11 +20,11 @@
 
 - toBeTruthy
 
-  表达式为假
+  表达式为真
 
 - toBeFalsy
 
-  表达式为真
+  表达式为假
 
 - toBe
 
