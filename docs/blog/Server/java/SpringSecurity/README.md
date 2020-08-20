@@ -23,6 +23,23 @@ SecurityContextHolder.getContext().getAuthentication().getPrincipal()
 
   ​	配置`Controller`权限
 
+## 配置
+
+```
+security:
+  oauth2:
+    authorization:
+      check-token-access: http://localhost:4002/oauth/check_token
+    client:
+      clientId: flower
+      clientSecret: 2469220
+    resource:
+      token-info-uri: http://localhost:4002/oauth/check_token
+      prefer-token-info: true
+```
+
+
+
 ## configure
 
 ```
