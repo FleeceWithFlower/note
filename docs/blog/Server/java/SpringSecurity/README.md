@@ -458,4 +458,11 @@ http://localhost:8889/oauth/token
 - grant_type=refresh_token
 - client_id 
 - client_secret 
-- refresh_token
+
+springSecurityFilterChain
+
+该bean负责应用程序中的所有安全性（保护应用程序URL，验证提交的用户名和密码，重定向到登录表单等）。
+
+- UserDetailsService
+
+  用户服务，默认生成`user`用户和密码,密码输出在控制天
