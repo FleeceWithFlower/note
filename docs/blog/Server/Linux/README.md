@@ -703,3 +703,38 @@ zip命令
 zip -r demo.zip demo/
 ```
 
+关键字
+
+-  systemctl restart firewalld 
+
+  打开防火墙
+
+-  systemctl restart firewalld 
+
+  重启防火墙
+
+-  firewall-cmd --zone=public --add-port=80/tcp --permanent 
+
+  开放端口号
+
+-  systemctl status redis 
+
+  查看服务状态
+
+-  systemctl start redis 
+
+  启动服务
+
+-  systemctl stop redis 
+
+  停止服务
+
+-  systemctl restart redis 
+
+  重启服务
+
+-  systemctl enable redis 
+
+  开机启动服务
+
+  

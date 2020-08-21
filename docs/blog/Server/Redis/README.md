@@ -4,11 +4,25 @@
 
  检测 `redis`服务是否启动 
 
-- 远程服务器
+- 服务器
 
 ```
 $ redis-cli -h host -p port -a password
 ```
+
+- 登录
+
+```
+auth password
+```
+
+- 修改配置
+
+```
+vi /etc/redis.conf
+```
+
+
 
 ##  键命令 
 
@@ -208,6 +222,62 @@ $ redis-cli -h host -p port -a password
 
   获取所有map val
 
+## zset(有序集合)
+
+- zadd key score val
+
+  设值
+
+- zrangebyscore [key] [min] [max] 
+
+  排序	
+
+- zrem
+
+  移除
+
+## Geospato
+
+- geoadd key lon lat val
+
+## Hyperloglog
+
+​	基数
+
+- PFadd
+
+## Bitmaps
+
+​	位存储，只有0和1
+
+## 事务
+
+- multi
+
+  开始事务
+
+- exec
+
+  结束事务
+
+- discard
+
+  放弃事务
+
+## 乐观锁
+
+- watch
+
+  监视，如果数据被修改，导致事务执行	失败
+
+- unwatch
+
+  放弃监视
+
+## jedis
+
+​	java连接工具
+
 关键字
 
 - select [index]
@@ -233,3 +303,29 @@ $ redis-cli -h host -p port -a password
 - type [key]
 
   查看值类型
+
+## 持久化
+
+- RDB
+
+  dump.rdb
+
+  同一时间集体保存,数据会丢失
+
+  - 触发条件
+
+  1. save规则满足情况下，redis会自动触发RDB规则
+  2. flushall命令
+  3. 退出Redis
+
+  - 恢复
+
+    将RDB放在redis目录下，启动时自动加载
+
+- AOF
+
+  appendonly.aof
+
+  以日志的形式记录每个写操作，Redis执行时，只追加文件不可改写文件，redis启动时读取该文件重构。
+
+  每秒执行一次sync保存日志。

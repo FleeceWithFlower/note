@@ -1,0 +1,1 @@
+ ES是一个基于RESTful web接口并且构建在Apache Lucene之上的开源分布式搜索引擎。 
