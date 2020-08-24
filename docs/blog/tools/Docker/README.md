@@ -201,3 +201,66 @@ docker build -f ./dockerfile -t test/centos .
 --voumes-from 
 ```
 
+## Docker Compose
+
+定义运行多个容器
+
+- 安装
+
+```
+sudo curl -L "https://get.daocloud.io/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose -o /usr/local/bin/docker-compose
+```
+
+- 授权
+
+```
+sudo chmod +x docker-compose
+```
+
+- 查看版本
+
+```
+docker-compose version
+```
+
+- 查看网络
+
+```
+docker network ls
+```
+
+- 查看网络细节
+
+```
+docker network inspect id
+```
+
+- 停止
+
+```
+docker-compose stop
+```
+
+
+
+##  alpine 
+
+```
+FROM alpine:3.7
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+```
+
+```
+FROM python:3.7-alpine
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+WORKDIR /code
+ENV FLASK_APP app.py
+ENV FLASK_RUN_HOST 0.0.0.0
+RUN apk add --no-cache gcc musl-dev linux-headers
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+EXPOSE 5000
+COPY . .
+CMD ["flask", "run"]
+```
+
