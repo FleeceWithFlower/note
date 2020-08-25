@@ -2,7 +2,7 @@
 
 将应用和环境打包成一个镜像	
 
-国内阿里云镜像地址
+**国内阿里云镜像地址**
 
 ```
 yum-config-manager \
@@ -10,7 +10,7 @@ yum-config-manager \
     http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
 
-安装
+**安装**
 
 ```
 yum install -y yum-utils
@@ -23,22 +23,10 @@ yum install docker-ce docker-ce-cli containerd.io
 systemctl start docker
 ```
 
-版本
+**版本**
 
 ```
 docker version
-```
-
-hello world
-
-```
-docker run hello-world
-```
-
-查看镜像
-
-```
-docker images
 ```
 
 卸载docker
@@ -47,132 +35,184 @@ docker images
 yum remove docker-ce docker-ce-cli containerd.io
 ```
 
-删除资源
+**删除资源**
 
 ```
 rm -rf /var/lib/docker
 ```
 
+
+
 ## 镜像命令
 
-- 查看镜像
+**查看镜像**
 
 ```
 docker images
 ```
 
-- 下载镜像
+**搜索镜像**
 
 ```
-docker pull mysql
+docker search mysql
 ```
 
-- 删除镜像
+**下载镜像**
 
 ```
-docker rmi -f id
+docker pull image:version	//从 http://hub.docker.com 下载
 ```
+
+**删除镜像**
+
+```
+docker rmi -f id	//删除指定镜像
+docker rmi -f $(docker images -qa)	//删除所有镜像
+```
+
+**创建镜像**
+
+​	通过`Dockerfile`创建镜像
+
+```
+docker build
+-f ./Dockerfile	//指定 Dockerfile 文件名
+-t test/centos	//镜像名
+. //	本次执行的上下文路径
+```
+
+**标签**
+
+```
+docker tag 860c279d2fec runoob/centos:dev	//为镜像添加一个新的标签
+```
+
+
 
 ## 容器命令
 
-- 新建容器
+**运行容器**
 
 ```
-docker pull centos
+docker run
+--name name //容器名
+-d //让容器在后台运行
+-it //-i: 交互式操作。	-t: 终端。
+-v 主机目录：容器目录	//映射数据卷
+-p 主机端口：容器端口	//映射指定端口
+-P // 将所有公开的端口发布到随机端口
+imageID
+/bin/bash // 放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 /bin/bash。
 ```
 
-- 重启
+**进入容器终端**
 
 ```
-docker restart
+docker attach containerID
+docker exec -it  containerID  /bin/bash	//开启新的终端（用于执行命令）
 ```
 
-- 运行容器
+**退出容器终端**
 
 ```
-docker run image
-参数
---name="Name" //用于区分容器
--d //后台方式运行
--ir //交互运行
--p 主机端口：容器端口//指定端口 
+ctrl + P + Q //退出容器终端
+exit //退出容器终端并停止容器
 ```
 
-```
-docker run -it cemtos /bin/bash
-exit //退出
-ctrl + P + Q //容器不停止但退出命令
-```
-
-- 查看运行容器
+**查看运行容器**
 
 ```
-docker ps
-参数
--a //历史运行
+docker ps	//正在运行的容器
+docker ps -a //所有容器
 ```
 
-- 删除容器
-
-```
-docker rm id
-```
-
-- 查看日志
-
-```
-docker logs
-```
-
-- 查看进程信息
-
-```
-docker top id 
-```
-
-- 查看容器信息
+**查看指定容器信息**
 
 ```
 docker inspect id
 ```
 
-- 进入程序并开启新的终端
+**检查`WEB `应用程序**
 
 ```
-docker exec -it  id  /bin/bash
+docker inspect containerID
 ```
 
-- 进入程序
+**删除容器**
 
 ```
-docker attach id 
+docker rm container	//删除指定容器
+docker rm $(sudo docker ps -a -q)	//删除所有容器
 ```
 
-- 拷贝数据
+**启动容器**
 
 ```
-docker cp 容器id：容器路径 目的主机路径
+docker start container
 ```
 
-- 提交
+**停止容器**
 
 ```
-docker commit -m"提交信息" -a"作者"
+docker stop container
 ```
+
+**重启容器**
+
+```
+docker restart container
+```
+
+**查看日志**
+
+```
+docker logs containerID	//查看容器输出
+```
+
+**查看进程信息**
+
+```
+docker top id //查看容器内部运行的进程
+```
+
+**拷贝数据**
+
+```
+docker cp containerID：容器路径 目的主机路径
+```
+
+**提交**
+
+```
+docker commit -m"提交信息" -a"作者" // 保存为新的镜像,并添加提交人信息和说明信息。
+```
+
+ **导出容器** 
+
+```
+docker export 1e560fca3906 > ubuntu.tar
+```
+
+ **导入容器** 
+
+```
+cat ./ubuntu.tar | docker import - test/ubuntu:v1
+//实例将快照文件 ubuntu.tar 导入到镜像 test/ubuntu:v1
+```
+
+**查看端口**
+
+```
+docker port containerID
+```
+
+
 
 ## 容器数据卷
 
-容器的持久化和同步操作，容器和主机共享目录
+ Docker Volume能让容器从宿主主机中读取文件或持久化数据到宿主主机内，让容器与容器产生的数据分离开来。  Volume的生命周期是独立于容器的生命周期之外的，即使容器删除了，volume也会被保留下来。
 
-```
-docker run -it -v 主机目录：容器目录
-```
-
-具名挂载
-
-匿名挂载
-
-- 查看卷信息
+**查看卷信息**
 
 ```
 docker volume ls
@@ -180,10 +220,11 @@ docker volume ls
 
 ## Dockerfile
 
-镜像脚本
+ Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。 
 
 ```
-FROM centos
+FROM centos	//基于镜像
+RUN	echo 'hello' > /index.html	//用于执行后面跟着的命令行命令。
 VOLUME ["VOLUME01","VOLUME02"]
 CMD echo "---end---"
 CMD /bin/bash
@@ -193,12 +234,110 @@ CMD /bin/bash
 docker build -f ./dockerfile -t test/centos .
 ```
 
-数据同步
+**RUN**
 
-容器之间数据同步
+docker build时运行命令
 
 ```
---voumes-from 
+RUN <命令行命令>
+RUN ["可执行文件", "参数1", "参数2"]
+// Dockerfile 的指令每执行一次都会在 docker 上新建一层。所以过多无意义的层，会造成镜像膨胀过大 可简化为
+RUN yum install wget \
+    && wget -O redis.tar.gz "http://download.redis.io/releases/redis-5.0.3.tar.gz" \
+    && tar -xvf redis.tar.gz
+```
+
+**CMD**
+
+ 类似于 RUN 指令，用于运行程序，但二者运行的时间点不同 
+
+- CMD 在docker run 时运行。 会被 docker run 命令行参数中指定要运行的程序所覆盖。 
+- Dockerfile 中如果存在多个 CMD 指令，仅最后一个生效。 
+
+```
+CMD <shell 命令> 
+CMD ["<可执行文件或命令>","<param1>","<param2>",...] 
+CMD ["<param1>","<param2>",...]  # 该写法是为 ENTRYPOINT 指令指定的程序提供默认参数
+```
+
+**ENTRYPOINT**
+
+同CMD
+
+-  不会被 docker run 的命令行参数指定的指令所覆盖 
+-  会被docker run 时使用了 --entrypoint 选项 覆盖
+- Dockerfile 中如果存在多个 `ENTRYPOINT`指令，仅最后一个生效
+
+```
+//联合使用
+ENTRYPOINT ["nginx", "-c"] # 定参
+CMD ["/etc/nginx/nginx.conf"] # 变参 
+-----------------
+docker run  nginx:test -c /etc/nginx/new.conf
+最终结果是	nginx -c /etc/nginx/new.conf
+```
+
+**COPY**
+
+ 复制指令，从上下文目录中复制文件或者目录到容器里指定路径。 
+
+```
+COPY *.jar /app.jar
+```
+
+**ADD**
+
+同COPY，但会自动解压
+
+```
+ADD zip.tar /myzip
+```
+
+**ENV**
+
+设置环境变量， 在后续的指令中可以通过 $NODE_VERSION 引用 
+
+```
+ENV <key> <value>
+ENV <key1>=<value1> <key2>=<value2>...
+```
+
+```
+ENV NODE_VERSION 7.2.0
+RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz"
+```
+
+**ARG**
+
+同`ENV`, 不过作用域不一样。ARG 设置的环境变量仅对 Dockerfile 内有效，  构建好的镜像内不存在此环境变量。 
+
+```
+ARG <参数名>[=<默认值>]
+```
+
+**VOLUME**
+
+挂载数据卷 
+
+```
+VOLUME ["<路径1>", "<路径2>"...]
+VOLUME <路径>
+```
+
+**EXPOSE**
+
+ 声明端口, docker run -P 时，会自动随机映射 EXPOSE 的端口 
+
+```
+EXPOSE <端口1> [<端口2>...]
+```
+
+**WORKDIR**
+
+指定的工作目录,之后命令都在会这一层执行
+
+```
+WORKDIR <工作目录路径>
 ```
 
 ## Docker Compose
@@ -241,7 +380,33 @@ docker network inspect id
 docker-compose stop
 ```
 
+- `yaml`
 
+```
+version:3 // 版本号
+services: //服务
+
+```
+
+- depend_on 依赖	
+
+## swarn
+
+集群
+
+- 初始化
+
+```
+docker swarm init [OPTIONS]
+```
+
+## RAFT协议
+
+三个主节点  > 一台管理节点存活
+
+扩缩容
+
+云原生	
 
 ##  alpine 
 

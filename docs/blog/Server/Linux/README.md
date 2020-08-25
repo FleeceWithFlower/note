@@ -737,4 +737,11 @@ zip -r demo.zip demo/
 
   开机启动服务
 
-  
+-  curl
+
+   访问网站
+
+```
+curl localhost:3000
+```
+

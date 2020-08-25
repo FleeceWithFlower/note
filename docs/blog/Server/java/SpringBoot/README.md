@@ -34,6 +34,14 @@ public class Index {
 }//classpath:templates/index.html
 ```
 
+## 启动参数
+
+**端口**
+
+```
+java -jar app.jar --server.port=3000
+```
+
 
 
   
