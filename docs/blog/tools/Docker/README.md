@@ -340,7 +340,7 @@ EXPOSE <端口1> [<端口2>...]
 WORKDIR <工作目录路径>
 ```
 
-## Docker Compose
+## Compose
 
 定义运行多个容器
 
@@ -385,10 +385,22 @@ docker-compose stop
 ```
 version:3 // 版本号
 services: //服务
+	webapp:
+   		 build: ./dir //指定为构建镜像上下文路径
+   		 depends_on://依赖关系
+ 		     - redis
+ 		 expose: //暴露端口
+ 			- "3000"
+ 		 image: ubuntu:14.04	//	指定容器运行的镜像
+ 		 volumes:	//	将主机的数据卷或着文件挂载到容器里。
+ 		 	- "/localhost/postgres.sock:/var/run/postgres/postgres.sock"
+
 
 ```
 
 - depend_on 依赖	
+
+**version**
 
 ## swarn
 
