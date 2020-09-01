@@ -14,3 +14,6 @@ COPY . .
 CMD ["flask", "run"]
 ```
 
+```
+docker run -d -it --name config-server -P  --net mynet 0f34718db544 /bin/bash
+```
