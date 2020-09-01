@@ -54,4 +54,6 @@ classpath:	public   resources  static
 
 resources   >  static  >  public
 
-webjars
+webjars、
+
+## 配置资源
