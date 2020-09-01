@@ -218,6 +218,46 @@ docker port containerID
 docker volume ls
 ```
 
+## 网络
+
+Docker安装时自动生成`docker0`网卡。每启动一个容器，就会又生成一对网卡，`evth-pair`就是一对虚拟设备接口，一端连着协议，一端彼此相连，充当桥梁，连接各种虚拟设备
+
+创建容器时，默认使用`--net bridge` 使用`docker`的默认网络，但是容器之间不能通过容器名ping通，需要使用`--link congtaierName`关联。自定义网络可以通过容器名ping通。
+
+- 查看列表
+
+```
+docker network ls
+```
+
+- 查看详情
+
+```
+docker network inspect networkID
+```
+
+- 通过容器名互连
+
+  自动将指定容器名的ip绑定为域名，容器名作为域名
+
+```
+docker run --name name --link containerName
+```
+
+- 创建自定义网络
+
+```
+docker network create --driver bridge --subnet 192.168.0.0/16 --gateway 192.168.0.1 netName
+```
+
+- 网络连通
+
+```
+docker network connect netName containerName
+```
+
+
+
 ## Dockerfile
 
  Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。 
@@ -359,19 +399,8 @@ sudo chmod +x docker-compose
 - 查看版本
 
 ```
+cd /usr/local/bin
 docker-compose version
-```
-
-- 查看网络
-
-```
-docker network ls
-```
-
-- 查看网络细节
-
-```
-docker network inspect id
 ```
 
 - 停止

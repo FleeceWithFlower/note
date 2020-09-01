@@ -740,6 +740,14 @@ zip -r demo.zip demo/
 -  curl
 
    访问网站
+   
+-  free
+
+   查看内存使用情况
+
+-  ip addr
+
+   查看网络
 
 ```
 curl localhost:3000
