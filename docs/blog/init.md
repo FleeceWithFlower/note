@@ -1,19 +1,3 @@
-
-
-```
-FROM python:3.7-alpine
-WORKDIR /code
-ENV FLASK_APP app.py
-ENV FLASK_RUN_HOST 0.0.0.0
-SET -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
-RUN apk add --no-cache gcc musl-dev linux-headers
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
-EXPOSE 5000
-COPY . .
-CMD ["flask", "run"]
-```
-
 4g
 
 139.155.40.188（公）
@@ -23,3 +7,31 @@ CMD ["flask", "run"]
 1g
 
 148.70.239.254
+
+----------------
+
+```
+优质班会课
+其实你很温柔
+一	温柔是什么？
+温柔的风，天气很温柔，温柔的曲子这都给人一种轻和、销适，放松的感觉。
+时常，我们用这个词去形客人。
+她她很温柔。
+请问这是形容人如回呢？
+二，人物大比拼
+ （图片展示）
+以上哪些人物给你温柔的感觉？
+美丽的罪犯vS粗犷的善良汉子
+内心柔软的面凶企业女 vs 天真可爱但刚刚杀死一窝蚂蚁的小孩 
+总结一：温柔不是外貌。	
+三、性格小故事
+小A一直是一个轻声细语的女孩子，对谁都和和气气的。班上同学对她的评价用得最多的一个词就是温。
+有一天，小B因为好奇趁小A不在偷看了她的日记并且被小A发现了。小A非常生气，斥责了小B的行为。
+后来，班上就渐渐有人讨论起这天的场景，不再认为小A是一个温地柔的人，就觉得她往常的表现都是装出来的。
+问：你认为小A是一个温察的人吗?
+总结二：温柔不是性格,而是一种选择，一种可习得的能力。
+四 温柔的能力
+五 温柔分配
+正因为温柔是一种选择,每个人的温柔是有限的。你只能把温柔分配给人尔最想给的人。
+```
+
