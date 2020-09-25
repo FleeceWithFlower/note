@@ -1,3 +1,13 @@
+## 配置
+
+- 初始化
+
+```
+jest init
+```
+
+
+
 ## Expect
 
 将值传入expect中并返回expect对象，expect对象可以访问不同的匹配器
