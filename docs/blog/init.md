@@ -11,5 +11,8 @@
 148.70.239.254
 
 ```
-https://mzgf.oss.mzgf.com/upload/2009/b598d7b9-5e51-4932-bf69-5279a2fb26c4.jpg
+ratio(*)
+let fontSize =ratio(40);
+this.canvasContext.font = `bold ${fontSize}px serif`;
 ```
+
