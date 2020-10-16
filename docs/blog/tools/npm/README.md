@@ -61,8 +61,6 @@ npm install <package_name> --save-dev
 
 
 
-
-
 # 切换淘宝源
 
 ```
@@ -220,9 +218,25 @@ npm profile set <prop> <value>
 
 
 
+关键字
 
+- 安裝
 
+```
+ npm install package_name --save
+```
 
+- 安装开发
+
+```
+npm install <package_name> --save-dev
+```
+
+- 卸载
+
+```
+npm uninstall xxx
+```
 
 
 

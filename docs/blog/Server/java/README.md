@@ -424,3 +424,36 @@ Set
   - 链表
   - 循环数组
   - 队列
+
+## template
+
+**配置**
+
+```
+@Configuration
+public class ConfigBean {
+    @Bean
+    @LoadBalanced
+    public RestTemplate getRestTemplate(){
+        return new RestTemplate();
+    }
+}
+```
+
+**form-data**
+
+```
+        String url = oauthServerUrl+"/oauth/token";
+        
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+        MultiValueMap map = new LinkedMultiValueMap();
+        map.add("username", username);
+        map.add("password", password);
+        
+        HttpEntity requestBody = new HttpEntity(map, headers);
+        ResponseEntity<Map> responseEntity = null;
+       	responseEntity = restTemplate.postForEntity(url, requestBody, Map.class);
+
+```
+

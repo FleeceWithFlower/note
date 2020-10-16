@@ -696,7 +696,7 @@ zip命令
 
 　　解压：unzip FileName.zip
 
-　　压缩：zip FileName.zip DirName
+　　压缩：zip -r FileName.zip DirName
 
 ```
 //将demo目录下所有文件 压缩成demo.zip

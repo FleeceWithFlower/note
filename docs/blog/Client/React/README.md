@@ -307,18 +307,18 @@ render(){
 const MyContext = React.createContext(defaultValue);
 ```
 
-- \<Provider\>
+- `Context.Provider`
 
-  > 传值
+  > 封装组件，`Provider`中`value`改变时，会从新渲染子组件。如果没有对应的 `Provider`，子组件会消费`Context.defaultValue`。 
 
 ```
 const MyContext = React.createContext(defaultValue);
-<MyContext.provider value={/* 某个值 */}>
+<MyContext.Provider value={/* 某个值 */}>
 ```
 
-- contextType
+- `Class.contextType`
 
-  > 接收 provide
+  > 使用 `this.context` 消费绑定`context`
 
 ```
 import MyContext form './MyContext'
@@ -340,9 +340,9 @@ class MyClass extends React.Component {
 }
 ```
 
-- Consumer
+- `Context.Consumer`
 
-  > 子组件为function，接收 provide
+  >  一个 React 组件可以订阅 context 的变更，这让你在[函数式组件](https://zh-hans.reactjs.org/docs/components-and-props.html#function-and-class-components)中可以订阅 context。  传递给函数的 `value` 值等等价于组件树上方离这个 context 最近的 Provider 提供的 `value` 值。
 
 ```
 const MyContext = React.createContext(defaultValue);
@@ -350,12 +350,26 @@ const MyContext = React.createContext(defaultValue);
 
 function Index(props) {
     return (
-		<ThemeContext.Consumer>
-		{value => (<div>{value.contextValue}</div>)}
- 		</ThemeContext.Consumer>
+        <ThemeContext.Provider value={'ref-Consumer'}>
+			<ThemeContext.Consumer>
+			{value => (<div>{value.contextValue}</div>)}
+ 			</ThemeContext.Consumer>
+ 		</ThemeContext.Provider>
  		)
 }
 //value === this.context
+```
+
+- ### `Context.displayName`
+
+   React DevTools 使用该字符串来确定 context 要显示的内容。 
+
+```
+const MyContext = React.createContext(/* some value */);
+MyContext.displayName = 'MyDisplayName';
+
+<MyContext.Provider> // "MyDisplayName.Provider" 在 DevTools 中
+<MyContext.Consumer> // "MyDisplayName.Consumer" 在 DevTools 中
 ```
 
 
@@ -409,4 +423,113 @@ componentDidCatch()
 
 ## Hook
 
-1. - 
+​	 它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。 
+
+::;warn
+
+ **不要在循环，条件或嵌套函数中调用 Hook** , React 怎么知道哪个 state 对应哪个 `useState`？答案是 React 靠的是 Hook 调用的顺序。因为我们的示例中，Hook 的调用顺序在每次渲染中都是相同的，所以它能够正常工作
+
+:::
+
+- `useState` 
+
+  函数返回 **当前**状态和一个让你更新它的函数，参数为默认值
+
+```
+const [age, setAge] = useState(42);
+```
+
+- ` useEffect `
+
+   `componentDidMount`、`componentDidUpdate` 都会执行，组件销毁时执行函数返回值。参数二 指定状态变化时，函数才执行。
+
+  ```
+    useEffect(() => {
+      ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
+      return () => {
+        ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
+      };
+    },[]);
+  ```
+
+- `useContext`
+
+   `useContext(MyContext)` 相当于 class 组件中的 `static contextType = MyContext` 或者 ``。 
+
+```
+const value = useContext(MyContext);
+```
+
+-  `useReducer `
+
+  ```
+  const initialArg = {count: 0};
+  function reducer(state, action) {
+      switch (action.type) {
+          case 'increment':
+              return {count: state.count + 1};
+          case 'decrement':
+              return {count: state.count - 1};
+          default:
+              throw new Error();
+      }
+  }
+  function init(state) {
+      return state
+  }
+  function UseReducer() {
+      const [state, dispatch] = useReducer(reducer, initialArg, init); //惰性初始化state
+      return (
+          <>
+              <div>
+                  {state.count}
+              </div>
+              <Button onClick={()=>dispatch({type:"increment"})}>+</Button>
+              <Button onClick={()=>dispatch({type:"decrement"})}>-</Button>
+          </>
+      )
+  
+  }
+  ```
+
+  使用方法同`redux`
+
+- ### `useCallback`
+
+  用于缓存函数
+
+```
+    const MemoizedValue = useCallback(()=><Acomponent price={price}></Acomponent>, [name]);
+```
+
+:::tip
+
+函数组件在render阶段会重新执行，缓存函数，在指定状态改变时，改变展示状态。
+
+::;
+
+- ### `useMemo`
+
+   把“创建”函数和依赖项数组作为参数传入 `useMemo`，它仅会在某个依赖项改变时才重新计算 memoized 值。这种优化有助于避免在每次渲染时都进行高开销的计算。 
+
+-  `useRef`
+
+    `useRef` 返回一个可变的 ref 对象，其 `.current` 属性被初始化为传入的参数（`initialValue`）。返回的 ref 对象在组件的整个生命周期内保持不变。 
+
+-  ### `useImperativeHandle`
+
+    `useImperativeHandle` 可以让你在使用 `ref` 时自定义暴露给父组件的实例值，映射子组件ref方法。
+
+-  ### `useLayoutEffect`
+
+   ` useEffect `的同步版本
+
+-  **自定义 Hook** 
+
+   通过自定义 Hook，可以将组件逻辑提取到可重用的函数中。 
+
+::warn
+
+ **自定义 Hook 必须以 “`use`” 开头吗？**必须如此。这个约定非常重要。 
+
+:::
