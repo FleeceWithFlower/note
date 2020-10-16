@@ -11,8 +11,11 @@
 148.70.239.254
 
 ```
-ratio(*)
-let fontSize =ratio(40);
-this.canvasContext.font = `bold ${fontSize}px serif`;
+	
+卡号：点击网盘上的微博图标
+18390127490
+密码
+cz246142
+如果提示邮箱验证的安装老网盘版本然后删除自动升级文件，必看fulivip.com/p
 ```
 
