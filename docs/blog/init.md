@@ -6,22 +6,31 @@
 
 148.70.239.254
 
-
 ----------------
 
-```
-<<<<<<< HEAD
-https://mzgf.oss.mzgf.com/upload/2009/b598d7b9-5e51-4932-bf69-5279a2fb26c4.jpg
-```
-=======
-	
-卡号：点击网盘上的微博图标
-18390127490
-密码
-cz246142
-如果提示邮箱验证的安装老网盘版本然后删除自动升级文件，必看fulivip.com/p
-```
 
->>>>>>> refs/remotes/origin/master
 
 ```
+AbstractAuthenticationProcessingFilter
+将请求过滤成 AuthenticationMananger可处理的 Authentication
+```
+
+
+```
+Authentication
+```
+
+```
+AuthenticationMananger
+抽象建模认证管理器，用于处理一个认证请求
+```
+
+```
+AbstractAuthenticationToken
+```
+
+```
+AuthenticationProvider
+授权方式提供者，判断授权有效性，用户有效性，在判断用户是否有效性，
+```
+
