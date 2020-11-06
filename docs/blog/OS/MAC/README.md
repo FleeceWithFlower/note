@@ -7,20 +7,20 @@ export PATH=/usr/bin:/usr/sbin:/bin:/sbin:/usr/X11R6/bin
 
 
 
-echo $PATH
 
-查看环境变量
 
-```
-sudo vi ~/.bash_profile
-export PATH=$PATH:/haha/notexist
-export PUB_HOSTED_URL=https://pub.flutter-io.cn
-export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
-```
-
-- 更新配置的环境变量
+环境变量
 
 ```
- source .bash_profile 
+sudo vi ~/.bash_profile //修改
+export PUB_HOSTED_URL=https://pub.flutter-io.cn	//设置变量
+export PATH=$PATH:/haha/notexist  //设置环境变量
+
+```
+
+使用环境变量
+
+```
+ source ~/.bash_profile 
 ```
 

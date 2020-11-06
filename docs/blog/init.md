@@ -34,3 +34,16 @@ AuthenticationProvider
 授权方式提供者，判断授权有效性，用户有效性，在判断用户是否有效性，
 ```
 
+```
+Kibana
+Elasticsearch
+```
+
+```
+SizedBox
+```
+
+```
+  `logistics_id` varchar(64) NOT NULL  COMMENT '物流id',
+```
+
