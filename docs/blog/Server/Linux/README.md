@@ -207,10 +207,22 @@ ls - /bin/usr 2> /dev/null
 
 - 
   screen -S yourname ： 新建一个叫yourname的session
+  
 - screen -ls         ： 列出当前所有的session
+
 - screen -r yourname ：x`回到yourname这个session
 
-ctrl-a d：退出 Screen 会话
+- 关闭
+
+  ```
+  exit
+  ```
+
+- 退出但不关闭
+
+  ```
+  ctrl + a + d
+  ```
 
 ### 查看进程
 
@@ -509,7 +521,7 @@ useradd -u user_name //解锁用户
 - usermod：修改用户
 
 ```
-usermod -G other user_name //修改用户所属的附加群组
+usermod -G group user_name //修改用户所属的附加群组
 ```
 
 - userdel：删除用户
@@ -684,11 +696,25 @@ yum erase package name
 
 FTP
 
+- 安装
+
+```
+yum install vsftpd
+```
+
 - 重启
 
 ```
 service vsftpd restart
 ```
+
+- 开放端口
+
+```
+firewall-cmd --zone=public --add-port=80/tcp --permanent 
+```
+
+
 
 ## 压缩
 
@@ -705,7 +731,7 @@ zip -r demo.zip demo/
 
 关键字
 
--  systemctl restart firewalld 
+-  systemctl start firewalld 
 
   打开防火墙
 
@@ -753,3 +779,26 @@ zip -r demo.zip demo/
 curl localhost:3000
 ```
 
+端口
+
+- 20
+
+  ftp数据端口
+
+- 21
+
+  ftp控制端口
+
+- 22
+
+  安全外壳bai（SSH）用来加密网管du会话
+
+- 23
+
+  远程网络管理
+
+问题
+
+- 普通用户不能免密登录
+
+  .ssh权限不对

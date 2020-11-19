@@ -12,6 +12,7 @@ export PATH=$PATH:/Users/hedan/Desktop/flutter/Flutter/bin
 export PATH=$PATH:${ANDROID_HOME}/tools
 export PATH=$PATH:${ANDROID_HOME}/platform-tools
 export PATH=${PATH}:${ANDROID_HOME}/build-tools/30.0.2
+source ~/.bash_profile 
 ```
 
 安装`java`
@@ -19,7 +20,7 @@ export PATH=${PATH}:${ANDROID_HOME}/build-tools/30.0.2
 ## 命令
 
 ```
-pop install
+pod install
 flutter packages upgrade
 flutter pub get
 flutter run
@@ -28,6 +29,9 @@ flutter build ios
 flutter clear 
 flutter doctor
 flutter config
+flutter run --release
+
+//Runner.xcworkspace
 ```
 
 ## 运行环境
@@ -81,6 +85,16 @@ flutter config
         home: MyHomePage(title: 'Flutter Demo Home Page'),//主页
       );
   ```
+
+## 修改应用图标
+
+- `adnroid`
+
+```
+android/app/src/main/AndroidManifest.xml
+```
+
+
 
 ## 路由
 

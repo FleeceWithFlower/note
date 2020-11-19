@@ -15,7 +15,6 @@ export PATH=/usr/bin:/usr/sbin:/bin:/sbin:/usr/X11R6/bin
 sudo vi ~/.bash_profile //修改
 export PUB_HOSTED_URL=https://pub.flutter-io.cn	//设置变量
 export PATH=$PATH:/haha/notexist  //设置环境变量
-
 ```
 
 使用环境变量

@@ -100,6 +100,7 @@ docker run
 -it //-i: 交互式操作。	-t: 终端。
 -v 主机目录：容器目录	//映射数据卷
 -p 主机端口：容器端口	//映射指定端口
+--network mynet //指定网络
 -P // 将所有公开的端口发布到随机端口
 imageID
 /bin/bash // 放在镜像名后的是命令，这里我们希望有个交互式 Shell，因此用的是 /bin/bash。
@@ -155,6 +156,7 @@ docker start container
 
 ```
 docker stop container
+//$(docker ps -a -q) 所有
 ```
 
 **重启容器**
