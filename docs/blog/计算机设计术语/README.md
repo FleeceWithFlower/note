@@ -17,3 +17,16 @@ KISS 原则是用户体验的高层境界，简单地理解这句话，就是要
 
  *memoization* 
 
+## [Call Stack](https://zhuanlan.zhihu.com/p/71168084)
+
+##  堆栈 
+
+```
+ 特性通常称为先进后出 (FILO—First-In/Last-Out) 
+
+ 堆栈中定义了一些操作， 两个最重要的是PUSH和POP 
+```
+
+## Tail_call
+
+ 是指某个函数的最后一步是调用另一个函数。 

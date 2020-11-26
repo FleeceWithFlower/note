@@ -122,7 +122,7 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.css|less$/,
+                test: /\.css|$/,
                 use:['style-loader','css-loader']
             }
         ]

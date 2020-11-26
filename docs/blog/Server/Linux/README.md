@@ -212,6 +212,8 @@ ls - /bin/usr 2> /dev/null
 
 - screen -r yourname ：x`回到yourname这个session
 
+- screen -S  `name` -X quit 
+
 - 关闭
 
   ```
@@ -767,9 +769,13 @@ zip -r demo.zip demo/
 
    访问网站
    
--  free
+- free
 
    查看内存使用情况
+
+   ```
+   free -h
+   ```
 
 -  ip addr
 
